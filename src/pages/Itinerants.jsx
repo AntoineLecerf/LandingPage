@@ -121,7 +121,7 @@ const Itinerants = () => {
               <p className="text-white/80 text-sm leading-relaxed mb-6 relative z-10">
                 Vous travaillez dans un espace réduit, avec du flux. Vous n'avez pas le temps de gérer une boutique en ligne complexe. Un bouton "Je suis là", et votre communauté est prévenue.
               </p>
-              <img src="/src/assets/pictos - 1.jpg" alt="Marché" className="w-full h-48 object-cover rounded-xl shadow-lg relative z-10 mix-blend-screen opacity-50 grayscale" />
+              <img src="/pictos - 1.jpg" alt="Marché" className="w-full h-48 object-cover rounded-xl shadow-lg relative z-10 mix-blend-screen opacity-50 grayscale" />
             </div>
             
             <div className="order-1 md:order-2">

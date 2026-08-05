@@ -37,7 +37,7 @@ const Bouchers = () => {
             <div className="relative w-full max-w-sm aspect-[9/19] bg-white rounded-[3rem] border-8 border-[#14181C] shadow-2xl overflow-hidden flex items-center justify-center">
               <div className="absolute top-0 w-40 h-7 bg-[#14181C] rounded-b-3xl"></div>
               <div className="p-6 text-center">
-                <img src="/src/assets/1001GOUTS-LOGO-RVB.png" alt="1001 Goûts" className="h-12 mx-auto mb-6" />
+                <img src="/1001GOUTS-LOGO-RVB.png" alt="1001 Goûts" className="h-12 mx-auto mb-6" />
                 <div className="bg-[#FDF3E2] p-4 rounded-xl mb-4 border border-[#D9DCD5]">
                   <h3 className="font-display font-bold text-xl text-[#14181C]">Boucherie Tradition</h3>
                   <p className="text-sm text-[#667079]">100% de la marge conservée</p>
@@ -153,7 +153,7 @@ const Bouchers = () => {
               </ul>
             </div>
             <div className="bg-[#FDF3E2] p-10 rounded-[2rem] border border-[#D9DCD5] relative">
-              <img src="/src/assets/pictos - 1.jpg" alt="Illustration artisans" className="w-full h-auto rounded-xl shadow-lg mix-blend-multiply opacity-90" />
+              <img src="/pictos - 1.jpg" alt="Illustration artisans" className="w-full h-auto rounded-xl shadow-lg mix-blend-multiply opacity-90" />
             </div>
           </div>
         </div>

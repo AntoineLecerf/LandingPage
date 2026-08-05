@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="bg-[#14181C] text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="col-span-1 md:col-span-1">
-          <img src="/src/assets/1001GOUTS-LOGO-BLC.png" alt="1001 Goûts" className="h-12 mb-6" />
+          <img src="/1001GOUTS-LOGO-BLC.png" alt="1001 Goûts" className="h-12 mb-6" />
           <p className="text-[#8A939B] text-sm leading-relaxed">
             La seule application qui connecte les producteurs et les métiers de bouche avec les consommateurs de leur région, sans aucun intermédiaire.
           </p>
