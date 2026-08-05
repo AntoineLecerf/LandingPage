@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Outfit", "Bahnschrift", "Avenir Next Condensed", sans-serif;
+  
+  --color-brand-green: #558D4D; /* Action principale, confiance */
+  --color-brand-orange: #F9A81E; /* 0% commission, accroche */
+  --color-brand-blue: #1A5F96; /* Institutionnel */
+  
+  --color-bg-plane: #FDF3E2; /* Crème bio fond général */
+  --color-bg-surface: #FBFBF8; /* Fond des cartes */
+  
+  --color-text-ink: #14181C; /* Texte fort */
+  --color-text-charcoal: #4F4D43; /* Texte de lecture */
+  --color-text-muted: #667079;
+  
+  --color-border-rule: #D9DCD5;
+}
+
+body {
+  background-color: var(--color-bg-plane);
+  color: var(--color-text-charcoal);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-text-ink);
+}

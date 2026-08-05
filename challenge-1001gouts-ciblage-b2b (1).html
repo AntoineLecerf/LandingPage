@@ -1,0 +1,1249 @@
+<title>1001 Goûts — Ciblage B2B</title>
+
+<style>
+  :root {
+    color-scheme: light;
+    --plane:      #EFF0EC;
+    --surface:    #FBFBF8;
+    --ink:        #14181C;
+    --ink-2:      #4B5560;
+    --muted:      #667079;
+    --rule:       #D9DCD5;
+    --baseline:   #C2C6BE;
+    --blue:       #1A5F96;
+    --paprika:    #D2542B;
+    --verdigris:  #189B72;
+    --safran:     #A8760D;
+    --ramp-1:     #86B6DF;
+    --ramp-2:     #4E92C6;
+    --ramp-3:     #1A5F96;
+    --stamp:      rgba(26,95,150,.09);
+    --shadow:     0 1px 0 rgba(20,24,28,.05);
+
+    --f-display: "Bahnschrift", "DIN Alternate", "Avenir Next Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
+    --f-body: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+    --f-mono: "Consolas", "SF Mono", ui-monospace, "Roboto Mono", "Courier New", monospace;
+
+    --gut: clamp(1.15rem, 3.4vw, 2.6rem);
+    --maxw: 1140px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --plane:      #101315;
+      --surface:    #16191C;
+      --ink:        #F4F5F1;
+      --ink-2:      #B4BCC2;
+      --muted:      #8A939B;
+      --rule:       #262B30;
+      --baseline:   #333A40;
+      --blue:       #4A93CE;
+      --paprika:    #DB6742;
+      --verdigris:  #17A87C;
+      --safran:     #D6A63C;
+      --ramp-1:     #6FAAD8;
+      --ramp-2:     #3E86BE;
+      --ramp-3:     #1F6BA8;
+      --stamp:      rgba(74,147,206,.13);
+      --shadow:     0 1px 0 rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --plane:      #101315;
+    --surface:    #16191C;
+    --ink:        #F4F5F1;
+    --ink-2:      #B4BCC2;
+    --muted:      #8A939B;
+    --rule:       #262B30;
+    --baseline:   #333A40;
+    --blue:       #4A93CE;
+    --paprika:    #DB6742;
+    --verdigris:  #17A87C;
+    --safran:     #D6A63C;
+    --ramp-1:     #6FAAD8;
+    --ramp-2:     #3E86BE;
+    --ramp-3:     #1F6BA8;
+    --stamp:      rgba(74,147,206,.13);
+    --shadow:     0 1px 0 rgba(0,0,0,.4);
+  }
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --plane:      #EFF0EC;
+    --surface:    #FBFBF8;
+    --ink:        #14181C;
+    --ink-2:      #4B5560;
+    --muted:      #667079;
+    --rule:       #D9DCD5;
+    --baseline:   #C2C6BE;
+    --blue:       #1A5F96;
+    --paprika:    #D2542B;
+    --verdigris:  #189B72;
+    --safran:     #A8760D;
+    --ramp-1:     #86B6DF;
+    --ramp-2:     #4E92C6;
+    --ramp-3:     #1A5F96;
+    --stamp:      rgba(26,95,150,.09);
+    --shadow:     0 1px 0 rgba(20,24,28,.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--plane);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gut); }
+
+  /* ── masthead nav ─────────────────────────────────────────── */
+  .mast {
+    position: sticky; top: 0; z-index: 30;
+    background: color-mix(in srgb, var(--plane) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .mast-in {
+    max-width: var(--maxw); margin: 0 auto; padding: .55rem var(--gut);
+    display: flex; align-items: center; gap: 1.1rem;
+    flex-wrap: wrap;
+  }
+  .mast-id {
+    font-family: var(--f-mono); font-size: .68rem; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--blue); font-weight: 700;
+    white-space: nowrap;
+  }
+  .mast-nav { display: flex; gap: .1rem; flex-wrap: wrap; margin-left: auto; }
+  .mast-nav a {
+    font-family: var(--f-mono); font-size: .68rem; letter-spacing: .04em;
+    color: var(--muted); text-decoration: none;
+    padding: .22rem .42rem; border-radius: 2px;
+  }
+  .mast-nav a:hover, .mast-nav a:focus-visible { color: var(--ink); background: var(--stamp); }
+
+  /* ── fiche scaffolding ────────────────────────────────────── */
+  .fiche { padding: clamp(2.6rem, 6vw, 4.6rem) 0; border-bottom: 1px solid var(--rule); }
+  .fiche:last-of-type { border-bottom: 0; }
+
+  .fiche-head { display: flex; align-items: baseline; gap: .9rem; margin-bottom: 1.5rem; }
+  .fiche-ref {
+    font-family: var(--f-mono); font-size: .68rem; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--blue); font-weight: 700;
+    white-space: nowrap; padding-top: .35rem;
+  }
+  .fiche-rule { flex: 1; height: 1px; background: var(--rule); }
+
+  h1, h2, h3, h4 { font-family: var(--f-display); font-stretch: 87.5%; text-wrap: balance; margin: 0; font-weight: 700; }
+  h1 { font-size: clamp(2.5rem, 7.4vw, 4.7rem); line-height: 1.02; letter-spacing: -.005em; }
+  h2 { font-size: clamp(1.55rem, 3.7vw, 2.35rem); line-height: 1.1; }
+  h3 { font-size: clamp(1.12rem, 2.3vw, 1.32rem); line-height: 1.2; }
+  h4 { font-size: 1rem; line-height: 1.25; }
+
+  p { margin: 0 0 .9rem; max-width: 68ch; color: var(--ink-2); }
+  p.lead { font-size: clamp(1.03rem, 1.9vw, 1.18rem); color: var(--ink); }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--ink); font-weight: 650; }
+  a { color: var(--blue); }
+  :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+  .eyebrow {
+    font-family: var(--f-mono); font-size: .68rem; letter-spacing: .13em;
+    text-transform: uppercase; color: var(--muted); font-weight: 700;
+    margin: 0 0 .5rem;
+  }
+  .note { font-size: .8rem; color: var(--muted); line-height: 1.5; max-width: 70ch; }
+  .note code, code { font-family: var(--f-mono); font-size: .93em; }
+
+  /* ── hero ─────────────────────────────────────────────────── */
+  .hero { padding: clamp(2.8rem, 7vw, 5.2rem) 0 clamp(2.4rem, 5vw, 3.6rem); }
+  .hero-top { display: flex; gap: 1.6rem; align-items: flex-start; flex-wrap: wrap; }
+  .hero h1 { flex: 1 1 22ch; }
+  .hero h1 em { font-style: normal; color: var(--blue); }
+  .stamp {
+    border: 2px solid var(--blue); color: var(--blue);
+    font-family: var(--f-mono); font-size: .66rem; letter-spacing: .1em;
+    text-transform: uppercase; line-height: 1.5; font-weight: 700;
+    padding: .5rem .8rem; transform: rotate(-3.5deg);
+    background: var(--stamp); flex: 0 0 auto; margin-top: .5rem;
+  }
+  .hero-thesis {
+    margin-top: 1.9rem; padding: 1.2rem 1.4rem;
+    background: var(--surface); border: 1px solid var(--rule);
+    border-left: 4px solid var(--paprika);
+    max-width: 76ch;
+  }
+  .hero-thesis p { font-size: clamp(1.02rem, 2vw, 1.16rem); color: var(--ink); max-width: none; }
+
+  /* ── generic blocks ───────────────────────────────────────── */
+  .grid { display: grid; gap: 1.05rem; }
+  .g2 { grid-template-columns: repeat(auto-fit, minmax(268px, 1fr)); }
+  .g3 { grid-template-columns: repeat(auto-fit, minmax(212px, 1fr)); }
+  .split { display: grid; gap: clamp(1.3rem, 3.5vw, 2.6rem); grid-template-columns: 1fr; }
+  @media (min-width: 860px) { .split { grid-template-columns: 1.06fr .94fr; align-items: start; } }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--rule);
+    padding: 1.05rem 1.15rem; box-shadow: var(--shadow);
+  }
+  .card h4 { margin-bottom: .35rem; }
+  .card p { font-size: .91rem; margin-bottom: 0; }
+
+  /* stat tiles */
+  .stat { background: var(--surface); border: 1px solid var(--rule); padding: 1rem 1.1rem 1.05rem; box-shadow: var(--shadow); }
+  .stat-v {
+    font-family: var(--f-display); font-stretch: 87.5%; font-weight: 700;
+    font-size: clamp(2.05rem, 5.2vw, 2.9rem); line-height: 1; color: var(--ink);
+    display: block; margin-bottom: .3rem;
+  }
+  .stat-v span { font-size: .48em; color: var(--muted); letter-spacing: .01em; }
+  .stat-k { font-size: .87rem; color: var(--ink-2); line-height: 1.45; }
+  .stat-src { font-family: var(--f-mono); font-size: .65rem; color: var(--muted); letter-spacing: .03em; margin-top: .5rem; display: block; }
+  .stat.accent { border-left: 3px solid var(--blue); }
+  .stat.warn { border-left: 3px solid var(--paprika); }
+
+  /* ── charts ───────────────────────────────────────────────── */
+  .figure { background: var(--surface); border: 1px solid var(--rule); padding: 1.1rem 1.2rem 1rem; box-shadow: var(--shadow); }
+  .figure-t { font-family: var(--f-display); font-stretch: 87.5%; font-weight: 700; font-size: 1.05rem; line-height: 1.25; margin: 0 0 .12rem; }
+  .figure-s { font-size: .82rem; color: var(--muted); margin: 0 0 .95rem; max-width: 62ch; line-height: 1.45; }
+  .figure-scroll { overflow-x: auto; }
+  .figure svg { display: block; width: 100%; height: auto; min-width: 300px; font-family: var(--f-body); }
+  .ax { font-family: var(--f-mono); font-size: 10px; fill: var(--muted); letter-spacing: .02em; }
+  .lb { font-size: 12.5px; fill: var(--ink-2); }
+  .vl { font-family: var(--f-display); font-stretch: 87.5%; font-weight: 700; font-size: 15px; fill: var(--ink); font-variant-numeric: tabular-nums; }
+  .grid-l { stroke: var(--rule); stroke-width: 1; }
+  .base-l { stroke: var(--baseline); stroke-width: 1; }
+  .bar { transition: opacity .12s ease; }
+  .bar:hover { opacity: .82; }
+  .legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: .8rem; font-size: .8rem; color: var(--ink-2); }
+  .legend i { width: 11px; height: 11px; display: inline-block; margin-right: .38rem; vertical-align: -1px; border-radius: 2px; }
+
+  .tip {
+    position: fixed; z-index: 60; pointer-events: none; opacity: 0;
+    background: var(--ink); color: var(--surface);
+    font-family: var(--f-mono); font-size: .7rem; line-height: 1.45;
+    padding: .38rem .55rem; border-radius: 3px; max-width: 240px;
+    transition: opacity .1s ease;
+  }
+  .tip.on { opacity: 1; }
+
+  /* ── segmentation ─────────────────────────────────────────── */
+  .seg { border: 1px solid var(--rule); background: var(--surface); padding: 1rem 1.1rem 1.1rem; box-shadow: var(--shadow); }
+  .seg-h { display: flex; align-items: baseline; gap: .55rem; margin-bottom: .3rem; }
+  .seg-dot { width: 10px; height: 10px; border-radius: 50%; flex: 0 0 auto; }
+  .seg-n { font-family: var(--f-mono); font-size: .66rem; letter-spacing: .08em; color: var(--muted); margin-left: auto; white-space: nowrap; }
+  .chips { display: flex; flex-wrap: wrap; gap: .3rem; margin: .6rem 0 .55rem; }
+  .chip {
+    font-family: var(--f-mono); font-size: .68rem; letter-spacing: .02em;
+    border: 1px solid var(--rule); padding: .1rem .38rem; color: var(--ink-2);
+    background: var(--plane); border-radius: 2px;
+  }
+  .seg p { font-size: .88rem; margin: 0; }
+
+  /* ── ladder ───────────────────────────────────────────────── */
+  .ladder { display: flex; flex-direction: column-reverse; gap: .4rem; }
+  .rung { border: 1px solid var(--rule); background: var(--surface); padding: .7rem .95rem; display: grid; grid-template-columns: auto 1fr; gap: .8rem; align-items: baseline; }
+  .rung-n { font-family: var(--f-mono); font-size: .66rem; letter-spacing: .08em; color: var(--muted); font-weight: 700; white-space: nowrap; }
+  .rung-t { font-size: .93rem; color: var(--ink-2); }
+  .rung-t b { color: var(--ink); font-weight: 650; }
+  .rung.core { border-color: var(--blue); border-width: 2px; background: var(--stamp); }
+  .rung.core .rung-n { color: var(--blue); }
+  .rung.core .rung-t { color: var(--ink); font-size: 1rem; }
+
+  /* ── tables ───────────────────────────────────────────────── */
+  .tbl-scroll { overflow-x: auto; border: 1px solid var(--rule); background: var(--surface); box-shadow: var(--shadow); }
+  table { border-collapse: collapse; width: 100%; min-width: 660px; font-size: .87rem; }
+  th, td { text-align: left; padding: .62rem .8rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  thead th {
+    font-family: var(--f-mono); font-size: .64rem; letter-spacing: .09em; text-transform: uppercase;
+    color: var(--muted); font-weight: 700; background: var(--plane); white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: 0; }
+  td strong { color: var(--ink); }
+  .td-p { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .04em; white-space: nowrap; font-weight: 700; }
+
+  /* ── risk list ────────────────────────────────────────────── */
+  .risks { list-style: none; padding: 0; margin: 0; display: grid; gap: .55rem; }
+  .risks li { display: grid; grid-template-columns: 2.2rem 1fr; gap: .8rem; background: var(--surface); border: 1px solid var(--rule); border-left: 3px solid var(--paprika); padding: .75rem .95rem; }
+  .risks b { display: block; color: var(--ink); font-weight: 650; margin-bottom: .1rem; }
+  .risks span.rn { font-family: var(--f-display); font-stretch: 87.5%; font-weight: 700; font-size: 1.5rem; line-height: 1; color: var(--paprika); }
+  .risks p { font-size: .88rem; margin: 0; }
+
+  /* ── plan ─────────────────────────────────────────────────── */
+  .plan { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(238px, 1fr)); }
+  .step { background: var(--surface); border: 1px solid var(--rule); padding: 1rem 1.1rem; box-shadow: var(--shadow); position: relative; }
+  .step-w { font-family: var(--f-mono); font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); font-weight: 700; display: block; margin-bottom: .35rem; }
+  .step ol { margin: .5rem 0 0; padding-left: 1.1rem; font-size: .86rem; color: var(--ink-2); }
+  .step ol li { margin-bottom: .3rem; }
+  .step ul { margin: .5rem 0 0; padding-left: 1.05rem; font-size: .86rem; color: var(--ink-2); }
+  .step ul li { margin-bottom: .28rem; }
+
+  .kpi { border: 1px dashed var(--baseline); background: transparent; padding: 1rem 1.15rem; }
+  .kpi h4 { margin-bottom: .5rem; }
+  .kpi ul { margin: 0; padding-left: 1.05rem; font-size: .89rem; color: var(--ink-2); }
+  .kpi li { margin-bottom: .32rem; }
+
+  /* ── sources ──────────────────────────────────────────────── */
+  .srcs { columns: 2 250px; column-gap: 2rem; font-size: .78rem; color: var(--muted); line-height: 1.55; }
+  .srcs p { margin: 0 0 .45rem; break-inside: avoid; max-width: none; color: var(--muted); }
+  .srcs b { color: var(--ink-2); font-weight: 650; }
+
+  .foot { padding: 1.8rem 0 3rem; font-family: var(--f-mono); font-size: .68rem; color: var(--muted); letter-spacing: .03em; }
+
+  /* ── objectif ─────────────────────────────────────────────── */
+  .obj-eq { display: flex; align-items: stretch; gap: .55rem; flex-wrap: wrap; margin: 1.4rem 0 1.1rem; }
+  .obj-term {
+    background: var(--surface); border: 1px solid var(--rule); box-shadow: var(--shadow);
+    padding: .85rem 1rem; flex: 1 1 130px; min-width: 128px;
+  }
+  .obj-term b {
+    font-family: var(--f-display); font-stretch: 87.5%; font-weight: 700;
+    font-size: clamp(1.8rem, 4.6vw, 2.5rem); line-height: 1; color: var(--ink);
+    display: block; margin-bottom: .22rem; font-variant-numeric: tabular-nums;
+  }
+  .obj-term span { font-size: .82rem; color: var(--ink-2); line-height: 1.4; display: block; }
+  .obj-term.res { border: 2px solid var(--blue); background: var(--stamp); }
+  .obj-term.res b { color: var(--blue); }
+  .obj-op {
+    font-family: var(--f-display); font-stretch: 87.5%; font-weight: 700; font-size: 1.7rem;
+    color: var(--muted); display: flex; align-items: center; flex: 0 0 auto; padding: 0 .1rem;
+  }
+
+  /* ── persona cards (compactes) ────────────────────────────── */
+  .fam { display: flex; align-items: baseline; gap: .7rem; margin: 1.7rem 0 .75rem; }
+  .fam:first-of-type { margin-top: 1.3rem; }
+  .fam h3 { font-size: 1.06rem; }
+  .fam-dot { width: 11px; height: 11px; border-radius: 50%; flex: 0 0 auto; }
+  .fam-rule { flex: 1; height: 1px; background: var(--rule); }
+  .fam-tag { font-family: var(--f-mono); font-size: .65rem; letter-spacing: .07em; color: var(--muted); white-space: nowrap; }
+
+  .pcard {
+    background: var(--surface); border: 1px solid var(--rule); box-shadow: var(--shadow);
+    border-top: 3px solid var(--pc, var(--blue));
+    display: flex; flex-direction: column;
+  }
+  .pcard-h { padding: .85rem 1rem .55rem; }
+  .pcard-n {
+    font-family: var(--f-mono); font-size: .65rem; letter-spacing: .1em; font-weight: 700;
+    text-transform: uppercase; color: var(--pc, var(--blue)); display: block; margin-bottom: .25rem;
+  }
+  .pcard h4 { font-size: 1.05rem; margin-bottom: .2rem; }
+  .pcard-who { font-size: .8rem; color: var(--muted); font-style: italic; margin: 0; line-height: 1.45; }
+  .pcard-b { padding: .1rem 1rem .9rem; display: grid; gap: .48rem; }
+  .pl { display: grid; grid-template-columns: 4.9rem 1fr; gap: .65rem; align-items: start; }
+  .pl dt {
+    font-family: var(--f-mono); font-size: .6rem; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--muted); font-weight: 700; padding-top: .2rem; line-height: 1.35;
+  }
+  .pl dd { margin: 0; font-size: .855rem; color: var(--ink-2); line-height: 1.5; }
+  .pl dd strong { color: var(--ink); }
+  .pl.hi dd { color: var(--ink); font-weight: 600; }
+  .pcard-f {
+    margin-top: auto; padding: .6rem 1rem; border-top: 1px solid var(--rule); background: var(--plane);
+    font-family: var(--f-mono); font-size: .67rem; color: var(--ink-2); letter-spacing: .01em; line-height: 1.5;
+  }
+
+  .excl { border: 1px dashed var(--baseline); padding: 1rem 1.15rem; margin-top: 1.5rem; }
+  .excl h4 { margin-bottom: .55rem; }
+  .excl ul { margin: 0; padding-left: 1.05rem; font-size: .87rem; color: var(--ink-2); }
+  .excl li { margin-bottom: .35rem; }
+  .excl li b { color: var(--ink); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  }
+  html { scroll-behavior: smooth; }
+</style>
+
+<header class="mast">
+  <div class="mast-in">
+    <span class="mast-id">1001 Goûts · Ciblage B2B</span>
+    <nav class="mast-nav">
+      <a href="#obj">Objectif</a>
+      <a href="#f01">01 Produit</a>
+      <a href="#f02">02 Marché</a>
+      <a href="#f03">03 Pain</a>
+      <a href="#f04">04 Segments</a>
+      <a href="#f05">05 Priorités</a>
+      <a href="#f06">06 Personas</a>
+      <a href="#f07">07 Besoin</a>
+      <a href="#f08">08 Messages</a>
+      <a href="#f09">09 Risques</a>
+      <a href="#f10">10 Terrain</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="hero-top">
+      <h1>Ils n'ont pas un problème de <em>demande</em>.<br>Ils ont un problème de <em>marge</em>.</h1>
+      <div class="stamp">Dossier ciblage<br>B2B métiers de bouche<br>Août 2026</div>
+    </div>
+    <div class="hero-thesis">
+      <p><strong>85 % des Français préfèrent acheter en commerce de proximité.</strong> Le client est là. Ce qui manque à l'artisan, c'est la part du prix final qui lui revient — grignotée en amont par les matières et l'énergie, en aval par les intermédiaires. 1001&nbsp;Goûts vend un abonnement fixe <em>sans commission sur les ventes</em>. C'est le seul angle B2B défendable — et ce n'est pas celui que le site met en avant.</p>
+    </div>
+  </section>
+
+  <!-- ══ OBJECTIF ════════════════════════════════════════════ -->
+  <section class="fiche" id="obj">
+    <div class="fiche-head"><span class="fiche-ref">Le challenge · Objectif</span><span class="fiche-rule"></span></div>
+    <h2>100 early adopters. Pas 100 téléchargements.</h2>
+    <p class="lead">L'objectif n'est pas de générer des leads, ni de faire installer l'application. Il est de recruter des <strong>utilisateurs engagés et réguliers</strong> — c'est un objectif d'activation, pas d'acquisition. Un inscrit qui n'ouvre plus l'app au bout de dix jours ne compte pas.</p>
+
+    <div class="obj-eq">
+      <div class="obj-term"><b>10</b><span>personas ciblés</span></div>
+      <div class="obj-op">×</div>
+      <div class="obj-term"><b>10</b><span>early adopters engagés par persona</span></div>
+      <div class="obj-op">=</div>
+      <div class="obj-term res"><b>100</b><span>utilisateurs actifs si les 5 groupes réussissent</span></div>
+    </div>
+
+    <div class="obj-eq" style="margin-top:0">
+      <div class="obj-term"><b>5</b><span>groupes</span></div>
+      <div class="obj-op">×</div>
+      <div class="obj-term"><b>2</b><span>personas tirés au sort</span></div>
+      <div class="obj-op">=</div>
+      <div class="obj-term res"><b>20</b><span>early adopters à livrer par groupe</span></div>
+    </div>
+
+    <div class="split" style="margin-top:1.6rem">
+      <div>
+        <p class="eyebrow">Ce qui compte comme early adopter validé</p>
+        <div class="grid" style="gap:.55rem">
+          <div class="card" style="border-left:3px solid var(--verdigris)"><h4>1 · Il s'est inscrit <em>et</em> a rempli sa fiche</h4><p>Compte professionnel créé, fiche commerce complétée : nom, adresse, catégorie, au moins trois produits ou photos. Une fiche vide n'est pas un utilisateur.</p></div>
+          <div class="card" style="border-left:3px solid var(--verdigris)"><h4>2 · Il est revenu</h4><p>Au moins deux sessions sur deux semaines différentes. C'est le seul signal qui distingue un curieux d'un utilisateur.</p></div>
+          <div class="card" style="border-left:3px solid var(--verdigris)"><h4>3 · Il a fait quelque chose</h4><p>Un message envoyé, une publication, une commande reçue ou passée. L'usage social est ce qui retient sur un réseau ; sans lui, il partira.</p></div>
+        </div>
+        <p class="note" style="margin-top:.8rem">Ces trois critères sont une <strong>proposition</strong>. Seul Bruno sait ce que les données produit permettent réellement de mesurer : à caler avec lui en semaine 1, avant de brancher le tracking. Sans définition commune, chaque groupe comptera ce qui l'arrange.</p>
+      </div>
+
+      <div>
+        <p class="eyebrow">Ce que ça représente en volume de terrain</p>
+        <div class="tbl-scroll">
+          <table style="min-width:0">
+            <thead><tr><th>Étape</th><th>Par persona</th><th>Par groupe</th></tr></thead>
+            <tbody>
+              <tr><td>Contacts qualifiés</td><td><strong>≈ 125</strong></td><td><strong>≈ 250</strong></td></tr>
+              <tr><td>Inscriptions <span style="color:var(--muted)">(~20 %)</span></td><td>≈ 25</td><td>≈ 50</td></tr>
+              <tr><td>Actifs réguliers <span style="color:var(--muted)">(~40 %)</span></td><td><strong>10</strong></td><td><strong>20</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note" style="margin-top:.7rem">Soit <strong>une dizaine de contacts qualifiés par jour ouvré et par groupe</strong> sur cinq semaines — deux à trois par étudiant. C'est atteignable, à condition de commencer le lundi de la semaine 1 et pas la veille du rendu.</p>
+        <p class="note">Les deux taux de conversion sont des hypothèses de travail. À recalibrer sur les chiffres réels dès la fin de la semaine 1 : c'est le premier vrai livrable analytique du challenge.</p>
+      </div>
+    </div>
+
+    <div class="hero-thesis" style="margin-top:1.5rem">
+      <p><strong>Le piège du chiffre :</strong> 100 inscrits dispersés dans toute la France, c'est zéro réseau et zéro rétention — chacun ouvrira l'app, ne verra personne autour de lui, et partira. 100 inscrits sur trois communes, c'est un réseau qui tient tout seul. <em>La densité compte plus que le total.</em> Chaque groupe doit choisir sa zone en semaine 1 et ne plus en bouger.</p>
+    </div>
+  </section>
+
+  <!-- ══ 01 ══════════════════════════════════════════════════ -->
+  <section class="fiche" id="f01">
+    <div class="fiche-head"><span class="fiche-ref">Fiche 01 · Produit</span><span class="fiche-rule"></span></div>
+    <h2>Ce que 1001 Goûts vend réellement aux pros</h2>
+    <p class="lead">Avant de cibler, il faut savoir ce qu'on vend. Relevé factuel du site, des CGU et des deux fiches applicatives.</p>
+
+    <div class="grid g3" style="margin:1.4rem 0 1.1rem">
+      <div class="stat accent">
+        <span class="stat-v">18</span>
+        <span class="stat-k">métiers référencés, de la boulangerie au fleuriste, en passant par élevage, ferme locale et « prestataire professionnels »</span>
+        <span class="stat-src">site — page Professionnel</span>
+      </div>
+      <div class="stat accent">
+        <span class="stat-v">0 <span>% de commission</span></span>
+        <span class="stat-k">les CGU précisent que l'app « n'a pas pour objet la conclusion de ventes » entre particuliers et professionnels : le revenu vient de l'abonnement pro</span>
+        <span class="stat-src">CGU — en vigueur 10 avril 2025</span>
+      </div>
+      <div class="stat warn">
+        <span class="stat-v">1 k+ <span>installs</span></span>
+        <span class="stat-k">sur Android, aucune note publiée sur l'App Store — la densité locale, socle de la promesse « trafic consommateur », n'est pas encore là</span>
+        <span class="stat-src">Google Play / App Store, mars 2026</span>
+      </div>
+    </div>
+
+    <div class="split">
+      <div>
+        <p class="eyebrow">Les 7 promesses faites au pro</p>
+        <div class="grid g2">
+          <div class="card"><h4>Vitrine + chiffre d'affaires</h4><p>Une fiche commerce, des produits en ligne, des notifications de commande.</p></div>
+          <div class="card"><h4>Centrale de référencement</h4><p>Matières premières et matériel à tarifs négociés auprès de fournisseurs partenaires.</p></div>
+          <div class="card"><h4>Réseau de pairs</h4><p>Messagerie, fil d'actualité modéré, groupes de travail, partenariats.</p></div>
+          <div class="card"><h4>Recrutement</h4><p>Mise en relation via la messagerie, côté particuliers l'app affiche des offres d'emploi.</p></div>
+          <div class="card"><h4>Label « 1001 Engagés »</h4><p>Cahier des charges, audit préalable et contrôles aléatoires par des agents de terrain.</p></div>
+          <div class="card"><h4>Accompagnement</h4><p>Formations, coaching, conseillers fiscalité / juridique / RH, conseil en développement.</p></div>
+        </div>
+        <p class="note" style="margin-top:.8rem">Sept bénéfices, aucun chiffré. Pour un dirigeant qui travaille 9,6 h par jour, sept promesses valent zéro promesse : <strong>une seule par persona</strong>.</p>
+      </div>
+      <div>
+        <p class="eyebrow">Carte d'identité</p>
+        <div class="tbl-scroll">
+          <table style="min-width:0">
+            <tbody>
+              <tr><td class="td-p">Éditeur</td><td>KLS SAS — capital 79 000 €, siège 23 bis avenue de l'Europe, 78400 Chatou</td></tr>
+              <tr><td class="td-p">Techno</td><td>ICEB SAS (développeur déclaré sur les deux stores)</td></tr>
+              <tr><td class="td-p">Origine</td><td>Octobre 2024, trois associés — un financier, un créatif, un « architecte digital »</td></tr>
+              <tr><td class="td-p">Modèle</td><td>Gratuit pour les particuliers · <strong>payant pour tout usage professionnel</strong> (redevances au barème)</td></tr>
+              <tr><td class="td-p">App</td><td>iOS v1.0.5 (mars 2026), iPhone uniquement · Android disponible · essai gratuit récemment étendu</td></tr>
+              <tr><td class="td-p">Prix public</td><td>La page « Tarifs » du site renvoie une <strong>erreur 404</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note" style="margin-top:.8rem">Le prix est la première question d'un artisan. Aujourd'hui, il faut remplir un formulaire pour l'obtenir : c'est la première fuite du tunnel B2B.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 02 ══════════════════════════════════════════════════ -->
+  <section class="fiche" id="f02">
+    <div class="fiche-head"><span class="fiche-ref">Fiche 02 · Marché</span><span class="fiche-rule"></span></div>
+    <h2>Combien de professionnels, vraiment ?</h2>
+    <p class="lead">Le cœur de cible B2B additionne trois populations que les statistiques publiques comptent séparément.</p>
+
+    <div class="grid g3" style="margin:1.4rem 0 .9rem">
+      <div class="stat" style="border-left:3px solid var(--ramp-1)">
+        <span class="stat-v">≈ 325 000</span>
+        <span class="stat-k"><strong>TAM</strong> — entreprises adressables en France : 77 300 artisans de l'alimentation + ~158 000 restaurants indépendants + ~90 000 exploitations en circuit court</span>
+        <span class="stat-src">Observatoire des Métiers de l'Alimentation 2023 · Agreste RA2020 · secteur CHR</span>
+      </div>
+      <div class="stat" style="border-left:3px solid var(--ramp-2)">
+        <span class="stat-v">≈ 176 000</span>
+        <span class="stat-k"><strong>SAM</strong> — celles dont le modèle est déjà « local » : les 90 000 producteurs en circuit court, ~50 % des artisans, ~30 % des restaurants</span>
+        <span class="stat-src">estimation modélisée — à valider en entretien</span>
+      </div>
+      <div class="stat" style="border-left:3px solid var(--ramp-3)">
+        <span class="stat-v">≈ 150</span>
+        <span class="stat-k"><strong>SOM 12 mois</strong> — comptes payants sur une zone pilote Yvelines (~5 100 pros, densité ramenée au ratio national) à 3 % de conversion</span>
+        <span class="stat-src">estimation — siège de KLS SAS à Chatou (78)</span>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:1.5rem">
+      <div class="figure">
+        <p class="figure-t">Où part la valeur d'un produit</p>
+        <p class="figure-s">Part du prix payé par le consommateur final qui revient réellement au producteur, selon le circuit. C'est le chiffre qui déclenche la conversation commerciale.</p>
+        <div class="figure-scroll">
+          <svg viewBox="0 0 560 218" role="img" aria-label="Vente directe : 60 à 100 % du prix final capté par le producteur. Filière longue : moins de 20 %. Plateforme de livraison : 15 à 30 % de commission prélevée au restaurateur.">
+            <line class="grid-l" x1="150" y1="26" x2="150" y2="170"/>
+            <line class="grid-l" x1="252" y1="26" x2="252" y2="170"/>
+            <line class="grid-l" x1="354" y1="26" x2="354" y2="170"/>
+            <line class="grid-l" x1="456" y1="26" x2="456" y2="170"/>
+            <line class="base-l" x1="48" y1="170" x2="558" y2="170"/>
+
+            <text class="lb" x="0" y="48">Vente directe</text>
+            <rect class="bar" x="354" y="34" width="204" height="26" rx="4" fill="var(--verdigris)"
+                  data-tip="Vente directe : le producteur capte 60 à 100 % du prix final (Agreste)"/>
+            <text class="vl" x="346" y="53" text-anchor="end">60–100 %</text>
+
+            <text class="lb" x="0" y="105">Filière longue</text>
+            <rect class="bar" x="48" y="91" width="102" height="26" rx="4" fill="var(--paprika)"
+                  data-tip="Filière longue : moins de 20 % du prix final revient au producteur"/>
+            <text class="vl" x="160" y="110">&lt; 20 %</text>
+
+            <text class="lb" x="0" y="162">Plateforme livraison</text>
+            <rect class="bar" x="48" y="148" width="153" height="26" rx="4" fill="var(--blue)"
+                  data-tip="Commission prélevée au restaurateur : 15–17 % en marketplace, jusqu'à 30 % HT en livraison plateforme"/>
+            <text class="vl" x="211" y="167">15–30 % prélevés</text>
+
+            <text class="ax" x="48" y="188">0</text>
+            <text class="ax" x="150" y="188" text-anchor="middle">20</text>
+            <text class="ax" x="252" y="188" text-anchor="middle">40</text>
+            <text class="ax" x="354" y="188" text-anchor="middle">60</text>
+            <text class="ax" x="456" y="188" text-anchor="middle">80</text>
+            <text class="ax" x="558" y="188" text-anchor="end">100 %</text>
+            <text class="ax" x="48" y="208">% du prix final</text>
+          </svg>
+        </div>
+        <div class="legend">
+          <span><i style="background:var(--verdigris)"></i>capté par le producteur</span>
+          <span><i style="background:var(--paprika)"></i>perdu en intermédiation</span>
+          <span><i style="background:var(--blue)"></i>prélevé par la plateforme</span>
+        </div>
+      </div>
+
+      <div>
+        <p class="eyebrow">Le contexte que personne ne conteste</p>
+        <div class="grid" style="gap:.55rem">
+          <div class="card"><h4>La demande est acquise</h4><p>85 % des Français préfèrent les commerces de proximité, 63 % se disent prêts à consommer un maximum de produits locaux, 92 % recherchent des produits de saison.</p></div>
+          <div class="card"><h4>Mais le prix bloque</h4><p>69 % jugent les produits locaux trop chers et près d'un tiers refusent de payer davantage. La demande déclarée n'est pas une demande solvable.</p></div>
+          <div class="card"><h4>Et le secteur se contracte</h4><p>Près de 70 000 défaillances d'entreprises en France en 2025 (+3,1 %). La restauration prend +8 %, avec 7 715 restaurants touchés et plus de 8 liquidations sur 10.</p></div>
+        </div>
+        <p class="note" style="margin-top:.8rem">Conséquence directe pour le ciblage : promettre « plus de clients » est invérifiable et déjà entendu. Promettre <strong>« moins de charges »</strong> se démontre sur une facture.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 03 ══════════════════════════════════════════════════ -->
+  <section class="fiche" id="f03">
+    <div class="fiche-head"><span class="fiche-ref">Fiche 03 · Pain point</span><span class="fiche-rule"></span></div>
+    <h2>Trois douleurs, dans cet ordre</h2>
+    <p class="lead">Toutes les cibles ne partagent pas les mêmes bénéfices attendus. Elles partagent ces trois contraintes.</p>
+
+    <div class="grid g3" style="margin:1.4rem 0 1.4rem">
+      <div class="stat warn">
+        <span class="stat-v">× 2</span>
+        <span class="stat-k"><strong>La marge.</strong> Le beurre est passé de 4 000 €/t en 2023 à plus de 8 000 € en 2024. L'électricité pèse 8 à 12 % du CA d'une boulangerie artisanale contre 5 à 7 % avant la crise — 4,2 points de marge perdus en deux ans.</span>
+        <span class="stat-src">observatoires filière boulangerie-pâtisserie</span>
+      </div>
+      <div class="stat warn">
+        <span class="stat-v">9,6 <span>h / jour</span></span>
+        <span class="stat-k"><strong>Le temps.</strong> 2 865 heures travaillées par an : les métiers de bouche détiennent la durée de travail effective la plus élevée de tous les indépendants. Un tiers des TPE passe en plus une demi-journée par semaine sur l'administratif.</span>
+        <span class="stat-src">Insee — durée de travail des indépendants, 2023</span>
+      </div>
+      <div class="stat warn">
+        <span class="stat-v">9 000</span>
+        <span class="stat-k"><strong>Les bras.</strong> Postes non pourvus dans la seule boulangerie. Les intentions d'embauche reculent de 12,5 % en 2025, alors que les embauches restent jugées difficiles par la majorité des employeurs.</span>
+        <span class="stat-src">CNBPF · baromètre emploi artisanat 2025</span>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="figure">
+        <p class="figure-t">Part des projets d'embauche jugés difficiles</p>
+        <p class="figure-s">Le recrutement est le pain point le plus aigu chez les métiers de la viande — et c'est aussi la fonctionnalité la moins visible de l'application aujourd'hui.</p>
+        <div class="figure-scroll">
+          <svg viewBox="0 0 560 208" role="img" aria-label="Projets d'embauche jugés difficiles : boucherie 74 %, charcuterie-traiteur 69 %, boulangerie-pâtisserie 55 %, ensemble de l'artisanat 50 %.">
+            <line class="grid-l" x1="308" y1="14" x2="308" y2="168"/>
+            <line class="grid-l" x1="408" y1="14" x2="408" y2="168"/>
+            <line class="grid-l" x1="508" y1="14" x2="508" y2="168"/>
+            <line class="base-l" x1="208" y1="168" x2="558" y2="168"/>
+
+            <text class="lb" x="0" y="34">Boucherie</text>
+            <rect class="bar" x="208" y="20" width="259" height="24" rx="4" fill="var(--blue)" data-tip="Boucherie — 74 % des projets d'embauche jugés difficiles"/>
+            <text class="vl" x="477" y="38">74 %</text>
+
+            <text class="lb" x="0" y="76">Charcuterie-traiteur</text>
+            <rect class="bar" x="208" y="62" width="241" height="24" rx="4" fill="var(--blue)" data-tip="Charcutiers-traiteurs — 69 % des projets d'embauche jugés difficiles"/>
+            <text class="vl" x="459" y="80">69 %</text>
+
+            <text class="lb" x="0" y="118">Boulangerie-pâtisserie</text>
+            <rect class="bar" x="208" y="104" width="192" height="24" rx="4" fill="var(--blue)" data-tip="Boulangerie-pâtisserie — 55 % des projets d'embauche jugés difficiles"/>
+            <text class="vl" x="410" y="122">55 %</text>
+
+            <text class="lb" x="0" y="160">Ensemble artisanat</text>
+            <rect class="bar" x="208" y="146" width="175" height="24" rx="4" fill="var(--ramp-1)" data-tip="Ensemble de l'artisanat — 50 % (référence)"/>
+            <text class="vl" x="393" y="164">50 %</text>
+
+            <text class="ax" x="208" y="186">0</text>
+            <text class="ax" x="308" y="186" text-anchor="middle">30</text>
+            <text class="ax" x="408" y="186" text-anchor="middle">60</text>
+            <text class="ax" x="508" y="186" text-anchor="middle">90</text>
+            <text class="ax" x="208" y="202">% des projets d'embauche</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="figure">
+        <p class="figure-t">L'écart numérique : présent ≠ utile</p>
+        <p class="figure-s">La quasi-totalité des TPE est « en ligne ». Moins de la moitié en tire un euro. C'est là que se loge la méfiance qu'un commercial va rencontrer.</p>
+        <div class="figure-scroll">
+          <svg viewBox="0 0 560 208" role="img" aria-label="84 % des TPE-PME ont une présence en ligne, mais seulement 40 % constatent une contribution du numérique à leur chiffre d'affaires : un écart de 44 points.">
+            <line class="grid-l" x1="308" y1="14" x2="308" y2="150"/>
+            <line class="grid-l" x1="408" y1="14" x2="408" y2="150"/>
+            <line class="grid-l" x1="508" y1="14" x2="508" y2="150"/>
+            <line class="base-l" x1="208" y1="150" x2="558" y2="150"/>
+
+            <text class="lb" x="0" y="40">Présence en ligne</text>
+            <rect class="bar" x="208" y="24" width="294" height="26" rx="4" fill="var(--ramp-1)" data-tip="84 % des TPE et PME déclarent une présence en ligne"/>
+            <text class="vl" x="512" y="43">84 %</text>
+
+            <text class="lb" x="0" y="96">Effet sur le CA</text>
+            <rect class="bar" x="208" y="80" width="140" height="26" rx="4" fill="var(--blue)" data-tip="Seulement 40 % constatent que le numérique a contribué à leur chiffre d'affaires"/>
+            <text class="vl" x="358" y="99">40 %</text>
+
+            <path d="M348 93 L 502 93" stroke="var(--paprika)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M348 88 L348 98 M502 88 L502 98" stroke="var(--paprika)" stroke-width="1.5"/>
+            <text x="425" y="128" text-anchor="middle" class="vl" fill="var(--paprika)">44 points d'écart</text>
+
+            <text class="ax" x="208" y="168">0</text>
+            <text class="ax" x="308" y="168" text-anchor="middle">30</text>
+            <text class="ax" x="408" y="168" text-anchor="middle">60</text>
+            <text class="ax" x="508" y="168" text-anchor="middle">90</text>
+            <text class="ax" x="208" y="186">% des TPE et PME · Baromètre France Num 2025</text>
+            <text class="ax" x="208" y="202">Freins cités : manque de temps, surcharge, absence d'accompagnement</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-thesis" style="margin-top:1.5rem">
+      <p><strong>Le pain point, en une phrase :</strong> le professionnel des métiers de bouche ne manque pas de clients, il perd la valeur qu'il crée — vers l'amont (matières, énergie) et vers les intermédiaires (filière longue, plateformes) — et il n'a ni le temps ni les compétences numériques pour aller la récupérer seul.</p>
+    </div>
+  </section>
+
+  <!-- ══ 04 ══════════════════════════════════════════════════ -->
+  <section class="fiche" id="f04">
+    <div class="fiche-head"><span class="fiche-ref">Fiche 04 · Segmentation</span><span class="fiche-rule"></span></div>
+    <h2>Les 18 métiers ne font pas 18 cibles</h2>
+    <p class="lead">Segmenter par métier est une erreur : un boucher et un fromager ont le même usage. Ce qui distingue vraiment, c'est <strong>la position dans la chaîne de valeur</strong> — donc ce qu'ils viennent chercher dans l'app.</p>
+
+    <div class="grid g2" style="margin-top:1.4rem">
+      <div class="seg">
+        <div class="seg-h"><span class="seg-dot" style="background:var(--blue)"></span><h3>Segment 1 · Les transformateurs-vendeurs</h3><span class="seg-n">≈ 77 300 ent.</span></div>
+        <div class="chips"><span class="chip">boulangerie</span><span class="chip">pâtisserie</span><span class="chip">boucherie</span><span class="chip">charcuterie</span><span class="chip">fromagerie</span><span class="chip">poissonnerie</span><span class="chip">chocolaterie</span><span class="chip">confiserie</span><span class="chip">primeur</span><span class="chip">cave</span></div>
+        <p>Ils achètent, transforment et vendent en boutique — donc ils ont déjà du flux et aucun besoin d'être découverts. <strong>Seule la fraction qui s'approvisionne en direct chez des producteurs a un usage réel de l'app</strong> : fromagers, primeurs, bouchers « de la ferme à l'assiette ». Les autres attendent une centrale d'achat qui n'est pas en service.</p>
+      </div>
+
+      <div class="seg">
+        <div class="seg-h"><span class="seg-dot" style="background:var(--paprika)"></span><h3>Segment 2 · Les acheteurs professionnels</h3><span class="seg-n">≈ 158 000 ent.</span></div>
+        <div class="chips"><span class="chip">restaurant</span><span class="chip">brasserie</span><span class="chip">bar</span><span class="chip">traiteur</span></div>
+        <p>Ils transforment pour consommer sur place. <strong>Ce qu'ils viennent chercher : du sourcing local fiable et des bras.</strong> Ce sont les seuls à générer un flux d'achat B2B récurrent — donc les seuls qui donnent une raison de revenir dans l'app.</p>
+      </div>
+
+      <div class="seg">
+        <div class="seg-h"><span class="seg-dot" style="background:var(--verdigris)"></span><h3>Segment 3 · Les producteurs amont</h3><span class="seg-n">≈ 90 000 exp.</span></div>
+        <div class="chips"><span class="chip">élevage</span><span class="chip">ferme locale</span><span class="chip">maraîchage</span></div>
+        <p>Ils produisent et cherchent des débouchés. <strong>Ce qu'ils viennent chercher : écouler sans céder de marge.</strong> Capacité à payer plus faible, mais ce sont eux qui portent le récit « circuit court » et l'offre différenciante.</p>
+      </div>
+
+      <div class="seg" style="opacity:.72">
+        <div class="seg-h"><span class="seg-dot" style="background:var(--muted)"></span><h3>Segment 4 · Les périphériques</h3><span class="seg-n">à déprioriser</span></div>
+        <div class="chips"><span class="chip">fleuriste</span><span class="chip">prestataire pro</span></div>
+        <p>Faciles à recruter, mais hors du récit « métiers de bouche ». Les inclure dilue le positionnement au moment précis où il faut le durcir. À garder en inscription libre, jamais en cible de campagne.</p>
+      </div>
+    </div>
+
+    <p class="note" style="margin-top:1rem">Volumes : Observatoire des Métiers de l'Alimentation (77 310 entreprises sur 6 branches, 2023) · restaurants indépendants estimés à 88 % de plus de 180 000 établissements · exploitations en circuit court, recensement agricole 2020.</p>
+    <p class="note"><strong>Attention :</strong> ces quatre segments décrivent le <em>marché</em>. Les dix personas de la fiche 06 le recoupent autrement — la famille « sans vitrine physique », par exemple, traverse plusieurs segments. Ne pas confondre les deux découpages : l'un sert à dimensionner, l'autre à prospecter.</p>
+  </section>
+
+  <!-- ══ 05 ══════════════════════════════════════════════════ -->
+  <section class="fiche" id="f05">
+    <div class="fiche-head"><span class="fiche-ref">Fiche 05 · Priorisation</span><span class="fiche-rule"></span></div>
+    <h2>Par qui commencer</h2>
+    <p class="lead">Le bon critère n'est pas « qui a le plus mal » — ils ont tous mal. C'est : <strong>sa douleur n°1 est-elle soignée par ce que l'application fait aujourd'hui ?</strong> Aujourd'hui, l'app est un annuaire local avec une messagerie. Tout le reste — centrale d'achat, label, formations, accompagnement juridique — est annoncé au futur sur la fiche Play : « le projet envisage l'introduction de services supplémentaires ».</p>
+
+    <div class="split" style="margin-top:1.4rem">
+      <div class="figure">
+        <p class="figure-t">Adéquation au produit réel × accessibilité</p>
+        <p class="figure-s">L'axe vertical mesure une seule chose : est-ce qu'un annuaire local avec messagerie règle sa douleur n°1 ? La taille des cercles est proportionnelle au nombre d'entreprises. Positions issues de l'analyse, à confronter au terrain.</p>
+        <div class="figure-scroll">
+          <svg viewBox="0 0 560 400" role="img" aria-label="Matrice : les producteurs amont ont la meilleure adéquation au produit mais la plus faible accessibilité ; les acheteurs de local et ceux sans vitrine physique combinent bonne adéquation et bonne accessibilité ; les boutiques à flux sont très accessibles mais leur douleur n'est pas soignée par l'application.">
+            <line class="grid-l" x1="60" y1="98" x2="540" y2="98"/>
+            <line class="grid-l" x1="60" y1="188" x2="540" y2="188" stroke-dasharray="4 4"/>
+            <line class="grid-l" x1="60" y1="278" x2="540" y2="278"/>
+            <line class="grid-l" x1="180" y1="26" x2="180" y2="350"/>
+            <line class="grid-l" x1="300" y1="26" x2="300" y2="350" stroke-dasharray="4 4"/>
+            <line class="grid-l" x1="420" y1="26" x2="420" y2="350"/>
+            <line class="base-l" x1="60" y1="350" x2="540" y2="350"/>
+            <line class="base-l" x1="60" y1="26" x2="60" y2="350"/>
+
+            <g class="bar" data-tip="Producteurs amont (~90 000) — personas 1 à 3. L'annuaire EST leur besoin : ils n'ont aucune vitrine et cherchent des débouchés. Mais ils sont dispersés et peu à l'aise avec le numérique.">
+              <circle cx="175" cy="65" r="38" fill="var(--verdigris)" fill-opacity=".2" stroke="var(--verdigris)" stroke-width="2.5"/>
+              <circle cx="175" cy="65" r="5" fill="var(--verdigris)"/>
+            </g>
+            <text class="vl" x="175" y="125" text-anchor="middle" fill="var(--verdigris)">Producteurs amont</text>
+            <text class="ax" x="175" y="139" text-anchor="middle">personas 1 à 3 · meilleur fit</text>
+
+            <g class="bar" data-tip="Acheteurs de local (~40 000) — personas 4 à 7. Leur métier consiste déjà à chercher des fournisseurs locaux un par un : l'app fait littéralement le job.">
+              <circle cx="358" cy="110" r="30" fill="var(--paprika)" fill-opacity=".2" stroke="var(--paprika)" stroke-width="2.5"/>
+              <circle cx="358" cy="110" r="5" fill="var(--paprika)"/>
+            </g>
+            <text class="vl" x="340" y="162" text-anchor="middle" fill="var(--paprika)">Acheteurs de local</text>
+            <text class="ax" x="340" y="176" text-anchor="middle">personas 4 à 7</text>
+
+            <g class="bar" data-tip="Sans vitrine physique — personas 8 et 9. Traiteurs sans boutique, chefs à domicile, non sédentaires : la vitrine numérique a pour eux une valeur réelle, ils n'en ont aucune autre.">
+              <circle cx="452" cy="140" r="24" fill="var(--blue)" fill-opacity=".2" stroke="var(--blue)" stroke-width="2.5"/>
+              <circle cx="452" cy="140" r="5" fill="var(--blue)"/>
+            </g>
+            <text class="vl" x="452" y="198" text-anchor="middle" fill="var(--blue)">Sans vitrine physique</text>
+            <text class="ax" x="452" y="212" text-anchor="middle">personas 8 et 9</text>
+
+            <g class="bar" data-tip="Boutiques à flux — boulanger grand public, boucher classique, pizzeria. Leur douleur (achats, recrutement, commissions) n'est pas soignée par l'app aujourd'hui. Écartés.">
+              <circle cx="473" cy="288" r="32" fill="var(--muted)" fill-opacity=".18" stroke="var(--muted)" stroke-width="2" stroke-dasharray="4 3"/>
+              <circle cx="473" cy="288" r="4" fill="var(--muted)"/>
+            </g>
+            <text class="vl" x="473" y="338" text-anchor="middle" fill="var(--muted)">Boutiques à flux</text>
+
+            <text class="ax" x="60" y="372">faible ←</text>
+            <text class="ax" x="300" y="372" text-anchor="middle">ACCESSIBILITÉ (facilité à atteindre et convertir)</text>
+            <text class="ax" x="540" y="372" text-anchor="end">→ forte</text>
+            <text class="ax" x="-188" y="14" transform="rotate(-90)" text-anchor="middle">ADÉQUATION AU PRODUIT RÉEL →</text>
+          </svg>
+        </div>
+        <div class="legend">
+          <span><i style="background:var(--verdigris)"></i>Producteurs amont</span>
+          <span><i style="background:var(--paprika)"></i>Acheteurs de local</span>
+          <span><i style="background:var(--blue)"></i>Sans vitrine physique</span>
+          <span><i style="background:var(--muted)"></i>Boutiques à flux — écartées</span>
+        </div>
+      </div>
+
+      <div>
+        <p class="eyebrow">La conséquence stratégique</p>
+        <div class="hero-thesis" style="margin:0 0 1rem; border-left-color:var(--blue)">
+          <p><strong>La vitrine numérique vaut le plus à ceux qui n'ont pas de vitrine physique.</strong> Un boulanger a quarante mètres carrés de devanture sur la rue et huit cents passages par jour. Un maraîcher, un chef à domicile, un producteur fermier n'ont rien du tout. Pour eux, l'annuaire <em>est</em> le produit.</p>
+        </div>
+        <div class="grid" style="gap:.55rem">
+          <div class="card"><h4>1. Concentrer géographiquement</h4><p>Une seule zone de chalandise par groupe, choisie en semaine 1 et jamais abandonnée. Cinquante commerces sur trois communes valent mieux que cinq cents éparpillés.</p></div>
+          <div class="card"><h4>2. Recruter par paires, pas en vrac</h4><p>Un producteur <em>et</em> son acheteur, sur la même commune. Un inscrit qui ouvre l'app et ne voit personne autour de lui se désabonne avant la fin du mois.</p></div>
+          <div class="card" style="border-left:3px solid var(--paprika)"><h4>3. Ne vendre que ce qui existe</h4><p>L'annuaire et la messagerie sont live. La centrale d'achat, le label et l'accompagnement sont annoncés au futur. Les promettre en rendez-vous, c'est brûler la relation dès la première question précise.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 06 ══════════════════════════════════════════════════ -->
+  <section class="fiche" id="f06">
+    <div class="fiche-head"><span class="fiche-ref">Fiche 06 · Personas</span><span class="fiche-rule"></span></div>
+    <h2>Les 10 personas à cibler</h2>
+    <p class="lead">Un persona par binôme de tirage, dix au total. Chacun a une douleur différente des neuf autres, un canal pour le joindre, et assez de volume pour sortir dix early adopters sur une zone. <strong>Objectif par persona : 10 early adopters engagés et réguliers.</strong></p>
+
+    <div class="fam">
+      <span class="fam-dot" style="background:var(--verdigris)"></span>
+      <h3>A · Ils vendent et cherchent des débouchés</h3>
+      <span class="fam-rule"></span>
+      <span class="fam-tag">meilleur fit produit</span>
+    </div>
+    <div class="grid g2">
+
+      <article class="pcard" style="--pc:var(--verdigris)">
+        <div class="pcard-h">
+          <span class="pcard-n">Persona 01</span>
+          <h4>Maraîcher en vente directe</h4>
+          <p class="pcard-who">5 à 15 ha, deux marchés par semaine, un peu d'AMAP</p>
+        </div>
+        <dl class="pcard-b">
+          <div class="pl"><dt>Douleur</dt><dd>Deux journées de marché par semaine pour écouler, et les invendus finissent à la poubelle.</dd></div>
+          <div class="pl"><dt>Ce que l'app fait</dt><dd>Le met sur une carte et l'expose aux restaurateurs et primeurs de sa zone. Sans commission.</dd></div>
+          <div class="pl hi"><dt>Promesse</dt><dd>« Vendez sans y passer vos samedis. »</dd></div>
+          <div class="pl"><dt>Déclencheur</dt><dd>Un pic de récolte, la fin d'un contrat grossiste.</dd></div>
+          <div class="pl"><dt>Où le trouver</dt><dd>Marchés le samedi matin, AMAP, groupes Facebook locaux de vente directe, chambres d'agriculture.</dd></div>
+        </dl>
+        <div class="pcard-f">Objectif 10 early adopters · accès terrain facile, adoption numérique lente</div>
+      </article>
+
+      <article class="pcard" style="--pc:var(--verdigris)">
+        <div class="pcard-h">
+          <span class="pcard-n">Persona 02</span>
+          <h4>Éleveur en vente directe</h4>
+          <p class="pcard-who">Bovin, ovin ou porc — vend en colis de 5 à 10 kg</p>
+        </div>
+        <dl class="pcard-b">
+          <div class="pl"><dt>Douleur</dt><dd>Écouler la bête entière : les morceaux nobles partent, le reste lui reste sur les bras.</dd></div>
+          <div class="pl"><dt>Ce que l'app fait</dt><dd>L'ouvre à des bouchers et restaurateurs locaux, qui prennent précisément les pièces que le particulier refuse.</dd></div>
+          <div class="pl hi"><dt>Promesse</dt><dd>« Des acheteurs pro, pas seulement des colis. »</dd></div>
+          <div class="pl"><dt>Déclencheur</dt><dd>Un abattage programmé — la date crée l'urgence.</dd></div>
+          <div class="pl"><dt>Où le trouver</dt><dd>Chambres d'agriculture, salons agricoles, réseau Bienvenue à la ferme, groupes locaux.</dd></div>
+        </dl>
+        <div class="pcard-f">Objectif 10 early adopters · cycle calé sur le calendrier d'abattage</div>
+      </article>
+
+      <article class="pcard" style="--pc:var(--verdigris)">
+        <div class="pcard-h">
+          <span class="pcard-n">Persona 03</span>
+          <h4>Producteur fermier transformateur</h4>
+          <p class="pcard-who">Fromage fermier, miel, conserves, bière artisanale</p>
+        </div>
+        <dl class="pcard-b">
+          <div class="pl"><dt>Douleur</dt><dd>Il ne peut pas être partout : le référencement en boutique se fait au porte-à-porte, un commerce après l'autre.</dd></div>
+          <div class="pl"><dt>Ce que l'app fait</dt><dd>Met sa fiche sous les yeux des fromagers, épiciers, cavistes et restaurateurs de sa région.</dd></div>
+          <div class="pl hi"><dt>Promesse</dt><dd>« Vos revendeurs vous trouvent. »</dd></div>
+          <div class="pl"><dt>Déclencheur</dt><dd>Une nouvelle gamme, un stock à placer avant la fin de saison.</dd></div>
+          <div class="pl"><dt>Où le trouver</dt><dd>Marchés, salons de producteurs, réseaux Bienvenue à la ferme et filières bio.</dd></div>
+        </dl>
+        <div class="pcard-f">Objectif 10 early adopters · le plus à l'aise du groupe A avec le numérique</div>
+      </article>
+    </div>
+
+    <div class="fam">
+      <span class="fam-dot" style="background:var(--paprika)"></span>
+      <h3>B · Ils achètent du local et galèrent à le trouver</h3>
+      <span class="fam-rule"></span>
+      <span class="fam-tag">l'app fait littéralement le job</span>
+    </div>
+    <div class="grid g2">
+
+      <article class="pcard" style="--pc:var(--paprika)">
+        <div class="pcard-h">
+          <span class="pcard-n">Persona 04</span>
+          <h4>Restaurateur indépendant « bistrot de produit »</h4>
+          <p class="pcard-who">30 à 50 couverts, carte courte de saison</p>
+        </div>
+        <dl class="pcard-b">
+          <div class="pl"><dt>Douleur</dt><dd>Hors Rungis, il n'existe aucun équivalent : la logistique est le frein n°1 à l'approvisionnement local.</dd></div>
+          <div class="pl"><dt>Ce que l'app fait</dt><dd>Un carnet de producteurs à moins de 30 km, joignables en direct par messagerie.</dd></div>
+          <div class="pl hi"><dt>Promesse</dt><dd>« Vos producteurs à 30 km. Sans passer par Rungis. »</dd></div>
+          <div class="pl"><dt>Déclencheur</dt><dd>Changement de carte à la saison, rupture avec un grossiste.</dd></div>
+          <div class="pl"><dt>Où le trouver</dt><dd>Entre 15 h et 18 h — jamais en service. Instagram, groupes de chefs, associations de restaurateurs.</dd></div>
+        </dl>
+        <div class="pcard-f">Objectif 10 early adopters · créneau de contact étroit, à respecter absolument</div>
+      </article>
+
+      <article class="pcard" style="--pc:var(--paprika)">
+        <div class="pcard-h">
+          <span class="pcard-n">Persona 05</span>
+          <h4>Primeur / épicerie de produits locaux</h4>
+          <p class="pcard-who">Boutique de quartier, réassort quotidien</p>
+        </div>
+        <dl class="pcard-b">
+          <div class="pl"><dt>Douleur</dt><dd>Approvisionnement à refaire tous les jours, et des invendus qu'il faut brader ou jeter.</dd></div>
+          <div class="pl"><dt>Ce que l'app fait</dt><dd>Sourcing direct auprès des maraîchers, plus une visibilité auprès des consommateurs du quartier.</dd></div>
+          <div class="pl hi"><dt>Promesse</dt><dd>« Achetez au champ, vendez au quartier. »</dd></div>
+          <div class="pl"><dt>Déclencheur</dt><dd>Le changement de saison, l'ouverture d'un concurrent.</dd></div>
+          <div class="pl"><dt>Où le trouver</dt><dd>En boutique tôt le matin, halles couvertes, réseaux d'épiceries locales.</dd></div>
+        </dl>
+        <div class="pcard-f">Objectif 10 early adopters · un des deux seuls personas à la fois acheteur et vendeur</div>
+      </article>
+
+      <article class="pcard" style="--pc:var(--paprika)">
+        <div class="pcard-h">
+          <span class="pcard-n">Persona 06</span>
+          <h4>Fromager-crémier / affineur</h4>
+          <p class="pcard-who">Sélectionne ses fermes une par une, au bouche-à-oreille</p>
+        </div>
+        <dl class="pcard-b">
+          <div class="pl"><dt>Douleur</dt><dd>Trouver de nouvelles fermes est un travail de fourmi, sans base de données, entièrement fondé sur le réseau personnel.</dd></div>
+          <div class="pl"><dt>Ce que l'app fait</dt><dd>Lui expose des producteurs fermiers référencés dans sa région, qu'il ne connaît pas encore.</dd></div>
+          <div class="pl hi"><dt>Promesse</dt><dd>« Trouvez vos fermes, pas des grossistes. »</dd></div>
+          <div class="pl"><dt>Déclencheur</dt><dd>La perte d'un fournisseur, la recherche d'une exclusivité pour se différencier.</dd></div>
+          <div class="pl"><dt>Où le trouver</dt><dd>En boutique, concours et salons fromagers, guildes professionnelles.</dd></div>
+        </dl>
+        <div class="pcard-f">Objectif 10 early adopters · volume national modeste, mais réceptivité élevée</div>
+      </article>
+
+      <article class="pcard" style="--pc:var(--paprika)">
+        <div class="pcard-h">
+          <span class="pcard-n">Persona 07</span>
+          <h4>Boucher « de la ferme à l'assiette »</h4>
+          <p class="pcard-who">La version étroite — celui qui achète en direct, pas en gros</p>
+        </div>
+        <dl class="pcard-b">
+          <div class="pl"><dt>Douleur</dt><dd>Sécuriser des éleveurs locaux, tracer l'origine, et pouvoir le prouver au client qui pose la question.</dd></div>
+          <div class="pl"><dt>Ce que l'app fait</dt><dd>Mise en relation directe avec les éleveurs en vente directe de sa zone — le persona 02, à l'autre bout.</dd></div>
+          <div class="pl hi"><dt>Promesse</dt><dd>« Vos éleveurs, à côté. »</dd></div>
+          <div class="pl"><dt>Déclencheur</dt><dd>Le départ d'un éleveur partenaire, une demande client sur l'origine.</dd></div>
+          <div class="pl"><dt>Où le trouver</dt><dd>En boutique le matin, fédérations de la boucherie, concours professionnels.</dd></div>
+        </dl>
+        <div class="pcard-f">Objectif 10 early adopters · <strong>ne pas confondre</strong> avec le boucher qui achète en gros</div>
+      </article>
+    </div>
+
+    <div class="fam">
+      <span class="fam-dot" style="background:var(--blue)"></span>
+      <h3>C · Ils n'ont aucune vitrine physique</h3>
+      <span class="fam-rule"></span>
+      <span class="fam-tag">la vitrine numérique vaut le plus</span>
+    </div>
+    <div class="grid g2">
+
+      <article class="pcard" style="--pc:var(--blue)">
+        <div class="pcard-h">
+          <span class="pcard-n">Persona 08</span>
+          <h4>Traiteur / chef à domicile sans boutique</h4>
+          <p class="pcard-who">Travaille de chez lui ou d'un labo, aucune devanture</p>
+        </div>
+        <dl class="pcard-b">
+          <div class="pl"><dt>Douleur</dt><dd>Zéro visibilité passante : la totalité de son activité repose sur le bouche-à-oreille et s'effondre dès qu'il se tait.</dd></div>
+          <div class="pl"><dt>Ce que l'app fait</dt><dd>Lui donne une vitrine là où il n'en a aucune, plus le sourcing pour ses prestations.</dd></div>
+          <div class="pl hi"><dt>Promesse</dt><dd>« Une vitrine, quand on n'a pas de boutique. »</dd></div>
+          <div class="pl"><dt>Déclencheur</dt><dd>Un creux de saison, un lancement d'activité.</dd></div>
+          <div class="pl"><dt>Où le trouver</dt><dd>Instagram, plateformes de mise en relation, réseaux d'événementiel et de wedding planners.</dd></div>
+        </dl>
+        <div class="pcard-f">Objectif 10 early adopters · 63 % des entreprises de services traiteur n'ont aucun salarié</div>
+      </article>
+
+      <article class="pcard" style="--pc:var(--blue)">
+        <div class="pcard-h">
+          <span class="pcard-n">Persona 09</span>
+          <h4>Commerçant non sédentaire</h4>
+          <p class="pcard-who">Marché tournant, food truck, tournée de village</p>
+        </div>
+        <dl class="pcard-b">
+          <div class="pl"><dt>Douleur</dt><dd>Sa clientèle ne le trouve que s'il est au bon endroit au bon moment — et elle ne sait jamais où il sera demain.</dd></div>
+          <div class="pl"><dt>Ce que l'app fait</dt><dd>Une carte, un emplacement, des horaires, une notification. C'est exactement le format du produit.</dd></div>
+          <div class="pl hi"><dt>Promesse</dt><dd>« Vos clients savent où vous êtes. »</dd></div>
+          <div class="pl"><dt>Déclencheur</dt><dd>Un changement d'emplacement, une nouvelle tournée.</dd></div>
+          <div class="pl"><dt>Où le trouver</dt><dd>Sur les marchés, fédérations de commerçants non sédentaires, associations de food trucks.</dd></div>
+        </dl>
+        <div class="pcard-f">Objectif 10 early adopters · le plus facile à rencontrer physiquement des dix</div>
+      </article>
+    </div>
+
+    <div class="fam">
+      <span class="fam-dot" style="background:var(--safran)"></span>
+      <h3>D · Transverse</h3>
+      <span class="fam-rule"></span>
+      <span class="fam-tag">cycle de décision le plus court</span>
+    </div>
+    <div class="grid g2">
+
+      <article class="pcard" style="--pc:var(--safran)">
+        <div class="pcard-h">
+          <span class="pcard-n">Persona 10</span>
+          <h4>Le nouvel installé</h4>
+          <p class="pcard-who">Moins de 24 mois d'activité — tous métiers confondus</p>
+        </div>
+        <dl class="pcard-b">
+          <div class="pl"><dt>Douleur</dt><dd>Il n'a rien : ni notoriété locale, ni confrères à appeler, ni fournisseurs négociés. La profession boulangère a monté un dispositif d'écoute psychologique tant l'isolement est réel.</dd></div>
+          <div class="pl"><dt>Ce que l'app fait</dt><dd>Le réseau de pairs et la messagerie pro — la brique qui existe et qui répond exactement à son manque. <strong>Pas</strong> le label, qui n'est pas encore en service.</dd></div>
+          <div class="pl hi"><dt>Promesse</dt><dd>« Le réseau que vous n'avez pas encore. »</dd></div>
+          <div class="pl"><dt>Déclencheur</dt><dd>L'installation elle-même. La fenêtre utile, ce sont les six premiers mois.</dd></div>
+          <div class="pl"><dt>Où le trouver</dt><dd>Chambres de métiers, CFA, experts-comptables, courtiers en fonds de commerce, annonces de cession, BODACC.</dd></div>
+        </dl>
+        <div class="pcard-f">Objectif 10 early adopters · facile à convaincre, difficile à identifier</div>
+      </article>
+
+      <div class="excl">
+        <h4>Trois cibles évidentes, volontairement écartées</h4>
+        <ul>
+          <li><b>La pizzeria et la restauration à emporter.</b> Sa douleur, ce sont les 30 % de commission sur un volume de commandes <em>qui existe</em>. L'app n'a ni livraison, ni paiement, ni clients : la promesse « zéro commission » ne peut pas être honorée.</li>
+          <li><b>Le boulanger-pâtissier grand public.</b> Sa douleur est le beurre et l'électricité — ça se soigne par une centrale d'achat, qui n'est pas en service. Et il n'a aucun besoin d'être découvert.</li>
+          <li><b>Le boucher « recrutement ».</b> 74 % d'embauches difficiles, c'est réel. Mais sur la page pro, « Recrutez selon vos besoins » et « Entrez en contact avec vos pairs » portent le même texte : c'est la même messagerie. Face à Indeed et aux CFA, ça ne tient pas.</li>
+        </ul>
+        <p class="note" style="margin-top:.7rem">Si la centrale de référencement s'avère réellement en service, les deux premiers reviennent immédiatement dans le haut du classement. C'est la question à poser à Bruno en semaine 1.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 07 ══════════════════════════════════════════════════ -->
+  <section class="fiche" id="f07">
+    <div class="fiche-head"><span class="fiche-ref">Fiche 07 · Besoin</span><span class="fiche-rule"></span></div>
+    <h2>À quel besoin l'application répond-elle&nbsp;?</h2>
+    <p class="lead">Quatre niveaux de lecture. Le site communique sur le plus haut ; les ventes se font sur le plus bas.</p>
+
+    <div class="split" style="margin-top:1.4rem">
+      <div>
+        <div class="ladder">
+          <div class="rung core">
+            <span class="rung-n">Niveau 1 — le job</span>
+            <span class="rung-t"><b>« Reprendre la main sur ma marge et sur ma clientèle, sans céder 30 % à un intermédiaire. »</b> C'est là que se prend la décision d'achat.</span>
+          </div>
+          <div class="rung">
+            <span class="rung-n">Niveau 2 — fonctionnel</span>
+            <span class="rung-t">Acheter moins cher · gagner du temps · être trouvé dans ma rue · trouver un salarié.</span>
+          </div>
+          <div class="rung">
+            <span class="rung-n">Niveau 3 — bénéfices</span>
+            <span class="rung-t">Les sept promesses affichées sur la page Professionnel. Utiles, mais non hiérarchisées et non chiffrées.</span>
+          </div>
+          <div class="rung">
+            <span class="rung-n">Niveau 4 — valeur</span>
+            <span class="rung-t">« Consommer autrement, valoriser l'artisanat. » Fédère une communauté. <b>Ne fait signer personne.</b></span>
+          </div>
+        </div>
+        <p class="note" style="margin-top:.9rem">La pyramide se lit du bas vers le haut en communication, mais du haut vers le bas en vente. Une campagne B2B qui attaque au niveau 4 génère de la sympathie et zéro lead qualifié.</p>
+      </div>
+
+      <div>
+        <p class="eyebrow">Pourquoi le produit y répond structurellement</p>
+        <div class="hero-thesis" style="margin:0 0 1rem">
+          <p><strong>Les CGU disent que l'application « n'a pas pour objet la conclusion de ventes » entre particuliers et professionnels.</strong> Autrement dit : la mise en relation est facturée en abonnement, jamais en pourcentage du panier.</p>
+        </div>
+        <p>Face à des plateformes qui prélèvent 15 à 30 %, c'est le seul différenciateur que la concurrence ne peut pas copier sans casser son propre modèle. C'est aussi le seul argument qui parle aux quatre personas à la fois.</p>
+        <p><strong>Recommandation :</strong> ce message doit devenir le titre de la page Professionnel, à la place de « Développez votre activité d'artisan ».</p>
+        <div class="grid g2" style="margin-top:1rem">
+          <div class="card" style="border-left:3px solid var(--paprika)"><h4>Ce qui est écrit aujourd'hui</h4><p>« Développez votre activité d'artisan avec 1001&nbsp;Goûts » — vrai pour tout le monde, donc pour personne.</p></div>
+          <div class="card" style="border-left:3px solid var(--verdigris)"><h4>Ce qui devrait l'être</h4><p>« Vendez en direct. Zéro commission. Un abonnement, c'est tout. » — vérifiable, opposable, chiffrable.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 08 ══════════════════════════════════════════════════ -->
+  <section class="fiche" id="f08">
+    <div class="fiche-head"><span class="fiche-ref">Fiche 08 · Messages &amp; acquisition</span><span class="fiche-rule"></span></div>
+    <h2>Une promesse, un canal, une preuve</h2>
+    <p class="lead">Les canaux de terrain sont sur chaque fiche persona. Voici le volet numérique — landing page, mots-clés, audiences — à décliner par famille pour les semaines 2 à 4.</p>
+
+    <div class="tbl-scroll" style="margin-top:1.3rem">
+      <table>
+        <thead>
+          <tr>
+            <th>Famille</th>
+            <th>Titre de la landing page</th>
+            <th>Google Search</th>
+            <th>Meta</th>
+            <th>Preuve à afficher</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-p" style="color:var(--verdigris)">A · Producteurs<br>P01 – P03</td>
+            <td><strong>« Vendez en direct. Zéro commission. »</strong></td>
+            <td><code>vendre ses légumes en direct</code> · <code>débouché vente directe producteur</code></td>
+            <td>Intérêts vente directe, AMAP, marchés de producteurs · rayon 30 km</td>
+            <td>Le nombre d'acheteurs professionnels actifs dans son rayon</td>
+          </tr>
+          <tr>
+            <td class="td-p" style="color:var(--paprika)">B · Acheteurs de local<br>P04 – P07</td>
+            <td><strong>« Vos producteurs à 30 km. Sans Rungis. »</strong></td>
+            <td><code>fournisseur local restaurant [ville]</code> · <code>producteur circuit court restauration</code></td>
+            <td>Ciblage professionnels de la restauration + similaires</td>
+            <td>Le carnet réel de producteurs de sa zone, pas une promesse</td>
+          </tr>
+          <tr>
+            <td class="td-p" style="color:var(--blue)">C · Sans vitrine<br>P08 – P09</td>
+            <td><strong>« Une vitrine, quand on n'a pas de boutique. »</strong></td>
+            <td><code>se faire connaître traiteur</code> · <code>visibilité food truck</code></td>
+            <td>Intérêts entrepreneuriat food, jeunes indépendants · ciblage local</td>
+            <td>Une fiche commerce d'exemple, complète et soignée</td>
+          </tr>
+          <tr>
+            <td class="td-p" style="color:var(--safran)">D · Nouvel installé<br>P10</td>
+            <td><strong>« Le réseau que vous n'avez pas encore. »</strong></td>
+            <td><code>reprendre une boulangerie</code> · <code>ouvrir un commerce alimentaire</code> · <code>aides installation artisan</code></td>
+            <td>Ciblage large + relais prescripteurs (CMA, CFA, experts-comptables)</td>
+            <td>Le témoignage d'un pair installé depuis moins d'un an</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note" style="margin-top:.9rem">Une landing page par persona, pas une seule mutualisée : les quatre promesses ci-dessus ne peuvent pas cohabiter sur la même page sans se neutraliser. Même formulaire, même tracking, dix titres.</p>
+    <p class="note"><strong>Attention à ce qu'on promet en publicité.</strong> Tant que la centrale d'achat, le label et l'accompagnement ne sont pas confirmés en service, aucune annonce ne doit s'appuyer dessus : l'écart entre la promesse et l'app se paie en désinscriptions, et c'est l'activation — pas l'inscription — qui est notée.</p>
+  </section>
+
+  <!-- ══ 09 ══════════════════════════════════════════════════ -->
+  <section class="fiche" id="f09">
+    <div class="fiche-head"><span class="fiche-ref">Fiche 09 · Risques</span><span class="fiche-rule"></span></div>
+    <h2>Ce qui va freiner la conversion</h2>
+    <p class="lead">Six points relevés en auditant le parcours B2B tel qu'un artisan le rencontre aujourd'hui.</p>
+
+    <ul class="risks" style="margin-top:1.3rem">
+      <li><span class="rn">1</span><div><b>Sept promesses, dont plusieurs conjuguées au futur</b><p>La fiche Play dit que le projet « envisage l'introduction » des achats groupés, des formations, du conseil et du soutien administratif et juridique ; pour le label, les membres « se verront remettre ». Ce que les CGU décrivent comme en service : la fiche commerce, la carte, les deux messageries, le fil. Vendre le reste en rendez-vous, c'est perdre le prospect à sa première question précise.</p></div></li>
+      <li><span class="rn">2</span><div><b>La page « Tarifs » renvoie une erreur 404</b><p>Le lien existe dans la navigation, la page n'existe pas. Sur un parcours B2B, le prix est la première question — c'est la fuite la plus coûteuse et la plus simple à corriger.</p></div></li>
+      <li><span class="rn">3</span><div><b>La promesse « trafic consommateur » n'est pas encore démontrable</b><p>Environ un millier d'installations réparties nationalement. La seule réponse est la concentration : recruter les deux versants d'un même circuit — un producteur <em>et</em> son acheteur — sur une seule zone, pour que chaque inscrit trouve quelqu'un en face dès sa première ouverture.</p></div></li>
+      <li><span class="rn">4</span><div><b>Signaux applicatifs contradictoires</b><p>Sur l'App Store : langue déclarée « Anglais », catégorie « Shopping », classement 18+, iPhone uniquement. Pour un artisan de 50 ans qui vérifie avant d'installer, chacun de ces détails est un motif d'abandon.</p></div></li>
+      <li><span class="rn">5</span><div><b>Aucun avis, aucune note publiée</b><p>Or c'est une cible qui achète sur la recommandation d'un confrère. Dix témoignages vidéo de trente secondes valent mieux que toute la page de bénéfices.</p></div></li>
+      <li><span class="rn">6</span><div><b>Le label est un produit, pas un bonus</b><p>Audit préalable et contrôles aléatoires par des agents de terrain : c'est le poste de coût le plus lourd de l'offre — et le seul actif que personne ne peut copier. À traiter, tarifer et vendre comme tel.</p></div></li>
+    </ul>
+  </section>
+
+  <!-- ══ 10 ══════════════════════════════════════════════════ -->
+  <section class="fiche" id="f10">
+    <div class="fiche-head"><span class="fiche-ref">Fiche 10 · Terrain</span><span class="fiche-rule"></span></div>
+    <h2>Cinq semaines pour livrer 20 early adopters</h2>
+    <p class="lead">Rien de ce qui précède n'est une conclusion : ce sont des hypothèses documentées. Le terrain les casse ou les confirme — et sur ce challenge, <strong>l'entretien terrain est aussi l'installation</strong> : on ne repart pas sans avoir ouvert l'app avec lui.</p>
+
+    <div class="plan" style="margin-top:1.4rem">
+      <div class="step">
+        <span class="step-w">Semaine 1 — terrain</span>
+        <h4>Choisir sa zone, valider ses 2 personas</h4>
+        <ul>
+          <li>Une zone de chalandise, arrêtée définitivement</li>
+          <li>6 entretiens-démos par groupe, 3 par persona</li>
+          <li>Caler avec Bruno la définition de l'early adopter validé</li>
+          <li>Objectif : 4 premières inscriptions</li>
+        </ul>
+        <p class="note" style="margin-top:.6rem">Les marchés du samedi matin : les personas 01, 03, 05 et 09 s'y croisent tous. Puis CMA, CFA, halles.</p>
+      </div>
+
+      <div class="step">
+        <span class="step-w">Semaine 2 — landing page</span>
+        <h4>Une page par persona</h4>
+        <ul>
+          <li>Titre = la promesse validée en semaine 1, pas celle du deck</li>
+          <li>Un seul formulaire, un seul appel à l'action</li>
+          <li>Poursuivre le terrain en parallèle — il ne s'arrête jamais</li>
+          <li>Objectif : 2 pages en ligne à J+10</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <span class="step-w">Semaine 3 — tracking</span>
+        <h4>Savoir d'où viennent les actifs</h4>
+        <ul>
+          <li>Chaîne complète : source → inscription → activation</li>
+          <li>Recalibrer les deux taux de conversion sur le réel</li>
+          <li>Un tableau de suivi partagé, mis à jour chaque jour</li>
+          <li>Objectif : le compteur d'early adopters est fiable</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <span class="step-w">Semaine 4 — campagnes</span>
+        <h4>Meta et Google, un persona à la fois</h4>
+        <ul>
+          <li>Meta pour les familles A et C, Google Search pour B et D</li>
+          <li>Budget de test, jamais les deux personas en même temps</li>
+          <li>Objectif : un premier coût par early adopter</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <span class="step-w">Semaine 5 — livraison</span>
+        <h4>Atteindre 20, documenter comment</h4>
+        <ul>
+          <li>Couper ce qui ne convertit pas, réinvestir sur ce qui marche</li>
+          <li>Relancer les inscrits inactifs — c'est là que se gagne l'activation</li>
+          <li>Objectif : 20 early adopters validés + le coût unitaire</li>
+        </ul>
+      </div>
+
+      <div class="step kpi">
+        <h4>Les 3 KPI notés</h4>
+        <ul>
+          <li><strong>Early adopters validés</strong> — les 3 critères réunis. Le seul chiffre qui compte pour le client.</li>
+          <li><strong>Coût par early adopter</strong> — budget publicitaire divisé par les actifs venus des campagnes.</li>
+          <li><strong>Taux inscription → usage régulier</strong> — s'il tombe sous 40 %, le problème n'est pas l'acquisition, c'est le produit ou la promesse. Le dire est un livrable, pas un échec.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ sources ═════════════════════════════════════════════ -->
+  <section class="fiche" id="sources">
+    <div class="fiche-head"><span class="fiche-ref">Sources</span><span class="fiche-rule"></span></div>
+    <div class="srcs">
+      <p><b>Produit —</b> 1001gouts.com, pages Notre raison d'être, Professionnel, Rejoignez-nous, CGU et Mentions légales, consultées le 3 août 2026 · fiches Google Play et App Store de l'application 1001Goûts.</p>
+      <p><b>Entreprises —</b> Observatoire des Métiers de l'Alimentation, tableaux de bord des six branches (77 310 entreprises, 2023) · CGAD, chiffres du commerce alimentaire de proximité · Confédération Nationale de la Boulangerie-Pâtisserie Française.</p>
+      <p><b>Agriculture —</b> Agreste, recensement agricole 2020, « Près d'une exploitation sur quatre vend en circuit court ».</p>
+      <p><b>Emploi —</b> baromètre emploi de l'artisanat 2025 (ISM / MAAF) · Insee, « Durée de travail des indépendants » (2 865 h/an dans les métiers de bouche).</p>
+      <p><b>Coûts &amp; défaillances —</b> observatoires filière boulangerie-pâtisserie 2024-2025 · Altares, bilan 2025 des défaillances d'entreprises · UMIH, secteur CHR.</p>
+      <p><b>Numérique —</b> Baromètre France Num 2025 (DGE) · enquêtes commerce de proximité 2025.</p>
+      <p><b>Consommation —</b> enquêtes CSA / CGAD et études commerce de proximité 2025 sur l'achat local et le consentement à payer.</p>
+      <p><b>Benchmark —</b> groupements d'achat de la filière (France Boulangerie, Evidense, C3AO) · comparatifs de commissions des plateformes de livraison 2026.</p>
+    </div>
+    <p class="note" style="margin-top:1.1rem">Les volumes TAM / SAM / SOM sont des estimations modélisées à partir des sources ci-dessus : les statistiques publiques ne comptent pas ces trois populations ensemble. Les positions de la matrice de priorisation relèvent de l'analyse et doivent être confrontées aux 30 entretiens.</p>
+  </section>
+
+  <div class="foot">Dossier de ciblage B2B · 1001 Goûts (KLS SAS) · établi le 3 août 2026</div>
+</main>
+
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+<script>
+  (function () {
+    var tip = document.getElementById('tip');
+    var current = null;
+
+    function show(e, text) {
+      tip.textContent = text;
+      tip.classList.add('on');
+      move(e);
+    }
+    function move(e) {
+      var x = (e.clientX || 0) + 14, y = (e.clientY || 0) + 16;
+      var r = tip.getBoundingClientRect();
+      if (x + r.width > window.innerWidth - 8) x = window.innerWidth - r.width - 8;
+      if (y + r.height > window.innerHeight - 8) y = (e.clientY || 0) - r.height - 12;
+      tip.style.left = x + 'px';
+      tip.style.top = y + 'px';
+    }
+    function hide() { tip.classList.remove('on'); current = null; }
+
+    document.addEventListener('mouseover', function (e) {
+      var t = e.target.closest('[data-tip]');
+      if (!t || t === current) return;
+      current = t;
+      show(e, t.getAttribute('data-tip'));
+    });
+    document.addEventListener('mousemove', function (e) {
+      if (current) move(e);
+    });
+    document.addEventListener('mouseout', function (e) {
+      var t = e.target.closest('[data-tip]');
+      if (t && t === current) hide();
+    });
+    window.addEventListener('scroll', hide, { passive: true });
+  })();
+</script>
