@@ -14,7 +14,7 @@ const Bouchers = () => {
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.1] text-[#14181C] mb-6 tracking-tight">
               Ils n'ont pas un problème de demande.<br />
-              <span className="text-[#F9A81E]">Ils ont un problème de marge.</span>
+              <span className="text-[#F9A81E] font-accent font-normal tracking-normal text-6xl md:text-7xl lg:text-8xl block mt-2">Ils ont un problème de marge.</span>
             </h1>
             <div className="p-5 bg-white border border-[#D9DCD5] border-l-4 border-l-[#F9A81E] shadow-sm mb-8 max-w-xl">
               <p className="text-lg text-[#14181C] leading-relaxed font-medium">

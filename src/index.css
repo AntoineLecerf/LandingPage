@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
-  --font-display: "Outfit", "Bahnschrift", "Avenir Next Condensed", sans-serif;
+  --font-sans: "Barlow", "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Carter One", "Bahnschrift", "Avenir Next Condensed", sans-serif;
+  --font-accent: "Lobster", cursive;
   
   --color-brand-green: #558D4D; /* Action principale, confiance */
   --color-brand-orange: #F9A81E; /* 0% commission, accroche */

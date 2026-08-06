@@ -14,7 +14,7 @@ const Itinerants = () => {
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.1] text-[#14181C] mb-6 tracking-tight">
               Vos clients ne devinent pas où vous êtes.<br />
-              <span className="text-[#558D4D]">Ils le voient en direct.</span>
+              <span className="text-[#558D4D] font-accent font-normal tracking-normal text-6xl md:text-7xl lg:text-8xl block mt-2">Ils le voient en direct.</span>
             </h1>
             <div className="p-5 bg-white border border-[#D9DCD5] border-l-4 border-l-[#558D4D] shadow-sm mb-8 max-w-xl">
               <p className="text-lg text-[#14181C] leading-relaxed font-medium">
