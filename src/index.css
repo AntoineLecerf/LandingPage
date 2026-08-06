@@ -5,24 +5,23 @@
   --font-display: "Carter One", "Bahnschrift", "Avenir Next Condensed", sans-serif;
   --font-accent: "Lobster", cursive;
   
-  --color-brand-epinard: #19522A; /* Vert foncé, texte fort et logo */
-  --color-brand-prairie: #558D4D; /* Vert clair, action principale */
-  --color-brand-mandarine: #F48631; /* Orange, accroche */
+  --color-brand-green: #558D4D; /* Vert prairie, action principale */
+  --color-brand-green-dark: #19522A; /* Vert épinard, footer & accents forts */
+  --color-brand-orange: #f39313; /* Orange doré, accroche & CTA secondaire */
   --color-brand-rose: #FF859D; /* Rose smoothie, accent */
   
-  --color-bg-ecru: #FDF3E2; /* Fond général */
-  --color-bg-surface: #FBFBF8; /* Fond des cartes */
+  --color-bg-base: #f8f6f4; /* Fond général (crème clair du site officiel) */
+  --color-bg-surface: #ffffff; /* Fond des cartes */
   
-  --color-text-ink: #19522A; /* Texte fort en vert épinard */
-  --color-text-charcoal: #4F4D43; /* Texte de lecture */
+  --color-text-ink: #4f4d43; /* Texte fort, titres (brun chaud du site officiel) */
   --color-text-muted: #667079;
   
   --color-border-rule: #D9DCD5;
 }
 
 body {
-  background-color: var(--color-bg-ecru);
-  color: var(--color-text-charcoal);
+  background-color: var(--color-bg-base);
+  color: var(--color-text-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
