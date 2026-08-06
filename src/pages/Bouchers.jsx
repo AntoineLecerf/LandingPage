@@ -5,19 +5,19 @@ const Bouchers = () => {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#f8f6f4] pt-20 pb-24 md:pt-32 md:pb-32">
+      <section className="relative overflow-hidden bg-[#FDF3E2] pt-20 pb-24 md:pt-32 md:pb-32">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div className="z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f39313]/10 text-[#f39313] font-mono text-xs font-bold tracking-widest uppercase mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#f39313]"></span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#19522A]/10 text-[#19522A] font-mono text-xs font-bold tracking-widest uppercase mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#19522A]"></span>
               Bouchers & Charcutiers
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display leading-[1.1] text-[#4f4d43] mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display leading-[1.1] text-[#19522A] mb-6 tracking-tight">
               Ils n'ont pas un problème de demande.<br />
-              <span className="text-[#f39313] font-accent font-normal tracking-normal text-6xl md:text-7xl lg:text-8xl block mt-2">Ils ont un problème de marge.</span>
+              <span className="text-[#19522A] font-accent font-normal tracking-normal text-6xl md:text-7xl lg:text-8xl block mt-2">Ils ont un problème de marge.</span>
             </h1>
             <div className="p-5 bg-white border border-[#D9DCD5] border-l-4 border-l-[#f39313] shadow-sm mb-8 max-w-xl">
-              <p className="text-lg text-[#4f4d43] leading-relaxed font-medium">
+              <p className="text-lg text-[#4A4A4A] leading-relaxed font-medium">
                 La seule application qui connecte les artisans avec les consommateurs locaux, sans <strong>aucune commission sur les ventes</strong>. Récupérez ce qui vous appartient.
               </p>
             </div>
@@ -34,12 +34,12 @@ const Bouchers = () => {
           
           <div className="relative z-10 flex justify-center">
             {/* Visual placeholder for the app mockup */}
-            <div className="relative w-full max-w-sm aspect-[9/19] bg-white rounded-[3rem] border-8 border-[#4f4d43] shadow-2xl overflow-hidden flex items-center justify-center">
-              <div className="absolute top-0 w-40 h-7 bg-[#4f4d43] rounded-b-3xl"></div>
+            <div className="relative w-full max-w-sm aspect-[9/19] bg-white rounded-[3rem] border-8 border-[#19522A] shadow-2xl overflow-hidden flex items-center justify-center">
+              <div className="absolute top-0 w-40 h-7 bg-[#19522A] rounded-b-3xl"></div>
               <div className="p-6 text-center">
                 <img src="/1001GOUTS-LOGO-RVB.png" alt="1001 Goûts" className="h-12 mx-auto mb-6" />
-                <div className="bg-[#f8f6f4] p-4 rounded-xl mb-4 border border-[#D9DCD5]">
-                  <h3 className="font-display text-xl text-[#4f4d43]">Boucherie Tradition</h3>
+                <div className="bg-[#FDF3E2] p-4 rounded-xl mb-4 border border-[#D9DCD5]">
+                  <h3 className="font-accent text-xl text-[#FF859D]">Boucherie Tradition</h3>
                   <p className="text-sm text-[#667079]">100% de la marge conservée</p>
                 </div>
                 <div className="bg-[#558D4D]/10 text-[#558D4D] p-4 rounded-xl border border-[#558D4D]/20 font-medium">
@@ -57,16 +57,16 @@ const Bouchers = () => {
         {/* SVG Wave */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
           <svg className="relative block w-full h-12 md:h-24" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,113.8,194,92.83,238.13,78.21,280.9,64,321.39,56.44Z" fill="#ffffff"></path>
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,113.8,194,92.83,238.13,78.21,280.9,64,321.39,56.44Z" fill="#FDF3E2"></path>
           </svg>
         </div>
       </section>
 
       {/* Pain Points Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#FDF3E2]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-display text-[#4f4d43] mb-4">
+            <h2 className="text-3xl md:text-4xl font-display text-[#19522A] mb-4">
               La qualité a un prix, mais ce n'est pas à vous de le payer
             </h2>
             <p className="text-lg text-[#667079]">
@@ -75,39 +75,39 @@ const Bouchers = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-[#f8f6f4] p-8 rounded-2xl border border-[#D9DCD5] shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+            <div className="bg-white p-8 rounded-2xl border border-[#D9DCD5] shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
               <div className="absolute top-0 left-0 w-full h-1 bg-[#f39313] group-hover:h-2 transition-all"></div>
               <div className="w-12 h-12 bg-[#f39313]/10 rounded-xl flex items-center justify-center text-[#f39313] mb-6">
                 <TrendingUp className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-display text-[#4f4d43] mb-3">La Marge</h3>
-              <div className="text-4xl font-display text-[#4f4d43] mb-2">-4.2 pts</div>
+              <h3 className="text-xl font-accent text-[#FF859D] mb-3">La Marge</h3>
+              <div className="text-4xl font-display text-[#19522A] mb-2">-4.2 pts</div>
               <p className="text-[#667079] text-sm leading-relaxed">
-                De marge perdus en deux ans par les artisans de bouche. Notre solution ? <strong className="text-[#4f4d43]">0% de commission</strong> sur vos ventes. Le prix que le client paie est l'argent que vous touchez.
+                De marge perdus en deux ans par les artisans de bouche. Notre solution ? <strong className="text-[#4A4A4A]">0% de commission</strong> sur vos ventes. Le prix que le client paie est l'argent que vous touchez.
               </p>
             </div>
             
-            <div className="bg-[#f8f6f4] p-8 rounded-2xl border border-[#D9DCD5] shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+            <div className="bg-white p-8 rounded-2xl border border-[#D9DCD5] shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
               <div className="absolute top-0 left-0 w-full h-1 bg-[#FF859D] group-hover:h-2 transition-all"></div>
               <div className="w-12 h-12 bg-[#FF859D]/10 rounded-xl flex items-center justify-center text-[#FF859D] mb-6">
                 <Clock className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-display text-[#4f4d43] mb-3">Le Temps</h3>
-              <div className="text-4xl font-display text-[#4f4d43] mb-2">9.6h/j</div>
+              <h3 className="text-xl font-accent text-[#FF859D] mb-3">Le Temps</h3>
+              <div className="text-4xl font-display text-[#19522A] mb-2">9.6h/j</div>
               <p className="text-[#667079] text-sm leading-relaxed">
-                De travail effectif. Vous n'avez pas le temps pour une application chronophage. Votre vitrine 1001 Goûts se crée en <strong className="text-[#4f4d43]">5 minutes chrono</strong>.
+                De travail effectif. Vous n'avez pas le temps pour une application chronophage. Votre vitrine 1001 Goûts se crée en <strong className="text-[#4A4A4A]">5 minutes chrono</strong>.
               </p>
             </div>
             
-            <div className="bg-[#f8f6f4] p-8 rounded-2xl border border-[#D9DCD5] shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+            <div className="bg-white p-8 rounded-2xl border border-[#D9DCD5] shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
               <div className="absolute top-0 left-0 w-full h-1 bg-[#558D4D] group-hover:h-2 transition-all"></div>
               <div className="w-12 h-12 bg-[#558D4D]/10 rounded-xl flex items-center justify-center text-[#558D4D] mb-6">
                 <Users className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-display text-[#4f4d43] mb-3">Les Bras</h3>
-              <div className="text-4xl font-display text-[#4f4d43] mb-2">74%</div>
+              <h3 className="text-xl font-accent text-[#FF859D] mb-3">Les Bras</h3>
+              <div className="text-4xl font-display text-[#19522A] mb-2">74%</div>
               <p className="text-[#667079] text-sm leading-relaxed">
-                Des projets d'embauche en boucherie sont jugés difficiles. Notre app intègre <strong className="text-[#4f4d43]">la mise en relation directe</strong> avec les talents locaux.
+                Des projets d'embauche en boucherie sont jugés difficiles. Notre app intègre <strong className="text-[#4A4A4A]">la mise en relation directe</strong> avec les talents locaux.
               </p>
             </div>
           </div>
@@ -115,11 +115,11 @@ const Bouchers = () => {
       </section>
       
       {/* Solution Section */}
-      <section className="py-20 bg-[#f8f6f4]">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-display text-[#4f4d43] mb-6">
+              <h2 className="text-3xl md:text-4xl font-display text-[#19522A] mb-6">
                 Vos bénéfices en tant qu'Early Adopter
               </h2>
               <ul className="space-y-6">
@@ -128,7 +128,7 @@ const Bouchers = () => {
                     <CheckCircle2 className="w-6 h-6 text-[#558D4D]" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-[#4f4d43] mb-1">Vitrine Numérique Automatisée</h4>
+                    <h4 className="text-lg font-bold text-[#19522A] mb-1">Vitrine Numérique Automatisée</h4>
                     <p className="text-[#667079] text-sm leading-relaxed">Soyez visible par les consommateurs de votre ville sans effort de gestion quotidienne.</p>
                   </div>
                 </li>
@@ -137,7 +137,7 @@ const Bouchers = () => {
                     <CheckCircle2 className="w-6 h-6 text-[#558D4D]" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-[#4f4d43] mb-1">Centrale de Référencement (À venir)</h4>
+                    <h4 className="text-lg font-bold text-[#19522A] mb-1">Centrale de Référencement (À venir)</h4>
                     <p className="text-[#667079] text-sm leading-relaxed">Accédez à des matières premières et du matériel à tarifs négociés grâce à la force du réseau.</p>
                   </div>
                 </li>
@@ -146,13 +146,13 @@ const Bouchers = () => {
                     <CheckCircle2 className="w-6 h-6 text-[#558D4D]" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-[#4f4d43] mb-1">Réseau Local Qualifié</h4>
+                    <h4 className="text-lg font-bold text-[#19522A] mb-1">Réseau Local Qualifié</h4>
                     <p className="text-[#667079] text-sm leading-relaxed">Ne soyez pas noyé au milieu de la France entière. L'app s'ouvre ville par ville pour garantir une densité utile.</p>
                   </div>
                 </li>
               </ul>
             </div>
-            <div className="bg-white p-10 rounded-[2rem] border border-[#D9DCD5] relative">
+            <div className="bg-[#FDF3E2] p-10 rounded-[2rem] border border-[#D9DCD5] relative">
               <img src="/pictos - 1.jpg" alt="Illustration artisans" className="w-full h-auto rounded-xl shadow-lg mix-blend-multiply opacity-90" />
             </div>
           </div>
@@ -171,18 +171,18 @@ const Bouchers = () => {
             Nous n'acceptons que 20 Early Adopters par zone pour garantir la qualité du réseau. Créez votre compte pro gratuitement dès aujourd'hui.
           </p>
           <div className="bg-white p-8 rounded-2xl shadow-xl max-w-md mx-auto">
-            <h3 className="text-xl font-bold text-[#4f4d43] mb-6">Inscription Pro (Boucherie)</h3>
+            <h3 className="text-xl font-bold text-[#19522A] mb-6">Inscription Pro (Boucherie)</h3>
             <form className="space-y-4 text-left">
               <div>
-                <label className="block text-sm font-medium text-[#4f4d43] mb-1">Nom du commerce</label>
+                <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Nom du commerce</label>
                 <input type="text" className="w-full px-4 py-3 rounded-lg border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D]" placeholder="Ex: Boucherie Tradition" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#4f4d43] mb-1">Email professionnel</label>
+                <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Email professionnel</label>
                 <input type="email" className="w-full px-4 py-3 rounded-lg border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D]" placeholder="contact@boucherie.fr" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#4f4d43] mb-1">Code Postal</label>
+                <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Code Postal</label>
                 <input type="text" className="w-full px-4 py-3 rounded-lg border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D]" placeholder="Ex: 78400" />
               </div>
               <button type="button" className="w-full bg-[#f39313] hover:bg-[#d97f0e] text-white font-medium py-3 rounded-lg transition-colors mt-4">

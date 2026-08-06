@@ -6,14 +6,15 @@
   --font-accent: "Lobster", cursive;
   
   --color-brand-green: #558D4D; /* Vert prairie, action principale */
-  --color-brand-green-dark: #19522A; /* Vert épinard, footer & accents forts */
+  --color-brand-green-dark: #19522A; /* Vert épinard, titres & accents forts */
   --color-brand-orange: #f39313; /* Orange doré, accroche & CTA secondaire */
-  --color-brand-rose: #FF859D; /* Rose smoothie, accent */
+  --color-brand-rose: #FF859D; /* Rose smoothie, h3 & accents nav */
   
-  --color-bg-base: #f8f6f4; /* Fond général (crème clair du site officiel) */
+  --color-bg-base: #FDF3E2; /* Fond général (crème chaud du site officiel) */
   --color-bg-surface: #ffffff; /* Fond des cartes */
   
-  --color-text-ink: #4f4d43; /* Texte fort, titres (brun chaud du site officiel) */
+  --color-text-ink: #19522A; /* Titres h1/h2 en vert épinard */
+  --color-text-body: #4A4A4A; /* Texte de lecture (paragraphes) */
   --color-text-muted: #667079;
   
   --color-border-rule: #D9DCD5;
@@ -21,7 +22,7 @@
 
 body {
   background-color: var(--color-bg-base);
-  color: var(--color-text-ink);
+  color: var(--color-text-body);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
