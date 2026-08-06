@@ -1,32 +1,62 @@
 import React from 'react';
-import { Store, Clock, Users, ArrowRight, CheckCircle2, TrendingUp } from 'lucide-react';
+import { Clock, Users, ArrowRight, CheckCircle2, TrendingUp } from 'lucide-react';
+
+/* Paint-splash SVG separator — organic, artisanal feel matching 1001gouts.com */
+const PaintSplash = ({ fillColor = '#FDF3E2', className = '' }) => (
+  <div className={`absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20 ${className}`}>
+    <svg className="relative block w-full h-20 md:h-32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 140" preserveAspectRatio="none">
+      {/* Main organic wave */}
+      <path d="M0,80 C60,65 120,95 200,85 C280,75 320,100 420,90 C520,80 560,60 680,70 C800,80 840,105 960,95 C1080,85 1120,65 1240,75 C1320,82 1380,90 1440,78 L1440,140 L0,140 Z" fill={fillColor} />
+      {/* Splash drops */}
+      <ellipse cx="180" cy="72" rx="8" ry="5" fill={fillColor} opacity="0.8" />
+      <ellipse cx="520" cy="58" rx="6" ry="4" fill={fillColor} opacity="0.7" />
+      <ellipse cx="890" cy="68" rx="7" ry="4" fill={fillColor} opacity="0.6" />
+      <ellipse cx="1150" cy="62" rx="5" ry="3" fill={fillColor} opacity="0.7" />
+      <ellipse cx="350" cy="78" rx="4" ry="3" fill={fillColor} opacity="0.5" />
+      <ellipse cx="1050" cy="72" rx="5" ry="3" fill={fillColor} opacity="0.5" />
+      {/* Smaller splatter accents */}
+      <circle cx="210" cy="65" r="3" fill={fillColor} opacity="0.6" />
+      <circle cx="540" cy="52" r="2.5" fill={fillColor} opacity="0.5" />
+      <circle cx="920" cy="60" r="3" fill={fillColor} opacity="0.4" />
+      <circle cx="1180" cy="56" r="2" fill={fillColor} opacity="0.5" />
+      <circle cx="750" cy="62" r="2.5" fill={fillColor} opacity="0.4" />
+      <circle cx="100" cy="70" r="2" fill={fillColor} opacity="0.5" />
+      <circle cx="1350" cy="70" r="3" fill={fillColor} opacity="0.4" />
+    </svg>
+  </div>
+);
+
+const PaintSplashTop = ({ fillColor = '#FDF3E2', className = '' }) => (
+  <div className={`absolute top-0 left-0 w-full overflow-hidden leading-none z-20 ${className}`}>
+    <svg className="relative block w-full h-16 md:h-28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,40 C100,55 200,25 340,35 C480,45 540,60 700,50 C860,40 920,20 1080,30 C1200,38 1320,55 1440,45 L1440,0 L0,0 Z" fill={fillColor} />
+      <ellipse cx="300" cy="40" rx="6" ry="4" fill={fillColor} opacity="0.7" />
+      <ellipse cx="660" cy="54" rx="5" ry="3" fill={fillColor} opacity="0.6" />
+      <ellipse cx="1040" cy="35" rx="7" ry="4" fill={fillColor} opacity="0.5" />
+      <circle cx="330" cy="46" r="2.5" fill={fillColor} opacity="0.5" />
+      <circle cx="690" cy="60" r="2" fill={fillColor} opacity="0.4" />
+      <circle cx="1070" cy="28" r="3" fill={fillColor} opacity="0.4" />
+    </svg>
+  </div>
+);
 
 const Bouchers = () => {
   return (
     <div className="w-full">
-      {/* Hero Section — Cover photo + gradient overlay like 1001gouts.com */}
+      {/* Hero Section — Cover photo + gradient overlay */}
       <section className="relative overflow-hidden min-h-[90vh] flex items-center">
-        {/* Background image */}
         <img 
           src="/hero-bouchers.jpg" 
           alt="" 
           className="absolute inset-0 w-full h-full object-cover"
           fetchpriority="high"
         />
-        {/* Gradient overlay — warm amber to dark for text legibility */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a0f00]/85 via-[#3d1f00]/60 to-transparent"></div>
-        {/* Bottom gradient for smooth transition to next section */}
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#FDF3E2] to-transparent"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 py-20 grid md:grid-cols-2 gap-12 items-center w-full">
           <div>
-            {/* Decorative bar like on the official site */}
             <div className="w-12 h-1.5 bg-[#f39313] rounded-full mb-8"></div>
-            
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white/90 font-mono text-xs font-bold tracking-widest uppercase mb-6 border border-white/20">
-              <span className="w-2 h-2 rounded-full bg-[#f39313]"></span>
-              Bouchers & Charcutiers
-            </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-display leading-[1.05] text-white mb-4 tracking-tight">
               Ils n'ont pas un problème de demande.
@@ -52,7 +82,6 @@ const Bouchers = () => {
             </div>
           </div>
           
-          {/* Phone mockup */}
           <div className="relative z-10 flex justify-center">
             <div className="relative w-full max-w-[280px] aspect-[9/19] bg-white rounded-[3rem] border-[6px] border-white/30 shadow-2xl overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-black rounded-b-2xl z-20"></div>
@@ -70,18 +99,12 @@ const Bouchers = () => {
           </div>
         </div>
         
-        {/* SVG Organic Separator */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
-          <svg className="relative block w-full h-16 md:h-28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
-            <path d="M0,64 C120,90 240,100 360,88 C480,76 540,52 720,56 C900,60 1020,96 1200,88 C1320,82 1380,68 1440,72 L1440,120 L0,120 Z" fill="#FDF3E2"/>
-          </svg>
-        </div>
+        <PaintSplash fillColor="#FDF3E2" />
       </section>
 
       {/* Pain Points Section */}
-      <section className="py-20 bg-[#FDF3E2]">
+      <section className="relative py-20 bg-[#FDF3E2]">
         <div className="max-w-7xl mx-auto px-6">
-          {/* Decorative bar */}
           <div className="w-12 h-1.5 bg-[#19522A] rounded-full mb-6 mx-auto"></div>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-display text-[#19522A] mb-4">
@@ -98,10 +121,10 @@ const Bouchers = () => {
               <div className="w-12 h-12 bg-[#f39313]/10 rounded-xl flex items-center justify-center text-[#f39313] mb-6">
                 <TrendingUp className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-accent text-[#FF859D] mb-3">La Marge</h3>
+              <h3 className="font-accent text-xl text-[#FF859D] mb-3">La Marge</h3>
               <div className="text-4xl font-display text-[#19522A] mb-2">-4.2 pts</div>
               <p className="text-[#667079] text-sm leading-relaxed">
-                De marge perdus en deux ans par les artisans de bouche. Notre solution ? <strong className="text-[#4A4A4A]">0% de commission</strong> sur vos ventes. Le prix que le client paie est l'argent que vous touchez.
+                De marge perdus en deux ans par les artisans de bouche. Notre solution ? <strong className="text-[#4A4A4A]">0% de commission</strong> sur vos ventes.
               </p>
             </div>
             
@@ -110,10 +133,10 @@ const Bouchers = () => {
               <div className="w-12 h-12 bg-[#FF859D]/10 rounded-xl flex items-center justify-center text-[#FF859D] mb-6">
                 <Clock className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-accent text-[#FF859D] mb-3">Le Temps</h3>
+              <h3 className="font-accent text-xl text-[#FF859D] mb-3">Le Temps</h3>
               <div className="text-4xl font-display text-[#19522A] mb-2">9.6h/j</div>
               <p className="text-[#667079] text-sm leading-relaxed">
-                De travail effectif. Vous n'avez pas le temps pour une application chronophage. Votre vitrine 1001 Goûts se crée en <strong className="text-[#4A4A4A]">5 minutes chrono</strong>.
+                De travail effectif. Votre vitrine 1001 Goûts se crée en <strong className="text-[#4A4A4A]">5 minutes chrono</strong>.
               </p>
             </div>
             
@@ -122,7 +145,7 @@ const Bouchers = () => {
               <div className="w-12 h-12 bg-[#558D4D]/10 rounded-xl flex items-center justify-center text-[#558D4D] mb-6">
                 <Users className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-accent text-[#FF859D] mb-3">Les Bras</h3>
+              <h3 className="font-accent text-xl text-[#FF859D] mb-3">Les Bras</h3>
               <div className="text-4xl font-display text-[#19522A] mb-2">74%</div>
               <p className="text-[#667079] text-sm leading-relaxed">
                 Des projets d'embauche en boucherie sont jugés difficiles. Notre app intègre <strong className="text-[#4A4A4A]">la mise en relation directe</strong> avec les talents locaux.
@@ -130,10 +153,12 @@ const Bouchers = () => {
             </div>
           </div>
         </div>
+        
+        <PaintSplash fillColor="#ffffff" />
       </section>
       
       {/* Solution Section */}
-      <section className="py-20 bg-white">
+      <section className="relative py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
@@ -176,10 +201,12 @@ const Bouchers = () => {
             </div>
           </div>
         </div>
+        
+        <PaintSplash fillColor="#558D4D" />
       </section>
 
       {/* CTA Section */}
-      <section id="inscription" className="py-24 bg-[#558D4D] text-white relative overflow-hidden">
+      <section id="inscription" className="relative py-24 bg-[#558D4D] text-white overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
         
