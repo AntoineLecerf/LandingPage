@@ -5,14 +5,15 @@
   --font-display: "Carter One", "Bahnschrift", "Avenir Next Condensed", sans-serif;
   --font-accent: "Lobster", cursive;
   
-  --color-brand-green: #558D4D; /* Action principale, confiance */
-  --color-brand-orange: #F9A81E; /* 0% commission, accroche */
-  --color-brand-blue: #1A5F96; /* Institutionnel */
+  --color-brand-epinard: #19522A; /* Vert foncé, texte fort et logo */
+  --color-brand-prairie: #558D4D; /* Vert clair, action principale */
+  --color-brand-mandarine: #F48631; /* Orange, accroche */
+  --color-brand-rose: #FF859D; /* Rose smoothie, accent */
   
-  --color-bg-plane: #FDF3E2; /* Crème bio fond général */
+  --color-bg-ecru: #FDF3E2; /* Fond général */
   --color-bg-surface: #FBFBF8; /* Fond des cartes */
   
-  --color-text-ink: #14181C; /* Texte fort */
+  --color-text-ink: #19522A; /* Texte fort en vert épinard */
   --color-text-charcoal: #4F4D43; /* Texte de lecture */
   --color-text-muted: #667079;
   
@@ -20,7 +21,7 @@
 }
 
 body {
-  background-color: var(--color-bg-plane);
+  background-color: var(--color-bg-ecru);
   color: var(--color-text-charcoal);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Store, Clock, Users, ArrowRight, CheckCircle2, TrendingUp } from 'lucide-react';
 
 const Bouchers = () => {
@@ -8,17 +8,17 @@ const Bouchers = () => {
       <section className="relative overflow-hidden bg-[#FDF3E2] pt-20 pb-24 md:pt-32 md:pb-32">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div className="z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1A5F96]/10 text-[#1A5F96] font-mono text-xs font-bold tracking-widest uppercase mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#1A5F96]"></span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FF859D]/10 text-[#FF859D] font-mono text-xs font-bold tracking-widest uppercase mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#FF859D]"></span>
               Bouchers & Charcutiers
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.1] text-[#14181C] mb-6 tracking-tight">
-              Ils n'ont pas un problème de demande.<br />
-              <span className="text-[#F9A81E] font-accent font-normal tracking-normal text-6xl md:text-7xl lg:text-8xl block mt-2">Ils ont un problème de marge.</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.1] text-[#19522A] mb-6 tracking-tight">
+              Ils n'ont pas un problÃ¨me de demande.<br />
+              <span className="text-[#F48631] font-accent font-normal tracking-normal text-6xl md:text-7xl lg:text-8xl block mt-2">Ils ont un problÃ¨me de marge.</span>
             </h1>
-            <div className="p-5 bg-white border border-[#D9DCD5] border-l-4 border-l-[#F9A81E] shadow-sm mb-8 max-w-xl">
-              <p className="text-lg text-[#14181C] leading-relaxed font-medium">
-                La seule application qui connecte les artisans avec les consommateurs locaux, sans <strong>aucune commission sur les ventes</strong>. Récupérez ce qui vous appartient.
+            <div className="p-5 bg-white border border-[#D9DCD5] border-l-4 border-l-[#F48631] shadow-sm mb-8 max-w-xl">
+              <p className="text-lg text-[#19522A] leading-relaxed font-medium">
+                La seule application qui connecte les artisans avec les consommateurs locaux, sans <strong>aucune commission sur les ventes</strong>. RÃ©cupÃ©rez ce qui vous appartient.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -34,13 +34,13 @@ const Bouchers = () => {
           
           <div className="relative z-10 flex justify-center">
             {/* Visual placeholder for the app mockup */}
-            <div className="relative w-full max-w-sm aspect-[9/19] bg-white rounded-[3rem] border-8 border-[#14181C] shadow-2xl overflow-hidden flex items-center justify-center">
-              <div className="absolute top-0 w-40 h-7 bg-[#14181C] rounded-b-3xl"></div>
+            <div className="relative w-full max-w-sm aspect-[9/19] bg-white rounded-[3rem] border-8 border-[#19522A] shadow-2xl overflow-hidden flex items-center justify-center">
+              <div className="absolute top-0 w-40 h-7 bg-[#19522A] rounded-b-3xl"></div>
               <div className="p-6 text-center">
-                <img src="/1001GOUTS-LOGO-RVB.png" alt="1001 Goûts" className="h-12 mx-auto mb-6" />
+                <img src="/1001GOUTS-LOGO-RVB.png" alt="1001 GoÃ»ts" className="h-12 mx-auto mb-6" />
                 <div className="bg-[#FDF3E2] p-4 rounded-xl mb-4 border border-[#D9DCD5]">
-                  <h3 className="font-display font-bold text-xl text-[#14181C]">Boucherie Tradition</h3>
-                  <p className="text-sm text-[#667079]">100% de la marge conservée</p>
+                  <h3 className="font-display font-bold text-xl text-[#19522A]">Boucherie Tradition</h3>
+                  <p className="text-sm text-[#667079]">100% de la marge conservÃ©e</p>
                 </div>
                 <div className="bg-green-50 text-green-700 p-4 rounded-xl border border-green-200 font-medium">
                   +12 commandes aujourd'hui
@@ -49,7 +49,7 @@ const Bouchers = () => {
             </div>
             
             {/* Decorative organic shapes */}
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#F9A81E]/20 rounded-full blur-3xl -z-10"></div>
+            <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#F48631]/20 rounded-full blur-3xl -z-10"></div>
             <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-[#558D4D]/20 rounded-full blur-3xl -z-10"></div>
           </div>
         </div>
@@ -66,36 +66,36 @@ const Bouchers = () => {
       <section className="py-20 bg-[#FBFBF8]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-[#14181C] mb-4">
-              La qualité a un prix, mais ce n'est pas à vous de le payer
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-[#19522A] mb-4">
+              La qualitÃ© a un prix, mais ce n'est pas Ã  vous de le payer
             </h2>
             <p className="text-lg text-[#667079]">
-              L'énergie flambe, les matières premières explosent, et les plateformes prennent jusqu'à 30% de commission. 1001 Goûts attaque vos 3 plus gros problèmes.
+              L'Ã©nergie flambe, les matiÃ¨res premiÃ¨res explosent, et les plateformes prennent jusqu'Ã  30% de commission. 1001 GoÃ»ts attaque vos 3 plus gros problÃ¨mes.
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl border border-[#D9DCD5] shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-full h-1 bg-[#F9A81E] group-hover:h-2 transition-all"></div>
-              <div className="w-12 h-12 bg-[#F9A81E]/10 rounded-xl flex items-center justify-center text-[#F9A81E] mb-6">
+              <div className="absolute top-0 left-0 w-full h-1 bg-[#F48631] group-hover:h-2 transition-all"></div>
+              <div className="w-12 h-12 bg-[#F48631]/10 rounded-xl flex items-center justify-center text-[#F48631] mb-6">
                 <TrendingUp className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-display font-bold text-[#14181C] mb-3">La Marge</h3>
-              <div className="text-4xl font-display font-bold text-[#14181C] mb-2">-4.2 pts</div>
+              <h3 className="text-xl font-display font-bold text-[#19522A] mb-3">La Marge</h3>
+              <div className="text-4xl font-display font-bold text-[#19522A] mb-2">-4.2 pts</div>
               <p className="text-[#667079] text-sm leading-relaxed">
-                De marge perdus en deux ans par les artisans de bouche. Notre solution ? <strong className="text-[#14181C]">0% de commission</strong> sur vos ventes. Le prix que le client paie est l'argent que vous touchez.
+                De marge perdus en deux ans par les artisans de bouche. Notre solution ? <strong className="text-[#19522A]">0% de commission</strong> sur vos ventes. Le prix que le client paie est l'argent que vous touchez.
               </p>
             </div>
             
             <div className="bg-white p-8 rounded-2xl border border-[#D9DCD5] shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-full h-1 bg-[#1A5F96] group-hover:h-2 transition-all"></div>
-              <div className="w-12 h-12 bg-[#1A5F96]/10 rounded-xl flex items-center justify-center text-[#1A5F96] mb-6">
+              <div className="absolute top-0 left-0 w-full h-1 bg-[#FF859D] group-hover:h-2 transition-all"></div>
+              <div className="w-12 h-12 bg-[#FF859D]/10 rounded-xl flex items-center justify-center text-[#FF859D] mb-6">
                 <Clock className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-display font-bold text-[#14181C] mb-3">Le Temps</h3>
-              <div className="text-4xl font-display font-bold text-[#14181C] mb-2">9.6h/j</div>
+              <h3 className="text-xl font-display font-bold text-[#19522A] mb-3">Le Temps</h3>
+              <div className="text-4xl font-display font-bold text-[#19522A] mb-2">9.6h/j</div>
               <p className="text-[#667079] text-sm leading-relaxed">
-                De travail effectif. Vous n'avez pas le temps pour une application chronophage. Votre vitrine 1001 Goûts se crée en <strong className="text-[#14181C]">5 minutes chrono</strong>.
+                De travail effectif. Vous n'avez pas le temps pour une application chronophage. Votre vitrine 1001 GoÃ»ts se crÃ©e en <strong className="text-[#19522A]">5 minutes chrono</strong>.
               </p>
             </div>
             
@@ -104,10 +104,10 @@ const Bouchers = () => {
               <div className="w-12 h-12 bg-[#558D4D]/10 rounded-xl flex items-center justify-center text-[#558D4D] mb-6">
                 <Users className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-display font-bold text-[#14181C] mb-3">Les Bras</h3>
-              <div className="text-4xl font-display font-bold text-[#14181C] mb-2">74%</div>
+              <h3 className="text-xl font-display font-bold text-[#19522A] mb-3">Les Bras</h3>
+              <div className="text-4xl font-display font-bold text-[#19522A] mb-2">74%</div>
               <p className="text-[#667079] text-sm leading-relaxed">
-                Des projets d'embauche en boucherie sont jugés difficiles. Notre app intègre <strong className="text-[#14181C]">la mise en relation directe</strong> avec les talents locaux.
+                Des projets d'embauche en boucherie sont jugÃ©s difficiles. Notre app intÃ¨gre <strong className="text-[#19522A]">la mise en relation directe</strong> avec les talents locaux.
               </p>
             </div>
           </div>
@@ -119,8 +119,8 @@ const Bouchers = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-[#14181C] mb-6">
-                Vos bénéfices en tant qu'Early Adopter
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-[#19522A] mb-6">
+                Vos bÃ©nÃ©fices en tant qu'Early Adopter
               </h2>
               <ul className="space-y-6">
                 <li className="flex gap-4">
@@ -128,7 +128,7 @@ const Bouchers = () => {
                     <CheckCircle2 className="w-6 h-6 text-[#558D4D]" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-[#14181C] mb-1">Vitrine Numérique Automatisée</h4>
+                    <h4 className="text-lg font-bold text-[#19522A] mb-1">Vitrine NumÃ©rique AutomatisÃ©e</h4>
                     <p className="text-[#667079] text-sm leading-relaxed">Soyez visible par les consommateurs de votre ville sans effort de gestion quotidienne.</p>
                   </div>
                 </li>
@@ -137,8 +137,8 @@ const Bouchers = () => {
                     <CheckCircle2 className="w-6 h-6 text-[#558D4D]" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-[#14181C] mb-1">Centrale de Référencement (À venir)</h4>
-                    <p className="text-[#667079] text-sm leading-relaxed">Accédez à des matières premières et du matériel à tarifs négociés grâce à la force du réseau.</p>
+                    <h4 className="text-lg font-bold text-[#19522A] mb-1">Centrale de RÃ©fÃ©rencement (Ã€ venir)</h4>
+                    <p className="text-[#667079] text-sm leading-relaxed">AccÃ©dez Ã  des matiÃ¨res premiÃ¨res et du matÃ©riel Ã  tarifs nÃ©gociÃ©s grÃ¢ce Ã  la force du rÃ©seau.</p>
                   </div>
                 </li>
                 <li className="flex gap-4">
@@ -146,8 +146,8 @@ const Bouchers = () => {
                     <CheckCircle2 className="w-6 h-6 text-[#558D4D]" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-[#14181C] mb-1">Réseau Local Qualifié</h4>
-                    <p className="text-[#667079] text-sm leading-relaxed">Ne soyez pas noyé au milieu de la France entière. L'app s'ouvre ville par ville pour garantir une densité utile.</p>
+                    <h4 className="text-lg font-bold text-[#19522A] mb-1">RÃ©seau Local QualifiÃ©</h4>
+                    <p className="text-[#667079] text-sm leading-relaxed">Ne soyez pas noyÃ© au milieu de la France entiÃ¨re. L'app s'ouvre ville par ville pour garantir une densitÃ© utile.</p>
                   </div>
                 </li>
               </ul>
@@ -168,10 +168,10 @@ const Bouchers = () => {
         <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-4xl font-display font-bold mb-6 text-white">Prenez votre place.</h2>
           <p className="text-lg text-white/90 mb-10">
-            Nous n'acceptons que 20 Early Adopters par zone pour garantir la qualité du réseau. Créez votre compte pro gratuitement dès aujourd'hui.
+            Nous n'acceptons que 20 Early Adopters par zone pour garantir la qualitÃ© du rÃ©seau. CrÃ©ez votre compte pro gratuitement dÃ¨s aujourd'hui.
           </p>
           <div className="bg-white p-8 rounded-2xl shadow-xl max-w-md mx-auto">
-            <h3 className="text-xl font-bold text-[#14181C] mb-6">Inscription Pro (Boucherie)</h3>
+            <h3 className="text-xl font-bold text-[#19522A] mb-6">Inscription Pro (Boucherie)</h3>
             <form className="space-y-4 text-left">
               <div>
                 <label className="block text-sm font-medium text-[#4F4D43] mb-1">Nom du commerce</label>
@@ -185,7 +185,7 @@ const Bouchers = () => {
                 <label className="block text-sm font-medium text-[#4F4D43] mb-1">Code Postal</label>
                 <input type="text" className="w-full px-4 py-3 rounded-lg border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D]" placeholder="Ex: 78400" />
               </div>
-              <button type="button" className="w-full bg-[#14181C] hover:bg-[#262B30] text-white font-medium py-3 rounded-lg transition-colors mt-4">
+              <button type="button" className="w-full bg-[#19522A] hover:bg-[#262B30] text-white font-medium py-3 rounded-lg transition-colors mt-4">
                 Valider ma place
               </button>
             </form>
