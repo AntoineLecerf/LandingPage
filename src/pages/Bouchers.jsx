@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Clock, Users, ArrowRight, CheckCircle2, TrendingUp } from 'lucide-react';
+import { trackEvent, setClarityTag } from '../utils/clarity';
 
 /*
  * BrushSeparator — Renders the vecteezy brush stroke as a real <img>,
@@ -43,6 +44,29 @@ const BrushSeparator = ({ fillColor = '#FDF3E2', className = '' }) => (
 );
 
 const Bouchers = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', postalCode: '' });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email) return;
+
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsSubmitted(true);
+      trackEvent('bouchers_lead_submit');
+      setClarityTag('lead_persona', 'boucher');
+      if (formData.postalCode) setClarityTag('lead_cp', formData.postalCode);
+    }, 400);
+  };
+
   return (
     <div className="w-full overflow-x-clip">
       {/* Hero Section — Cover photo + gradient overlay */}
@@ -51,7 +75,7 @@ const Bouchers = () => {
           src="/hero-bouchers.jpg" 
           alt="" 
           className="absolute inset-0 w-full h-full object-cover"
-          fetchpriority="high"
+          fetchPriority="high"
         />
         {/* Stronger gradient for crisp text legibility without glassmorphism */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent"></div>
@@ -68,7 +92,7 @@ const Bouchers = () => {
               Ils ont un problème de marge.
             </p>
 
-            {/* Removed glassmorphism, replaced with clean solid padding area / border left */}
+            {/* Clean solid padding area / border left */}
             <div className="pl-6 border-l-4 border-[#f39313] mb-10 max-w-xl">
               <p className="text-lg text-white/95 leading-relaxed font-medium drop-shadow-sm">
                 La seule application qui connecte les artisans avec les consommateurs locaux, sans <strong className="text-white">aucune commission sur les ventes</strong>. Récupérez ce qui vous appartient.
@@ -76,7 +100,13 @@ const Bouchers = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-5 items-start">
-              <a href="#inscription" className="bg-[#558D4D] hover:bg-[#43723D] text-white px-8 py-4 rounded-full font-semibold text-lg text-center transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 group">
+              <a 
+                href="#inscription"
+                id="bouchers-cta-hero"
+                data-clarity-tag="hero-cta-bouchers"
+                onClick={() => trackEvent('cta_hero_bouchers_click')}
+                className="bg-[#558D4D] hover:bg-[#43723D] text-white px-8 py-4 rounded-full font-semibold text-lg text-center transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 group transform hover:-translate-y-0.5"
+              >
                 Devenir Early Adopter 
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
@@ -222,7 +252,7 @@ const Bouchers = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="inscription" className="relative py-24 bg-[#558D4D] text-white overflow-hidden">
+      <section id="inscription" className="relative py-24 bg-[#558D4D] text-white overflow-hidden scroll-mt-20">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
         
@@ -234,23 +264,72 @@ const Bouchers = () => {
           </p>
           <div className="bg-white p-8 rounded-2xl shadow-2xl max-w-md mx-auto">
             <h3 className="text-xl font-bold text-[#19522A] mb-6">Inscription Pro (Boucherie)</h3>
-            <form className="space-y-4 text-left">
-              <div>
-                <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Nom du commerce</label>
-                <input type="text" className="w-full px-4 py-3 rounded-lg border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A]" placeholder="Ex: Boucherie Tradition" />
+            {isSubmitted ? (
+              <div className="py-6 text-center" data-clarity-tag="form-success-bouchers">
+                <div className="w-14 h-14 bg-[#558D4D]/15 text-[#558D4D] rounded-full flex items-center justify-center mx-auto mb-3">
+                  <CheckCircle2 size={32} />
+                </div>
+                <h4 className="text-lg font-bold text-[#19522A] mb-1">Place pré-réservée !</h4>
+                <p className="text-xs text-[#667079] mb-4">Merci {formData.name}, nous validons votre éligibilité sous 24h.</p>
+                <button
+                  type="button"
+                  onClick={() => { setIsSubmitted(false); setFormData({ name: '', email: '', postalCode: '' }); }}
+                  className="text-xs text-[#558D4D] hover:underline font-semibold"
+                >
+                  Autre inscription
+                </button>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Email professionnel</label>
-                <input type="email" className="w-full px-4 py-3 rounded-lg border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A]" placeholder="contact@boucherie.fr" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Code Postal</label>
-                <input type="text" className="w-full px-4 py-3 rounded-lg border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A]" placeholder="Ex: 78400" />
-              </div>
-              <button type="button" className="w-full bg-[#f39313] hover:bg-[#d97f0e] text-white font-semibold py-3.5 rounded-full transition-colors mt-4 shadow-md hover:shadow-lg">
-                Valider ma place
-              </button>
-            </form>
+            ) : (
+              <form className="space-y-4 text-left" onSubmit={handleFormSubmit}>
+                <div>
+                  <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Nom du commerce <span className="text-[#f39313]">*</span></label>
+                  <input 
+                    type="text" 
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    data-clarity-mask="true"
+                    className="w-full px-4 py-3 rounded-lg border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A]" 
+                    placeholder="Ex: Boucherie Tradition" 
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Email professionnel <span className="text-[#f39313]">*</span></label>
+                  <input 
+                    type="email" 
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    data-clarity-mask="true"
+                    className="w-full px-4 py-3 rounded-lg border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A]" 
+                    placeholder="contact@boucherie.fr" 
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Code Postal</label>
+                  <input 
+                    type="text" 
+                    name="postalCode"
+                    value={formData.postalCode}
+                    onChange={handleInputChange}
+                    data-clarity-mask="true"
+                    className="w-full px-4 py-3 rounded-lg border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A]" 
+                    placeholder="Ex: 78400" 
+                  />
+                </div>
+                <button 
+                  type="submit" 
+                  id="bouchers-submit-btn"
+                  data-clarity-tag="submit-bouchers-btn"
+                  disabled={isLoading}
+                  className="w-full bg-[#f39313] hover:bg-[#d97f0e] text-white font-semibold py-3.5 rounded-full transition-colors mt-4 shadow-md hover:shadow-lg disabled:opacity-75 cursor-pointer"
+                >
+                  {isLoading ? 'Validation...' : 'Valider ma place'}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>
@@ -259,3 +338,4 @@ const Bouchers = () => {
 };
 
 export default Bouchers;
+

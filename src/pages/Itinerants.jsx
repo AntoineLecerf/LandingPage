@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MapPin, TrendingUp, BellRing, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { trackEvent, setClarityTag } from '../utils/clarity';
 
 /*
  * BrushSeparator — Renders the vecteezy brush stroke as a real <img>,
@@ -43,6 +44,29 @@ const BrushSeparator = ({ fillColor = '#FDF3E2', className = '' }) => (
 );
 
 const Itinerants = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', speciality: 'Restauration Rapide / Foodtruck' });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email) return;
+
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsSubmitted(true);
+      trackEvent('itinerants_lead_submit');
+      setClarityTag('lead_persona', 'itinerant');
+      if (formData.speciality) setClarityTag('lead_speciality', formData.speciality);
+    }, 400);
+  };
+
   return (
     <div className="w-full overflow-x-clip">
       {/* Hero Section — Cover photo + strong gradient overlay */}
@@ -51,7 +75,7 @@ const Itinerants = () => {
           src="/hero-itinerants.jpg" 
           alt="" 
           className="absolute inset-0 w-full h-full object-cover"
-          fetchpriority="high"
+          fetchPriority="high"
         />
         {/* Darker gradient to replace glassmorphism and ensure readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-transparent"></div>
@@ -76,7 +100,13 @@ const Itinerants = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 items-start">
-              <a href="#inscription" className="bg-[#f39313] hover:bg-[#d97f0e] text-white px-8 py-4 rounded-full font-semibold text-lg text-center transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 group">
+              <a 
+                href="#inscription"
+                id="itinerants-cta-hero"
+                data-clarity-tag="hero-cta-itinerants"
+                onClick={() => trackEvent('cta_hero_itinerants_click')}
+                className="bg-[#f39313] hover:bg-[#d97f0e] text-white px-8 py-4 rounded-full font-semibold text-lg text-center transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 group transform hover:-translate-y-0.5"
+              >
                 Créer ma fiche (Gratuit)
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
@@ -188,7 +218,7 @@ const Itinerants = () => {
       <section className="relative pt-20 pb-56 bg-white">
         <div className="max-w-7xl mx-auto px-6 relative z-30">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            {/* Fixed action card: Removed grayscale/blend filters, added clean layout */}
+            {/* Fixed action card */}
             <div className="bg-[#19522A] p-2 rounded-[2rem] relative overflow-hidden order-2 md:order-1 shadow-2xl flex flex-col group">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#558D4D]/20 rounded-full blur-3xl transition-opacity group-hover:opacity-100 opacity-50"></div>
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#f39313]/10 rounded-full blur-3xl transition-opacity group-hover:opacity-100 opacity-50"></div>
@@ -250,7 +280,7 @@ const Itinerants = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="inscription" className="relative py-24 bg-[#FDF3E2] overflow-hidden">
+      <section id="inscription" className="relative py-24 bg-[#FDF3E2] overflow-hidden scroll-mt-20">
         <div className="max-w-3xl mx-auto px-6 text-center relative z-30">
           <div className="w-12 h-1.5 bg-[#19522A] rounded-full mb-6 mx-auto"></div>
           <h2 className="text-4xl font-display mb-6 text-[#19522A]">Rejoignez le réseau local.</h2>
@@ -259,28 +289,75 @@ const Itinerants = () => {
           </p>
           <div className="bg-white p-8 rounded-2xl shadow-2xl border border-[#D9DCD5] max-w-md mx-auto">
             <h3 className="text-xl font-bold text-[#19522A] mb-6">Créer ma fiche Itinérant</h3>
-            <form className="space-y-4 text-left">
-              <div>
-                <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Nom (Food Truck, Stand...)</label>
-                <input type="text" className="w-full px-4 py-3 rounded-lg border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A]" placeholder="Ex: La Belle Époque Foodtruck" />
+            {isSubmitted ? (
+              <div className="py-6 text-center" data-clarity-tag="form-success-itinerants">
+                <div className="w-14 h-14 bg-[#558D4D]/15 text-[#558D4D] rounded-full flex items-center justify-center mx-auto mb-3">
+                  <CheckCircle2 size={32} />
+                </div>
+                <h4 className="text-lg font-bold text-[#19522A] mb-1">Fiche pré-créée !</h4>
+                <p className="text-xs text-[#667079] mb-4">Merci {formData.name}, votre demande a été reçue avec succès.</p>
+                <button
+                  type="button"
+                  onClick={() => { setIsSubmitted(false); setFormData({ name: '', email: '', speciality: 'Restauration Rapide / Foodtruck' }); }}
+                  className="text-xs text-[#558D4D] hover:underline font-semibold"
+                >
+                  Autre inscription
+                </button>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Email professionnel</label>
-                <input type="email" className="w-full px-4 py-3 rounded-lg border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A]" placeholder="contact@itinerant.fr" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Spécialité</label>
-                <select className="w-full px-4 py-3 rounded-lg border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A]">
-                  <option>Restauration Rapide / Foodtruck</option>
-                  <option>Maraîcher sur marché</option>
-                  <option>Fromager affineur</option>
-                  <option>Autre produit de bouche</option>
-                </select>
-              </div>
-              <button type="button" className="w-full bg-[#f39313] hover:bg-[#d97f0e] text-white font-semibold py-3.5 rounded-full transition-colors mt-4 shadow-md hover:shadow-lg">
-                S'inscrire gratuitement
-              </button>
-            </form>
+            ) : (
+              <form className="space-y-4 text-left" onSubmit={handleFormSubmit}>
+                <div>
+                  <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Nom (Food Truck, Stand...) <span className="text-[#f39313]">*</span></label>
+                  <input 
+                    type="text" 
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    data-clarity-mask="true"
+                    className="w-full px-4 py-3 rounded-lg border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A]" 
+                    placeholder="Ex: La Belle Époque Foodtruck" 
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Email professionnel <span className="text-[#f39313]">*</span></label>
+                  <input 
+                    type="email" 
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    data-clarity-mask="true"
+                    className="w-full px-4 py-3 rounded-lg border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A]" 
+                    placeholder="contact@itinerant.fr" 
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Spécialité</label>
+                  <select 
+                    name="speciality"
+                    value={formData.speciality}
+                    onChange={handleInputChange}
+                    data-clarity-mask="true"
+                    className="w-full px-4 py-3 rounded-lg border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A]"
+                  >
+                    <option>Restauration Rapide / Foodtruck</option>
+                    <option>Maraîcher sur marché</option>
+                    <option>Fromager affineur</option>
+                    <option>Autre produit de bouche</option>
+                  </select>
+                </div>
+                <button 
+                  type="submit" 
+                  id="itinerants-submit-btn"
+                  data-clarity-tag="submit-itinerants-btn"
+                  disabled={isLoading}
+                  className="w-full bg-[#f39313] hover:bg-[#d97f0e] text-white font-semibold py-3.5 rounded-full transition-colors mt-4 shadow-md hover:shadow-lg disabled:opacity-75 cursor-pointer"
+                >
+                  {isLoading ? 'Enregistrement...' : "S'inscrire gratuitement"}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>
@@ -289,3 +366,4 @@ const Itinerants = () => {
 };
 
 export default Itinerants;
+
