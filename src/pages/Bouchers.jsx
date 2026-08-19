@@ -324,7 +324,7 @@ const Bouchers = () => {
       <section className="relative pt-16 pb-20 md:pt-20 md:pb-28 bg-[#FDF3E2]">
         {/* 🎨 Séparateur Pinceau 1 (Top) : Transition Vert #19522A -> Crème #FDF3E2 (Modèle 1001 Goûts) */}
         <BrushSeparator position="top" fillColor="#FDF3E2" />
-        <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
+        <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center relative z-20">
           
           {/* HARDCOVER BOOK MOCKUP */}
           <div className="flex justify-center relative">
@@ -407,7 +407,7 @@ const Bouchers = () => {
       {/* SECTION 3 : FORMULAIRE & ACCROCHE (BLANC #ffffff - ID: formulaire)       */}
       {/* ========================================================================= */}
       <section id="formulaire" className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-white scroll-mt-20">
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="max-w-6xl mx-auto px-6 relative z-20">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
             {/* Form Card (2/5 / Col 5) */}
@@ -616,7 +616,7 @@ const Bouchers = () => {
       {/* SECTION 4 : POURQUOI REMPLIR LE FORMULAIRE ? (BLANC #ffffff)             */}
       {/* ========================================================================= */}
       <section className="relative pt-12 pb-20 md:pt-16 md:pb-28 bg-white">
-        <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
+        <div className="max-w-6xl mx-auto px-6 text-center relative z-20">
           <div className="w-12 h-12 rounded-full bg-[#19522A] text-[#FDF3E2] flex items-center justify-center mx-auto mb-4 shadow-xs">
             <Sparkles size={22} />
           </div>
@@ -679,7 +679,7 @@ const Bouchers = () => {
       <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-[#FDF3E2]">
         {/* 🎨 Séparateur Pinceau 3 (Top) : Transition Blanc #ffffff -> Crème #FDF3E2 (Modèle 1001 Goûts) */}
         <BrushSeparator position="top" fillColor="#FDF3E2" />
-        <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="max-w-6xl mx-auto px-6 relative z-20">
           <div className="text-center mb-16">
             <div className="w-12 h-12 rounded-full bg-[#19522A] text-[#FDF3E2] flex items-center justify-center mx-auto mb-4 shadow-xs">
               <Users size={22} />
@@ -793,7 +793,7 @@ const Bouchers = () => {
       {/* SECTION 6 : FOIRE AUX QUESTIONS (CRÈME #FDF3E2)                          */}
       {/* ========================================================================= */}
       <section className="relative pt-12 pb-20 md:pt-16 md:pb-28 bg-[#FDF3E2]">
-        <div className="max-w-3xl mx-auto px-6 relative z-10">
+        <div className="max-w-3xl mx-auto px-6 relative z-20">
           <div className="text-center mb-12">
             <div className="w-12 h-12 rounded-full bg-[#19522A] text-[#FDF3E2] flex items-center justify-center mx-auto mb-4 shadow-xs">
               <HelpCircle size={22} />
