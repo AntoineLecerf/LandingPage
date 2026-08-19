@@ -20,7 +20,7 @@ const BrushSeparator = ({
   return (
     <div 
       className={`absolute -left-[4%] -right-[4%] w-[108%] pointer-events-none z-30 overflow-hidden leading-none ${
-        isTop ? 'top-0 -translate-y-[96%]' : 'bottom-0 translate-y-[96%]'
+        isTop ? 'top-0 -translate-y-[85%]' : 'bottom-0 translate-y-[85%]'
       } ${className}`}
       style={{
         width: '108%',

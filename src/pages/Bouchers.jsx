@@ -123,7 +123,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 1 : HERO SECTION (VERT ÉPINARD #19522A & VIDÉO NATURELLE)         */}
       {/* ========================================================================= */}
-      <section className="relative pt-8 pb-32 md:pt-14 md:pb-44 bg-[#19522A] text-white">
+      <section className="relative pt-8 pb-16 md:pt-14 md:pb-24 bg-[#19522A] text-white">
         
         {/* Background YouTube Video with high visibility */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
@@ -321,7 +321,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 2 : GUIDE COMPLET OFFERT (CRÈME CHAUD #FDF3E2)                    */}
       {/* ========================================================================= */}
-      <section className="relative pt-20 pb-36 md:pt-24 md:pb-44 bg-[#FDF3E2]">
+      <section className="relative pt-16 pb-20 md:pt-20 md:pb-28 bg-[#FDF3E2]">
         {/* 🎨 Séparateur Pinceau 1 (Top) : Transition Vert #19522A -> Crème #FDF3E2 (Modèle 1001 Goûts) */}
         <BrushSeparator position="top" fillColor="#FDF3E2" />
         <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
@@ -615,7 +615,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 4 : POURQUOI REMPLIR LE FORMULAIRE ? (BLANC #ffffff)             */}
       {/* ========================================================================= */}
-      <section className="relative pt-12 pb-36 md:pt-16 md:pb-44 bg-white">
+      <section className="relative pt-12 pb-20 md:pt-16 md:pb-28 bg-white">
         <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
           <div className="w-12 h-12 rounded-full bg-[#19522A] text-[#FDF3E2] flex items-center justify-center mx-auto mb-4 shadow-xs">
             <Sparkles size={22} />
@@ -792,7 +792,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 6 : FOIRE AUX QUESTIONS (CRÈME #FDF3E2)                          */}
       {/* ========================================================================= */}
-      <section className="relative pt-12 pb-36 md:pt-16 md:pb-44 bg-[#FDF3E2]">
+      <section className="relative pt-12 pb-20 md:pt-16 md:pb-28 bg-[#FDF3E2]">
         <div className="max-w-3xl mx-auto px-6 relative z-10">
           <div className="text-center mb-12">
             <div className="w-12 h-12 rounded-full bg-[#19522A] text-[#FDF3E2] flex items-center justify-center mx-auto mb-4 shadow-xs">
