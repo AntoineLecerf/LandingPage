@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54.622" height="54.623" viewBox="0 0 54.622 54.623">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Tracé_4540" data-name="Tracé 4540" d="M0-20.869H54.622V-75.491H0Z" transform="translate(0 75.491)" fill="none"></path>
+    </clipPath>
+  </defs>
+  <g id="Groupe_16363" data-name="Groupe 16363" transform="translate(0 75.491)">
+    <g id="Groupe_16361" data-name="Groupe 16361" transform="translate(0 -75.491)" clip-path="url(#clip-path)">
+      <g id="Groupe_16359" data-name="Groupe 16359" transform="translate(1.026 1.025)">
+        <path id="Tracé_4538" data-name="Tracé 4538" d="M-10.043-20.085A26.285,26.285,0,0,0,16.243-46.371,26.285,26.285,0,0,0-10.043-72.656,26.285,26.285,0,0,0-36.328-46.371,26.285,26.285,0,0,0-10.043-20.085" transform="translate(36.328 72.656)" fill="#fff"></path>
+      </g>
+      <g id="Groupe_16360" data-name="Groupe 16360" transform="translate(1.026 1.025)">
+        <path id="Tracé_4539" data-name="Tracé 4539" d="M-10.043-20.085A26.285,26.285,0,0,0,16.243-46.371,26.285,26.285,0,0,0-10.043-72.656,26.285,26.285,0,0,0-36.328-46.371,26.285,26.285,0,0,0-10.043-20.085Z" transform="translate(36.328 72.656)" fill="none"></path>
+      </g>
+    </g>
+    <g id="Groupe_16362" data-name="Groupe 16362" transform="translate(15.751 -57.361)">
+      <path id="Tracé_4541" data-name="Tracé 4541" d="M-3.279-7.015-11.863-15.6l3.825-3.823,4.758,4.76L7.435-25.376l3.823,3.825Z" transform="translate(11.863 25.376)" fill="#558D4D"></path>
+    </g>
+  </g>
+</svg>

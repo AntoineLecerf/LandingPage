@@ -129,7 +129,7 @@ const Bouchers = () => {
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180vw] h-[180vh] min-w-[1500px] min-h-[1000px] pointer-events-none">
             <iframe
-              src="https://www.youtube-nocookie.com/embed/QQSn5cEe1j8?autoplay=1&mute=1&controls=0&loop=1&playlist=QQSn5cEe1j8&playsinline=1&rel=0&showinfo=0&disablekb=1&fs=0&iv_load_policy=3&modestbranding=1&autohide=1&cc_load_policy=0"
+              src="https://www.youtube-nocookie.com/embed/jJTd2IlFpVA?autoplay=1&mute=1&controls=0&loop=1&playlist=jJTd2IlFpVA&playsinline=1&rel=0&showinfo=0&disablekb=1&fs=0&iv_load_policy=3&modestbranding=1&autohide=1&cc_load_policy=0"
               title="1001 Goûts Background Video"
               className="w-full h-full object-cover opacity-90 filter brightness-100 contrast-105 pointer-events-none"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -319,9 +319,17 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 2 : GUIDE COMPLET OFFERT (CRÈME CHAUD #FDF3E2)                    */}
       {/* ========================================================================= */}
-      <section className="relative pt-16 pb-20 md:pt-20 md:pb-28 bg-[#FDF3E2]">
+      <section className="relative pt-16 pb-20 md:pt-20 md:pb-28 bg-[#FDF3E2] overflow-hidden">
         {/* 🎨 Séparateur Pinceau 1 (Top) : Transition Vert #19522A -> Crème #FDF3E2 (Modèle 1001 Goûts) */}
         <BrushSeparator position="top" fillColor="#FDF3E2" />
+
+        {/* 🍃 Détail botanique organique en fond (Haut Gauche) */}
+        <img
+          src="/assets/1001gouts/feuille-verte.svg"
+          alt=""
+          className="absolute -left-16 top-10 w-72 sm:w-96 pointer-events-none opacity-30 select-none z-10"
+        />
+
         <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center relative z-20">
           
           {/* HARDCOVER BOOK MOCKUP */}
@@ -566,7 +574,7 @@ const Bouchers = () => {
             </div>
 
             {/* Pitch Card (3/5 / Col 7) */}
-            <div className="lg:col-span-7 pt-4">
+            <div className="lg:col-span-7 pt-4 relative z-20">
               <div className="w-12 h-12 rounded-full bg-[#558D4D] text-white flex items-center justify-center mb-4 shadow-xs">
                 <Award size={22} />
               </div>
@@ -576,10 +584,65 @@ const Bouchers = () => {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-[#19522A] leading-tight mb-6">
                 Obtenez les meilleures astuces des artisans bouchers
               </h2>
-              <p className="text-lg text-[#000000]/80 leading-relaxed mb-8">
+              <p className="text-base sm:text-lg text-[#000000]/80 leading-relaxed mb-8">
                 Chez 1001 Goûts, nous refusons que nos artisans de bouche restent isolés face aux grandes enseignes industrialisées. En remplissant ce formulaire, vous recevrez par email un guide complet contenant les <strong>retours d'expérience et astuces concrètes de confrères</strong> pour l'exercice 2026-2027.
               </p>
               
+              {/* 🌿 3 DÉFIS MAJEURS 1001 GOÛTS (Patchs organiques & Totems) */}
+              <div className="space-y-6 mb-10 pt-2">
+                <p className="text-sm font-semibold text-[#19522A]">
+                  En matière de consommation et de production alimentaire, la société se heurte aujourd’hui à <strong>3 problèmes majeurs :</strong>
+                </p>
+
+                {/* Défi 1 */}
+                <div className="flex items-start gap-4">
+                  <div className="flex flex-col items-center flex-shrink-0 w-16">
+                    <img src="/assets/1001gouts/Groupe-16819.png" alt="1" className="w-14 h-auto drop-shadow-xs" />
+                    <img src="/assets/1001gouts/noun-chef-2565605.svg" alt="" className="w-10 h-10 mt-1" />
+                  </div>
+                  <div>
+                    <h4 className="font-accent text-[#FF859D] text-xl sm:text-2xl mb-1">
+                      Des artisans isolés et seuls
+                    </h4>
+                    <p className="text-sm text-[#4A4A4A] leading-relaxed">
+                      Face aux chaînes et franchises nationales organisées, industrialisées et de plus en plus nombreuses, ils ne parviennent pas à <strong>se rémunérer à leur juste valeur…</strong>
+                    </p>
+                  </div>
+                </div>
+
+                {/* Défi 2 */}
+                <div className="flex items-start gap-4">
+                  <div className="flex flex-col items-center flex-shrink-0 w-16">
+                    <img src="/assets/1001gouts/Groupe-16820.png" alt="2" className="w-14 h-auto drop-shadow-xs" />
+                    <img src="/assets/1001gouts/noun-food-waste-2130816.svg" alt="" className="w-10 h-10 mt-1" />
+                  </div>
+                  <div>
+                    <h4 className="font-accent text-[#FF859D] text-xl sm:text-2xl mb-1">
+                      Un gaspillage alimentaire & casse
+                    </h4>
+                    <p className="text-sm text-[#4A4A4A] leading-relaxed">
+                      Bien souvent, en raison des surplus de carcasses et des variations de découpe, les artisans peinent à <strong>écouler l'ensemble de leurs produits</strong> sans brader leurs marges.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Défi 3 */}
+                <div className="flex items-start gap-4">
+                  <div className="flex flex-col items-center flex-shrink-0 w-16">
+                    <img src="/assets/1001gouts/Groupe-16821.png" alt="3" className="w-14 h-auto drop-shadow-xs" />
+                    <img src="/assets/1001gouts/noun-lost-6260100.svg" alt="" className="w-10 h-10 mt-1" />
+                  </div>
+                  <div>
+                    <h4 className="font-accent text-[#FF859D] text-xl sm:text-2xl mb-1">
+                      Une perte de repères des consommateurs
+                    </h4>
+                    <p className="text-sm text-[#4A4A4A] leading-relaxed">
+                      Avec la publicité à outrance et le marketing des groupes agro-alimentaires, <strong>les consommateurs ne savent plus où se renseigner</strong> ni où acheter pour manger sainement et local !
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               {/* 3 Trust Pillars */}
               <div className="bg-[#FDF3E2] p-7 rounded-3xl border border-[#D9DCD5] shadow-xs space-y-4 text-sm text-[#4A4A4A]">
                 <p className="font-display text-base text-[#19522A] flex items-center gap-2">
@@ -608,12 +671,26 @@ const Bouchers = () => {
 
           </div>
         </div>
+
+        {/* 🍃 Détail botanique organique en fond (Bas Gauche) */}
+        <img
+          src="/assets/1001gouts/feuille-verte.svg"
+          alt=""
+          className="absolute -left-12 bottom-0 w-72 sm:w-96 md:w-[440px] pointer-events-none opacity-45 select-none z-10"
+        />
       </section>
 
       {/* ========================================================================= */}
       {/* SECTION 4 : POURQUOI REMPLIR LE FORMULAIRE ? (BLANC #ffffff)             */}
       {/* ========================================================================= */}
-      <section className="relative pt-12 pb-20 md:pt-16 md:pb-28 bg-white">
+      <section className="relative pt-12 pb-20 md:pt-16 md:pb-28 bg-white overflow-hidden">
+        {/* 🍃 Détail botanique organique en fond (Haut Droite) */}
+        <img
+          src="/assets/1001gouts/Groupe-16707.svg"
+          alt=""
+          className="absolute -right-20 top-6 w-72 sm:w-96 md:w-[460px] pointer-events-none opacity-20 select-none z-10"
+        />
+
         <div className="max-w-6xl mx-auto px-6 text-center relative z-20">
           <div className="w-12 h-12 rounded-full bg-[#19522A] text-[#FDF3E2] flex items-center justify-center mx-auto mb-4 shadow-xs">
             <Sparkles size={22} />
@@ -631,9 +708,7 @@ const Bouchers = () => {
           <div className="grid md:grid-cols-3 gap-8 text-left">
             {/* Card 1 */}
             <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/80 p-8 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
-              <div className="w-10 h-10 rounded-full bg-[#558D4D] text-white font-display text-sm flex items-center justify-center mb-5 shadow-xs">
-                01
-              </div>
+              <img src="/assets/1001gouts/Groupe-16819.png" alt="01" className="w-14 h-auto mb-4 drop-shadow-xs" />
               <h3 className="font-display text-xl text-[#19522A] mb-3">
                 Gestion & Marges Justes
               </h3>
@@ -644,9 +719,7 @@ const Bouchers = () => {
 
             {/* Card 2 */}
             <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/80 p-8 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
-              <div className="w-10 h-10 rounded-full bg-[#558D4D] text-white font-display text-sm flex items-center justify-center mb-5 shadow-xs">
-                02
-              </div>
+              <img src="/assets/1001gouts/Groupe-16820.png" alt="02" className="w-14 h-auto mb-4 drop-shadow-xs" />
               <h3 className="font-display text-xl text-[#19522A] mb-3">
                 Visibilité & Rayonnement Local
               </h3>
@@ -657,9 +730,7 @@ const Bouchers = () => {
 
             {/* Card 3 */}
             <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/80 p-8 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
-              <div className="w-10 h-10 rounded-full bg-[#558D4D] text-white font-display text-sm flex items-center justify-center mb-5 shadow-xs">
-                03
-              </div>
+              <img src="/assets/1001gouts/Groupe-16821.png" alt="03" className="w-14 h-auto mb-4 drop-shadow-xs" />
               <h3 className="font-display text-xl text-[#19522A] mb-3">
                 Confraternité & Circuits Courts
               </h3>
@@ -674,9 +745,17 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 5 : PREUVES SOCIALES (CRÈME #FDF3E2)                              */}
       {/* ========================================================================= */}
-      <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-[#FDF3E2]">
+      <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-[#FDF3E2] overflow-hidden">
         {/* 🎨 Séparateur Pinceau 3 (Top) : Transition Blanc #ffffff -> Crème #FDF3E2 (Modèle 1001 Goûts) */}
         <BrushSeparator position="top" fillColor="#FDF3E2" />
+
+        {/* 🍃 Détail botanique organique en fond (Bas Droite) */}
+        <img
+          src="/assets/1001gouts/feuille-verte.svg"
+          alt=""
+          className="absolute -right-16 bottom-6 w-72 sm:w-96 pointer-events-none opacity-25 select-none z-10 transform scale-x-[-1]"
+        />
+
         <div className="max-w-6xl mx-auto px-6 relative z-20">
           <div className="text-center mb-16">
             <div className="w-12 h-12 rounded-full bg-[#19522A] text-[#FDF3E2] flex items-center justify-center mx-auto mb-4 shadow-xs">
