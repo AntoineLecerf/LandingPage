@@ -19,19 +19,19 @@ const BrushSeparator = ({
   
   return (
     <div 
-      className={`absolute -left-[2%] -right-[2%] w-[104%] pointer-events-none z-30 overflow-hidden leading-none ${
+      className={`absolute -left-[4%] -right-[4%] w-[108%] pointer-events-none z-30 overflow-hidden leading-none ${
         isTop ? 'top-0 -translate-y-[96%]' : 'bottom-0 translate-y-[96%]'
       } ${className}`}
       style={{
-        width: '104%',
-        left: '-2%',
-        right: '-2%',
+        width: '108%',
+        left: '-4%',
+        right: '-4%',
       }}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 2069 71.582"
-        className="w-full h-16 sm:h-20 md:h-28 lg:h-36 block"
+        className="w-full h-24 sm:h-28 md:h-40 lg:h-52 block"
         style={{
           width: '100%',
           display: 'block',
