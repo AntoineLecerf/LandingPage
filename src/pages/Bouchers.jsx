@@ -127,16 +127,14 @@ const Bouchers = () => {
         
         {/* Background YouTube Video with high visibility */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160vw] h-[160vh] min-w-[1400px] min-h-[900px]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180vw] h-[180vh] min-w-[1500px] min-h-[1000px] pointer-events-none">
             <iframe
-              src="https://www.youtube-nocookie.com/embed/QQSn5cEe1j8?autoplay=1&mute=1&controls=0&loop=1&playlist=QQSn5cEe1j8&playsinline=1&rel=0&showinfo=0&disablekb=1&fs=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&start=1&cc_load_policy=0&origin=https://1001gouts.com"
+              src="https://www.youtube-nocookie.com/embed/QQSn5cEe1j8?autoplay=1&mute=1&controls=0&loop=1&playlist=QQSn5cEe1j8&playsinline=1&rel=0&showinfo=0&disablekb=1&fs=0&iv_load_policy=3&modestbranding=1&autohide=1&cc_load_policy=0"
               title="1001 Goûts Background Video"
-              className="w-full h-full object-cover opacity-90 filter brightness-100 contrast-105"
+              className="w-full h-full object-cover opacity-90 filter brightness-100 contrast-105 pointer-events-none"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               style={{ pointerEvents: 'none' }}
             />
-            {/* Invisible overlay to block any YouTube UI elements (pause icon, watermark) */}
-            <div className="absolute inset-0 z-10" style={{ pointerEvents: 'auto' }}></div>
           </div>
 
           {/* Light transparent veil to let video show clearly while maintaining text readability */}
