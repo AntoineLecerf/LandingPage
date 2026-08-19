@@ -319,7 +319,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 2 : GUIDE COMPLET OFFERT (CRÈME CHAUD #FDF3E2)                    */}
       {/* ========================================================================= */}
-      <section className="relative pt-16 pb-20 md:pt-20 md:pb-28 bg-[#FDF3E2] overflow-hidden">
+      <section className="relative pt-16 pb-20 md:pt-20 md:pb-28 bg-[#FDF3E2]">
         {/* 🎨 Séparateur Pinceau 1 (Top) : Transition Vert #19522A -> Crème #FDF3E2 (Modèle 1001 Goûts) */}
         <BrushSeparator position="top" fillColor="#FDF3E2" />
 
@@ -404,15 +404,15 @@ const Bouchers = () => {
             </ul>
           </div>
         </div>
-
-        {/* 🎨 Séparateur Pinceau 2 (Bottom) : Transition Crème #FDF3E2 -> Blanc #ffffff (Modèle 1001 Goûts) */}
-        <BrushSeparator position="bottom" fillColor="#FDF3E2" flipX={true} />
       </section>
 
       {/* ========================================================================= */}
       {/* SECTION 3 : FORMULAIRE & ACCROCHE (BLANC #ffffff - ID: formulaire)       */}
       {/* ========================================================================= */}
       <section id="formulaire" className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-white scroll-mt-20">
+        {/* 🎨 Séparateur Pinceau 2 (Top) : Transition Crème #FDF3E2 -> Blanc #ffffff (Modèle 1001 Goûts) */}
+        <BrushSeparator position="top" fillColor="#FDF3E2" flipX={true} />
+        
         <div className="max-w-6xl mx-auto px-6 relative z-20">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
@@ -683,10 +683,10 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 4 : POURQUOI REMPLIR LE FORMULAIRE ? (BLANC #ffffff)             */}
       {/* ========================================================================= */}
-      <section className="relative pt-12 pb-20 md:pt-16 md:pb-28 bg-white overflow-hidden">
+      <section className="relative pt-12 pb-20 md:pt-16 md:pb-28 bg-white">
         {/* 🍃 Détail botanique organique en fond (Haut Droite) */}
         <img
-          src="/assets/1001gouts/Groupe-16707.svg"
+          src="/assets/1001gouts/feuille-verte.svg"
           alt=""
           className="absolute -right-20 top-6 w-72 sm:w-96 md:w-[460px] pointer-events-none opacity-20 select-none z-10"
         />
@@ -745,7 +745,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 5 : PREUVES SOCIALES (CRÈME #FDF3E2)                              */}
       {/* ========================================================================= */}
-      <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-[#FDF3E2] overflow-hidden">
+      <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-[#FDF3E2]">
         {/* 🎨 Séparateur Pinceau 3 (Top) : Transition Blanc #ffffff -> Crème #FDF3E2 (Modèle 1001 Goûts) */}
         <BrushSeparator position="top" fillColor="#FDF3E2" />
 
@@ -938,9 +938,6 @@ const Bouchers = () => {
             </a>
           </div>
         </div>
-
-        {/* 🎨 Séparateur Pinceau 4 (Bottom) : Transition Crème #FDF3E2 -> Vert #19522A (Footer - Modèle 1001 Goûts) */}
-        <BrushSeparator position="bottom" fillColor="#FDF3E2" flipX={true} />
       </section>
 
     </div>

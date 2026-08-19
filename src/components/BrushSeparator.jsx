@@ -19,7 +19,7 @@ const BrushSeparator = ({
   
   return (
     <div 
-      className={`absolute -left-[5%] -right-[5%] w-[110%] pointer-events-none z-10 overflow-hidden leading-none flex flex-col items-center justify-center ${
+      className={`absolute -left-[5%] -right-[5%] w-[110%] pointer-events-none z-20 overflow-visible leading-none flex flex-col items-center justify-center ${
         isTop ? 'top-0 -translate-y-1/2' : 'bottom-0 translate-y-1/2'
       } ${className}`}
       style={{
@@ -32,7 +32,7 @@ const BrushSeparator = ({
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 2069 71.582"
-        className="w-full h-8 sm:h-10 md:h-14 lg:h-16 block"
+        className="w-full h-12 sm:h-14 md:h-18 lg:h-22 block"
         style={{
           width: '100%',
           display: 'block',
@@ -58,13 +58,13 @@ const BrushSeparator = ({
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 2069 71.582"
-        className="w-full h-8 sm:h-10 md:h-14 lg:h-16 block"
+        className="w-full h-12 sm:h-14 md:h-18 lg:h-22 block"
         style={{
           width: '100%',
           display: 'block',
-          transform: `rotate(180deg) ${flipX ? '' : 'scaleX(-1)'}`,
+          transform: `${flipX ? 'rotate(180deg)' : 'rotate(180deg) scaleX(-1)'}`,
           transformOrigin: 'center center',
-          marginTop: '-1px',
+          marginTop: '-2px',
         }}
         preserveAspectRatio="none"
       >

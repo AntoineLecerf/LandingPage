@@ -1,8 +1,11 @@
 import React from 'react';
+import BrushSeparator from './BrushSeparator';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#19522A] text-white pt-16 pb-8">
+    <footer className="relative bg-[#19522A] text-white pt-20 pb-8">
+      {/* 🎨 Séparateur Pinceau : Transition Crème #FDF3E2 -> Vert #19522A (Modèle 1001 Goûts) */}
+      <BrushSeparator position="top" fillColor="#FDF3E2" flipX={true} />
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="col-span-1 md:col-span-1">
           <img src="/1001GOUTS-LOGO-BLC.png" alt="1001 Goûts" className="h-12 mb-6" />
