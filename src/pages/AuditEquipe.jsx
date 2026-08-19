@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, BookOpen, CheckCircle2, MessageSquare, Shield, Target, TrendingUp, Users, Sparkles, HelpCircle, Layers, FileText, ChevronRight, AlertCircle } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, MessageSquare, Shield, Target, Sparkles, Layers, FileText, ChevronRight, AlertCircle } from 'lucide-react';
 
 const AuditEquipe = () => {
   const [activeTab, setActiveTab] = useState('sections');

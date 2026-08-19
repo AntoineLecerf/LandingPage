@@ -12,8 +12,7 @@ import {
   MapPin, 
   Store, 
   User, 
-  Mail, 
-  BookOpen 
+  Mail
 } from 'lucide-react';
 import BrushSeparator from '../components/BrushSeparator';
 
@@ -153,13 +152,13 @@ const Bouchers = () => {
 
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display text-white leading-[1.1] mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display text-white leading-[1.1] mb-6">
                 Les artisans bouchers ne devraient pas avancer seuls !
               </h1>
-              <p className="text-lg text-[#FDF3E2] font-medium leading-relaxed mb-4 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
+              <p className="text-lg text-[#FDF3E2] font-medium leading-relaxed mb-4">
                 Tenir une boucherie artisanale, c'est être chef artisan, garant du terroir, gestionnaire de marges face aux hausses d'énergie, tout en résistant à la grande distribution industrielle.
               </p>
-              <p className="text-base text-white/95 leading-relaxed mb-8 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
+              <p className="text-base text-white/95 leading-relaxed mb-8">
                 En partageant votre réalité de terrain en 2 minutes, recevez immédiatement le <strong>guide complet 2026-2027</strong> pour booster votre rentabilité (optimisation des marges, circuits courts éleveurs-bouchers, fidélisation locale sans intermédiaire).
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-start">
@@ -234,15 +233,14 @@ const Bouchers = () => {
 
           </div>
         </div>
-
-        {/* 🎨 Séparateur Pinceau 1 : Transition Vert #19522A (Précédente) -> Crème #FDF3E2 (Suivante) */}
-        <BrushSeparator fillColor="#19522A" />
       </section>
 
       {/* ========================================================================= */}
       {/* SECTION 2 : GUIDE COMPLET OFFERT (CRÈME CHAUD #FDF3E2)                    */}
       {/* ========================================================================= */}
       <section className="relative pt-20 pb-36 md:pt-24 md:pb-44 bg-[#FDF3E2]">
+        {/* 🎨 Séparateur Pinceau 1 (Top) : Transition Vert #19522A -> Crème #FDF3E2 (Modèle 1001 Goûts) */}
+        <BrushSeparator position="top" fillColor="#FDF3E2" />
         <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
           
           {/* HARDCOVER BOOK MOCKUP */}
@@ -312,8 +310,8 @@ const Bouchers = () => {
           </div>
         </div>
 
-        {/* 🎨 Séparateur Pinceau 2 : Transition Crème #FDF3E2 (Précédente) -> Blanc #ffffff (Suivante) */}
-        <BrushSeparator fillColor="#FDF3E2" flipX={true} />
+        {/* 🎨 Séparateur Pinceau 2 (Bottom) : Transition Crème #FDF3E2 -> Blanc #ffffff (Modèle 1001 Goûts) */}
+        <BrushSeparator position="bottom" fillColor="#FDF3E2" flipX={true} />
       </section>
 
       {/* ========================================================================= */}
@@ -568,15 +566,14 @@ const Bouchers = () => {
             </div>
           </div>
         </div>
-
-        {/* 🎨 Séparateur Pinceau 3 : Transition Blanc #ffffff (Précédente) -> Crème #FDF3E2 (Suivante) */}
-        <BrushSeparator fillColor="#ffffff" />
       </section>
 
       {/* ========================================================================= */}
       {/* SECTION 5 : PREUVES SOCIALES (CRÈME #FDF3E2)                              */}
       {/* ========================================================================= */}
       <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-[#FDF3E2]">
+        {/* 🎨 Séparateur Pinceau 3 (Top) : Transition Blanc #ffffff -> Crème #FDF3E2 (Modèle 1001 Goûts) */}
+        <BrushSeparator position="top" fillColor="#FDF3E2" />
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-display text-[#19522A]">
@@ -733,8 +730,8 @@ const Bouchers = () => {
           </div>
         </div>
 
-        {/* 🎨 Séparateur Pinceau 4 : Transition Crème #FDF3E2 (Précédente) -> Vert #19522A (Footer) */}
-        <BrushSeparator fillColor="#FDF3E2" flipX={true} />
+        {/* 🎨 Séparateur Pinceau 4 (Bottom) : Transition Crème #FDF3E2 -> Vert #19522A (Footer - Modèle 1001 Goûts) */}
+        <BrushSeparator position="bottom" fillColor="#FDF3E2" flipX={true} />
       </section>
 
     </div>
