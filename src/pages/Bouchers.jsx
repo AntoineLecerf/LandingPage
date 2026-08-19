@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
+  ArrowLeft,
   CheckCircle2, 
   ChevronDown, 
   ShieldCheck, 
@@ -12,7 +13,14 @@ import {
   MapPin, 
   Store, 
   User, 
-  Mail
+  Mail,
+  BookOpen,
+  Clock,
+  Heart,
+  Sparkles,
+  Award,
+  HelpCircle,
+  FileText
 } from 'lucide-react';
 import BrushSeparator from '../components/BrushSeparator';
 
@@ -121,11 +129,14 @@ const Bouchers = () => {
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160vw] h-[160vh] min-w-[1400px] min-h-[900px]">
             <iframe
-              src="https://www.youtube-nocookie.com/embed/QQSn5cEe1j8?autoplay=1&mute=1&controls=0&loop=1&playlist=QQSn5cEe1j8&playsinline=1&rel=0&showinfo=0&disablekb=1&fs=0&iv_load_policy=3&modestbranding=1&enablejsapi=1"
+              src="https://www.youtube-nocookie.com/embed/QQSn5cEe1j8?autoplay=1&mute=1&controls=0&loop=1&playlist=QQSn5cEe1j8&playsinline=1&rel=0&showinfo=0&disablekb=1&fs=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&start=1&cc_load_policy=0&origin=https://1001gouts.com"
               title="1001 Goûts Background Video"
-              className="w-full h-full object-cover pointer-events-none opacity-90 filter brightness-100 contrast-105"
+              className="w-full h-full object-cover opacity-90 filter brightness-100 contrast-105"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              style={{ pointerEvents: 'none' }}
             />
+            {/* Invisible overlay to block any YouTube UI elements (pause icon, watermark) */}
+            <div className="absolute inset-0 z-10" style={{ pointerEvents: 'auto' }}></div>
           </div>
 
           {/* Light transparent veil to let video show clearly while maintaining text readability */}
@@ -152,6 +163,9 @@ const Bouchers = () => {
 
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
+              <p className="font-accent text-[#FDF3E2] text-xl sm:text-2xl mb-3">
+                Pour valoriser le savoir-faire artisanal & vos marges
+              </p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display text-white leading-[1.1] mb-6">
                 Les artisans bouchers ne devraient pas avancer seuls !
               </h1>
@@ -165,7 +179,7 @@ const Bouchers = () => {
                 <a
                   href="#formulaire"
                   onClick={scrollToForm}
-                  className="bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 inline-flex items-center gap-3"
+                  className="bg-[#F48631] hover:bg-[#d97223] text-white px-9 py-4 rounded-full font-bold text-lg transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 inline-flex items-center gap-3 cursor-pointer"
                 >
                   <span>Obtenir mon guide offert</span>
                   <ArrowRight size={20} />
@@ -173,60 +187,129 @@ const Bouchers = () => {
               </div>
             </div>
 
-            {/* REALISTIC CLEAN SMARTPHONE MOCKUP */}
+            {/* REALISTIC 1001 GOÛTS SMARTPHONE MOCKUP — Tailored for Bouchers */}
             <div className="flex justify-center relative">
-              <div className="relative w-full max-w-[310px] aspect-[9/18.5] bg-[#222] rounded-[3rem] border-[6px] border-[#333] shadow-2xl overflow-hidden p-1.5 ring-1 ring-white/10">
+              <div className="relative w-full max-w-[290px] sm:max-w-[315px] aspect-[9/18.5] bg-[#1a1a1a] rounded-[2.8rem] border-[6px] border-[#222] shadow-2xl overflow-hidden p-1.5 ring-1 ring-white/20">
                 
                 {/* Inner Screen */}
-                <div className="w-full h-full bg-[#FDF3E2] text-[#19522A] rounded-[2.5rem] overflow-hidden flex flex-col justify-between p-4 pt-8 text-center relative z-10">
+                <div className="w-full h-full bg-[#FDF3E2] text-[#19522A] rounded-[2.2rem] overflow-hidden flex flex-col justify-between p-3.5 pt-2 text-center relative z-10 select-none">
                   
-                  {/* Dynamic Island */}
-                  <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full z-40 flex items-center justify-between px-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#19522A]/60"></div>
-                    <div className="w-2 h-2 rounded-full bg-[#F48631]"></div>
+                  {/* Status Bar + Dynamic Island */}
+                  <div className="flex items-center justify-between px-3 pt-1 pb-2">
+                    <span className="text-[10px] font-bold text-[#19522A]">10:28</span>
+                    <div className="w-20 h-4 bg-black rounded-full flex items-center justify-end px-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#19522A]"></div>
+                    </div>
+                    <span className="text-[10px] font-bold text-[#19522A]">93%</span>
                   </div>
 
-                  {/* App Header */}
-                  <div className="mt-2">
-                    <img src="/1001GOUTS-LOGO-RVB.png" alt="1001 Goûts" className="h-8 mx-auto mb-3" />
-                    
-                    {/* Active Store Card */}
-                    <div className="bg-white p-3.5 rounded-2xl border border-[#D9DCD5] shadow-xs mb-3 text-left">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-[9px] uppercase font-bold tracking-wider text-[#F48631] bg-[#F48631]/10 px-1.5 py-0.5 rounded">
-                          Espace Pro Boucher
-                        </span>
-                        <span className="text-[9px] bg-[#19522A] text-white px-2 py-0.5 rounded-full font-bold">
-                          ✓ 1001 Engagés
-                        </span>
+                  {/* App Navigation Header */}
+                  <div className="flex items-center justify-between px-1 mb-2">
+                    <button type="button" className="text-[#FF859D] hover:opacity-80 transition-opacity">
+                      <ArrowLeft size={16} />
+                    </button>
+                    <img src="/1001GOUTS-LOGO-RVB.png" alt="1001 Goûts" className="h-6 mx-auto" />
+                    <div className="w-6 h-6 rounded-full border border-[#FF859D]/40 flex items-center justify-center text-[#FF859D]">
+                      <User size={12} />
+                    </div>
+                  </div>
+
+                  {/* Butcher Store Banner & Floating Emblem */}
+                  <div className="relative mb-2">
+                    <div className="w-full h-24 sm:h-26 rounded-2xl overflow-hidden relative shadow-xs">
+                      <img 
+                        src="/hero-bouchers.jpg" 
+                        alt="Boucherie Artisanale" 
+                        className="w-full h-full object-cover brightness-95"
+                      />
+                      {/* Floating Green Shopping Bag Badge */}
+                      <div className="absolute top-2 right-2 w-7 h-7 rounded-full bg-[#558D4D] text-white flex items-center justify-center shadow-xs">
+                        <Store size={13} />
                       </div>
-                      <h3 className="font-display text-sm text-[#19522A]">Boucherie de Tradition</h3>
-                      <p className="text-[11px] text-[#558D4D] font-bold mt-0.5">● 100% Marge Pro Conservée (0% com)</p>
                     </div>
 
-                    {/* Notification Card */}
-                    <div className="bg-[#19522A] text-white p-3 rounded-xl shadow-xs text-left mb-2">
-                      <div className="flex items-center gap-1.5 text-[10px] font-bold text-[#F48631]">
-                        <BellRing size={12} />
-                        <span>Alerte Quartier Active</span>
+                    {/* Floating Store Badge (Emblem) */}
+                    <div className="absolute -bottom-3 right-3 w-13 h-13 rounded-2xl bg-[#FDF3E2] border-2 border-[#FF859D]/60 p-1.5 shadow-sm flex flex-col items-center justify-center">
+                      <span className="text-base leading-none">🥩</span>
+                      <span className="text-[7px] font-bold text-[#19522A] uppercase mt-0.5 tracking-tighter">Artisan</span>
+                    </div>
+                  </div>
+
+                  {/* Store Information */}
+                  <div className="text-left px-1 mt-1 mb-2">
+                    <h3 className="font-display text-sm text-[#19522A] leading-tight">
+                      Boucherie des Terroirs
+                    </h3>
+                    <div className="flex items-center justify-between mt-0.5">
+                      <span className="text-[9px] text-[#667079] font-bold uppercase tracking-wider">
+                        BOUCHERIE · CHARCUTERIE
+                      </span>
+                      {/* 5 Stars Rating */}
+                      <div className="flex items-center gap-0.5 text-[#F48631]">
+                        {[...Array(4)].map((_, i) => (
+                          <Star key={i} size={10} fill="currentColor" />
+                        ))}
+                        <Star size={10} className="text-[#F48631]" />
                       </div>
-                      <p className="text-[10px] text-white/90 mt-0.5 leading-tight">
-                        38 clients à proximité informés de votre arrivage de bœuf local.
-                      </p>
                     </div>
-
-                    {/* Unlocked Guide Badge */}
-                    <div className="bg-[#558D4D]/15 text-[#19522A] p-2.5 rounded-xl border border-[#558D4D]/30 font-bold text-[11px] flex items-center justify-center gap-1.5">
-                      <CheckCircle2 size={14} className="text-[#558D4D]" />
-                      <span>Guide Pro 2026-2027 Débloqué</span>
+                    <div className="flex items-center justify-between text-[9px] mt-1">
+                      <span className="text-[#667079]">850 m</span>
+                      <span className="text-[#FF859D] font-bold flex items-center gap-1">
+                        <Clock size={10} />
+                        <span>Ouvrira demain à 08h30</span>
+                      </span>
                     </div>
                   </div>
 
-                  {/* App Bottom Footer Bar */}
-                  <div className="bg-white/95 p-2.5 rounded-xl border border-[#D9DCD5] shadow-xs text-[10px] text-[#4A4A4A]">
-                    <p className="font-bold text-[#19522A]">Communauté Artisans 1001 Goûts</p>
-                    <p className="text-[9px] text-[#667079] mt-0.5">Rapprocher producteurs et consommateurs locaux</p>
+                  {/* Follow Button */}
+                  <div className="bg-[#FDF3E2] border border-[#558D4D]/30 text-[#19522A] py-1 px-3 rounded-xl flex items-center justify-center gap-1.5 font-bold text-xs shadow-xs mb-2">
+                    <Heart size={12} className="text-[#FF859D]" fill="#FF859D" />
+                    <span>Suivre</span>
                   </div>
+
+                  {/* 3 Sub-tabs (Actualités, Avis, Info) */}
+                  <div className="grid grid-cols-3 gap-1.5 mb-2 text-[9px] font-bold">
+                    <div className="bg-white/90 border border-[#D9DCD5] rounded-lg py-1 text-[#558D4D] flex items-center justify-center gap-1">
+                      <FileText size={10} className="text-[#FF859D]" />
+                      <span>Actualités</span>
+                    </div>
+                    <div className="bg-white/90 border border-[#D9DCD5] rounded-lg py-1 text-[#558D4D] flex items-center justify-center gap-1">
+                      <Star size={10} className="text-[#F48631]" />
+                      <span>Avis</span>
+                    </div>
+                    <div className="bg-white/90 border border-[#D9DCD5] rounded-lg py-1 text-[#558D4D] flex items-center justify-center gap-1">
+                      <Award size={10} className="text-[#558D4D]" />
+                      <span>Info</span>
+                    </div>
+                  </div>
+
+                  {/* Category Header */}
+                  <div className="flex items-center gap-2 my-1">
+                    <div className="h-[1px] bg-[#FF859D]/40 flex-1"></div>
+                    <span className="text-[8px] font-bold uppercase tracking-widest text-[#4A4A4A]">
+                      PIÈCES D'EXCEPTION & MATURÉES
+                    </span>
+                    <div className="h-[1px] bg-[#FF859D]/40 flex-1"></div>
+                  </div>
+
+                  {/* Product Card */}
+                  <div className="bg-white p-2 rounded-2xl border border-[#D9DCD5] text-left flex items-center gap-2.5 shadow-xs">
+                    <img 
+                      src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=120&q=80" 
+                      alt="Côte de Bœuf" 
+                      className="w-11 h-11 rounded-xl object-cover"
+                    />
+                    <div className="flex-1">
+                      <p className="font-bold text-[10px] text-[#19522A] leading-tight">Côte de Bœuf Maturée</p>
+                      <p className="text-[9px] text-[#FF859D] font-bold mt-0.5">34.90 € / kg</p>
+                    </div>
+                    <span className="text-[8px] bg-[#558D4D]/15 text-[#558D4D] font-bold px-1.5 py-0.5 rounded-full">
+                      Terroir
+                    </span>
+                  </div>
+
+                  {/* Bottom iOS Home Indicator */}
+                  <div className="w-24 h-1 bg-black/30 rounded-full mx-auto mt-2"></div>
                 </div>
               </div>
             </div>
@@ -275,31 +358,37 @@ const Bouchers = () => {
           </div>
 
           <div>
-            <h2 className="text-3xl md:text-4xl font-display text-[#19522A] mb-6 leading-tight">
+            <div className="w-12 h-12 rounded-full bg-[#19522A] text-[#FDF3E2] flex items-center justify-center mb-4 shadow-xs">
+              <BookOpen size={22} />
+            </div>
+            <p className="font-accent text-[#FF859D] text-xl mb-1">
+              Offert à 100% · Sans aucun engagement
+            </p>
+            <h2 className="text-3xl md:text-4xl font-display text-[#19522A] mb-4 leading-tight">
               Guide complet de l'artisan boucher offert !
             </h2>
             <p className="text-base text-[#4A4A4A] font-medium mb-6">
               Ce guide complet rédigé avec des professionnels du secteur vous permettra de :
             </p>
             <ul className="space-y-4 text-[#4A4A4A]">
-              <li className="flex items-start gap-3 bg-white p-4 rounded-2xl border border-[#D9DCD5] shadow-xs">
-                <div className="w-7 h-7 rounded-xl bg-[#558D4D]/15 text-[#558D4D] flex items-center justify-center flex-shrink-0 mt-0.5">
+              <li className="flex items-start gap-3.5 bg-white p-4 rounded-2xl border border-[#D9DCD5] shadow-xs hover:border-[#558D4D]/50 transition-colors">
+                <div className="w-8 h-8 rounded-full bg-[#558D4D] text-white flex items-center justify-center flex-shrink-0 font-bold text-sm shadow-xs mt-0.5">
                   <CheckCircle2 size={18} />
                 </div>
                 <span className="text-sm md:text-base leading-relaxed">
                   <strong>Préserver et maîtriser vos marges brutes</strong> face aux flambées du coût de l'énergie (chambres froides) et des matières premières, sans sacrifier l'exigence de découpe artisanale.
                 </span>
               </li>
-              <li className="flex items-start gap-3 bg-white p-4 rounded-2xl border border-[#D9DCD5] shadow-xs">
-                <div className="w-7 h-7 rounded-xl bg-[#558D4D]/15 text-[#558D4D] flex items-center justify-center flex-shrink-0 mt-0.5">
+              <li className="flex items-start gap-3.5 bg-white p-4 rounded-2xl border border-[#D9DCD5] shadow-xs hover:border-[#558D4D]/50 transition-colors">
+                <div className="w-8 h-8 rounded-full bg-[#558D4D] text-white flex items-center justify-center flex-shrink-0 font-bold text-sm shadow-xs mt-0.5">
                   <CheckCircle2 size={18} />
                 </div>
                 <span className="text-sm md:text-base leading-relaxed">
                   <strong>Rallier les « consommActeurs » et jeunes actifs de votre quartier</strong> à la viande locale de qualité sans passer vos soirées sur les réseaux sociaux.
                 </span>
               </li>
-              <li className="flex items-start gap-3 bg-white p-4 rounded-2xl border border-[#D9DCD5] shadow-xs">
-                <div className="w-7 h-7 rounded-xl bg-[#558D4D]/15 text-[#558D4D] flex items-center justify-center flex-shrink-0 mt-0.5">
+              <li className="flex items-start gap-3.5 bg-white p-4 rounded-2xl border border-[#D9DCD5] shadow-xs hover:border-[#558D4D]/50 transition-colors">
+                <div className="w-8 h-8 rounded-full bg-[#558D4D] text-white flex items-center justify-center flex-shrink-0 font-bold text-sm shadow-xs mt-0.5">
                   <CheckCircle2 size={18} />
                 </div>
                 <span className="text-sm md:text-base leading-relaxed">
@@ -469,9 +558,10 @@ const Bouchers = () => {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-[#F48631] hover:bg-[#d97223] text-white font-bold py-4 rounded-xl transition-all shadow-md hover:shadow-lg mt-4 disabled:opacity-70 cursor-pointer text-base"
+                    className="w-full bg-[#F48631] hover:bg-[#d97223] text-white font-bold py-4 px-8 rounded-full transition-all shadow-md hover:shadow-lg mt-4 disabled:opacity-70 cursor-pointer text-base inline-flex items-center justify-center gap-2"
                   >
-                    {isLoading ? 'Envoi en cours...' : 'Je donne mon avis & reçois le guide'}
+                    <span>{isLoading ? 'Envoi en cours...' : 'Je donne mon avis & reçois le guide'}</span>
+                    <ArrowRight size={18} />
                   </button>
                 </form>
               )}
@@ -479,6 +569,12 @@ const Bouchers = () => {
 
             {/* Pitch Card (3/5 / Col 7) */}
             <div className="lg:col-span-7 pt-4">
+              <div className="w-12 h-12 rounded-full bg-[#558D4D] text-white flex items-center justify-center mb-4 shadow-xs">
+                <Award size={22} />
+              </div>
+              <p className="font-accent text-[#FF859D] text-2xl mb-2">
+                Votre voix compte pour l'artisanat local
+              </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-display text-[#19522A] leading-tight mb-6">
                 Obtenez les meilleures astuces des artisans bouchers
               </h2>
@@ -493,15 +589,18 @@ const Bouchers = () => {
                   <span>Un engagement 100% solidaire et sans frais :</span>
                 </p>
                 <div className="grid sm:grid-cols-3 gap-4 pt-2">
-                  <div className="bg-white p-3.5 rounded-xl border border-[#D9DCD5]">
+                  <div className="bg-white p-4 rounded-2xl border border-[#D9DCD5] hover:border-[#558D4D]/50 transition-colors">
+                    <div className="w-6 h-6 rounded-full bg-[#558D4D]/15 text-[#558D4D] flex items-center justify-center font-bold text-xs mb-2">✓</div>
                     <p className="font-bold text-xs text-[#19522A] mb-1">0% Commission</p>
                     <p className="text-[11px] text-[#667079]">100% de votre chiffre d'affaires reste chez vous.</p>
                   </div>
-                  <div className="bg-white p-3.5 rounded-xl border border-[#D9DCD5]">
+                  <div className="bg-white p-4 rounded-2xl border border-[#D9DCD5] hover:border-[#558D4D]/50 transition-colors">
+                    <div className="w-6 h-6 rounded-full bg-[#558D4D]/15 text-[#558D4D] flex items-center justify-center font-bold text-xs mb-2">✓</div>
                     <p className="font-bold text-xs text-[#19522A] mb-1">Données Protégées</p>
                     <p className="text-[11px] text-[#667079]">Usage exclusif pour le guide, jamais revendues.</p>
                   </div>
-                  <div className="bg-white p-3.5 rounded-xl border border-[#D9DCD5]">
+                  <div className="bg-white p-4 rounded-2xl border border-[#D9DCD5] hover:border-[#558D4D]/50 transition-colors">
+                    <div className="w-6 h-6 rounded-full bg-[#558D4D]/15 text-[#558D4D] flex items-center justify-center font-bold text-xs mb-2">✓</div>
                     <p className="font-bold text-xs text-[#19522A] mb-1">Accès Testeur VIP</p>
                     <p className="text-[11px] text-[#667079]">Invitation prioritaire sans aucun abonnement.</p>
                   </div>
@@ -518,7 +617,13 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       <section className="relative pt-12 pb-36 md:pt-16 md:pb-44 bg-white">
         <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-display text-[#19522A] mb-6">
+          <div className="w-12 h-12 rounded-full bg-[#19522A] text-[#FDF3E2] flex items-center justify-center mx-auto mb-4 shadow-xs">
+            <Sparkles size={22} />
+          </div>
+          <p className="font-accent text-[#FF859D] text-2xl mb-2">
+            Conçu par et pour les artisans indépendants
+          </p>
+          <h2 className="text-3xl md:text-4xl font-display text-[#19522A] mb-4">
             Pourquoi remplir le formulaire ?
           </h2>
           <p className="max-w-3xl mx-auto text-base md:text-lg text-[#667079] leading-relaxed mb-16">
@@ -528,8 +633,8 @@ const Bouchers = () => {
           <div className="grid md:grid-cols-3 gap-8 text-left">
             {/* Card 1 */}
             <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/80 p-8 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
-              <div className="w-14 h-14 bg-[#F48631]/15 text-[#F48631] rounded-2xl flex items-center justify-center mb-6">
-                <TrendingUp size={28} />
+              <div className="w-10 h-10 rounded-full bg-[#558D4D] text-white font-display text-sm flex items-center justify-center mb-5 shadow-xs">
+                01
               </div>
               <h3 className="font-display text-xl text-[#19522A] mb-3">
                 Gestion & Marges Justes
@@ -541,8 +646,8 @@ const Bouchers = () => {
 
             {/* Card 2 */}
             <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/80 p-8 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
-              <div className="w-14 h-14 bg-[#558D4D]/15 text-[#558D4D] rounded-2xl flex items-center justify-center mb-6">
-                <BellRing size={28} />
+              <div className="w-10 h-10 rounded-full bg-[#558D4D] text-white font-display text-sm flex items-center justify-center mb-5 shadow-xs">
+                02
               </div>
               <h3 className="font-display text-xl text-[#19522A] mb-3">
                 Visibilité & Rayonnement Local
@@ -554,8 +659,8 @@ const Bouchers = () => {
 
             {/* Card 3 */}
             <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/80 p-8 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
-              <div className="w-14 h-14 bg-[#19522A]/15 text-[#19522A] rounded-2xl flex items-center justify-center mb-6">
-                <Users size={28} />
+              <div className="w-10 h-10 rounded-full bg-[#558D4D] text-white font-display text-sm flex items-center justify-center mb-5 shadow-xs">
+                03
               </div>
               <h3 className="font-display text-xl text-[#19522A] mb-3">
                 Confraternité & Circuits Courts
@@ -576,6 +681,12 @@ const Bouchers = () => {
         <BrushSeparator position="top" fillColor="#FDF3E2" />
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
+            <div className="w-12 h-12 rounded-full bg-[#19522A] text-[#FDF3E2] flex items-center justify-center mx-auto mb-4 shadow-xs">
+              <Users size={22} />
+            </div>
+            <p className="font-accent text-[#FF859D] text-2xl mb-2">
+              Témoignages vérifiés de confrères artisans
+            </p>
             <h2 className="text-3xl md:text-4xl font-display text-[#19522A]">
               Preuves sociales
             </h2>
@@ -585,11 +696,16 @@ const Bouchers = () => {
             {/* Review 1 */}
             <div className="bg-white p-8 rounded-3xl border border-[#D9DCD5] shadow-sm flex flex-col justify-between">
               <div>
-                {/* 5 Stars */}
-                <div className="flex items-center gap-1 text-[#F48631] mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} fill="currentColor" />
-                  ))}
+                <div className="flex items-center justify-between mb-4">
+                  {/* 5 Stars */}
+                  <div className="flex items-center gap-1 text-[#F48631]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={16} fill="currentColor" />
+                    ))}
+                  </div>
+                  <span className="text-[10px] bg-[#558D4D]/10 text-[#558D4D] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                    <CheckCircle2 size={11} /> Vérifié
+                  </span>
                 </div>
                 <p className="text-sm text-[#4A4A4A] italic leading-relaxed mb-6">
                   "La démarche 1001 Goûts remet le travail de carcasse et le savoir-faire au centre. Les pistes du guide sur l'optimisation des chambres froides et la gestion des matières m'ont permis de respirer financièrement."
@@ -611,11 +727,16 @@ const Bouchers = () => {
             {/* Review 2 */}
             <div className="bg-white p-8 rounded-3xl border border-[#D9DCD5] shadow-sm flex flex-col justify-between">
               <div>
-                {/* 5 Stars */}
-                <div className="flex items-center gap-1 text-[#F48631] mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} fill="currentColor" />
-                  ))}
+                <div className="flex items-center justify-between mb-4">
+                  {/* 5 Stars */}
+                  <div className="flex items-center gap-1 text-[#F48631]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={16} fill="currentColor" />
+                    ))}
+                  </div>
+                  <span className="text-[10px] bg-[#558D4D]/10 text-[#558D4D] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                    <CheckCircle2 size={11} /> Vérifié
+                  </span>
                 </div>
                 <p className="text-sm text-[#4A4A4A] italic leading-relaxed mb-6">
                   "Les habitants veulent mieux manger mais se laissent tenter par la facilité des supermarchés. Les astuces du guide pour attirer les jeunes foyers du quartier ont fait mouche chez nous."
@@ -637,11 +758,16 @@ const Bouchers = () => {
             {/* Review 3 */}
             <div className="bg-white p-8 rounded-3xl border border-[#D9DCD5] shadow-sm flex flex-col justify-between">
               <div>
-                {/* 5 Stars */}
-                <div className="flex items-center gap-1 text-[#F48631] mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} fill="currentColor" />
-                  ))}
+                <div className="flex items-center justify-between mb-4">
+                  {/* 5 Stars */}
+                  <div className="flex items-center gap-1 text-[#F48631]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={16} fill="currentColor" />
+                    ))}
+                  </div>
+                  <span className="text-[10px] bg-[#558D4D]/10 text-[#558D4D] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                    <CheckCircle2 size={11} /> Vérifié
+                  </span>
                 </div>
                 <p className="text-sm text-[#4A4A4A] italic leading-relaxed mb-6">
                   "Enfin une initiative qui refuse de prendre des commissions sur nos ventes. 0% de commission et du vrai partage entre confrères, c'est exactement ce dont l'artisanat a besoin."
@@ -669,6 +795,12 @@ const Bouchers = () => {
       <section className="relative pt-12 pb-36 md:pt-16 md:pb-44 bg-[#FDF3E2]">
         <div className="max-w-3xl mx-auto px-6 relative z-10">
           <div className="text-center mb-12">
+            <div className="w-12 h-12 rounded-full bg-[#19522A] text-[#FDF3E2] flex items-center justify-center mx-auto mb-4 shadow-xs">
+              <HelpCircle size={22} />
+            </div>
+            <p className="font-accent text-[#FF859D] text-2xl mb-2">
+              Réponses claires & transparentes
+            </p>
             <h2 className="text-3xl md:text-4xl font-display text-[#19522A]">
               Foire Aux Questions
             </h2>
@@ -722,7 +854,7 @@ const Bouchers = () => {
             <a
               href="#formulaire"
               onClick={scrollToForm}
-              className="bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 rounded-xl font-bold text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-2"
+              className="bg-[#F48631] hover:bg-[#d97223] text-white px-9 py-4 rounded-full font-bold text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-3 cursor-pointer"
             >
               <span>Donner mon avis et obtenir le guide</span>
               <ArrowRight size={18} />

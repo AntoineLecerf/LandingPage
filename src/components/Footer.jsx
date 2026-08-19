@@ -13,24 +13,24 @@ const Footer = () => {
         <div>
           <h4 className="font-display text-lg mb-4 text-white">Solutions B2B</h4>
           <ul className="space-y-3 text-white/60 text-sm">
-            <li><a href="/bouchers" className="hover:text-[#FF859D] transition-colors">Bouchers & Charcutiers</a></li>
-            <li><a href="/itinerants" className="hover:text-[#FF859D] transition-colors">Commerçants itinérants</a></li>
-            <li><a href="#" className="hover:text-[#FF859D] transition-colors">Producteurs locaux</a></li>
-            <li><a href="#" className="hover:text-[#FF859D] transition-colors">Restaurateurs</a></li>
+            <li><a href="/bouchers" className="hover:text-[#F48631] transition-colors">Bouchers & Charcutiers</a></li>
+            <li><a href="/itinerants" className="hover:text-[#F48631] transition-colors">Commerçants itinérants</a></li>
+            <li><a href="#" className="hover:text-[#F48631] transition-colors">Producteurs locaux</a></li>
+            <li><a href="#" className="hover:text-[#F48631] transition-colors">Restaurateurs</a></li>
           </ul>
         </div>
         <div>
           <h4 className="font-display text-lg mb-4 text-white">Ressources</h4>
           <ul className="space-y-3 text-white/60 text-sm">
-            <li><a href="#" className="hover:text-[#FF859D] transition-colors">Tarifs (0% de commission)</a></li>
-            <li><a href="#" className="hover:text-[#FF859D] transition-colors">Le label "1001 Engagés"</a></li>
-            <li><a href="#" className="hover:text-[#FF859D] transition-colors">Centrale de référencement</a></li>
+            <li><a href="#" className="hover:text-[#F48631] transition-colors">Tarifs (0% de commission)</a></li>
+            <li><a href="#" className="hover:text-[#F48631] transition-colors">Le label "1001 Engagés"</a></li>
+            <li><a href="#" className="hover:text-[#F48631] transition-colors">Centrale de référencement</a></li>
           </ul>
         </div>
         <div>
           <h4 className="font-display text-lg mb-4 text-white">Nous contacter</h4>
           <ul className="space-y-3 text-white/60 text-sm">
-            <li><a href="mailto:contact@1001gouts.com" className="hover:text-[#FF859D] transition-colors">contact@1001gouts.com</a></li>
+            <li><a href="mailto:contact@1001gouts.com" className="hover:text-[#F48631] transition-colors">contact@1001gouts.com</a></li>
             <li>23 bis avenue de l'Europe<br/>78400 Chatou</li>
           </ul>
         </div>
@@ -38,9 +38,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs text-white/40">
         <p>© 2026 1001 Goûts (KLS SAS). Tous droits réservés.</p>
         <div className="flex gap-4 mt-4 md:mt-0">
-          <a href="#" className="hover:text-[#FF859D] transition-colors">Mentions légales</a>
-          <a href="#" className="hover:text-[#FF859D] transition-colors">CGU</a>
-          <a href="#" className="hover:text-[#FF859D] transition-colors">Confidentialité</a>
+          <a href="#" className="hover:text-[#F48631] transition-colors">Mentions légales</a>
+          <a href="#" className="hover:text-[#F48631] transition-colors">CGU</a>
+          <a href="#" className="hover:text-[#F48631] transition-colors">Confidentialité</a>
         </div>
       </div>
     </footer>
