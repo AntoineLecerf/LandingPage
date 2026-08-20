@@ -43,7 +43,7 @@ const Bouchers = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
 
-  // Forcer la lecture vidéo fluide en arrière-plan sur tous les appareils mobiles (iOS / Safari / Android)
+  // Forcer la lecture vidéo en arrière-plan sur tous les navigateurs et mobiles (iOS / Safari / Android)
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -55,40 +55,26 @@ const Bouchers = () => {
     video.setAttribute('playsinline', '');
     video.setAttribute('webkit-playsinline', 'true');
 
-    const tryPlay = () => {
-      const promise = video.play();
-      if (promise !== undefined) {
-        promise.catch(() => {
-          // Attendre la première interaction tactile utilisateur
+    const startPlayback = () => {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Si le mode économie d'énergie du smartphone bloque l'autoplay,
+          // on réenclenche la lecture au premier contact avec l'écran
+          const handleInteraction = () => {
+            video.play().catch(() => {});
+            window.removeEventListener('touchstart', handleInteraction);
+            window.removeEventListener('scroll', handleInteraction);
+            window.removeEventListener('click', handleInteraction);
+          };
+          window.addEventListener('touchstart', handleInteraction, { passive: true, once: true });
+          window.addEventListener('scroll', handleInteraction, { passive: true, once: true });
+          window.addEventListener('click', handleInteraction, { passive: true, once: true });
         });
       }
     };
 
-    tryPlay();
-    video.addEventListener('loadedmetadata', tryPlay, { once: true });
-    video.addEventListener('canplay', tryPlay, { once: true });
-
-    // Déclencheur au premier scroll ou toucher sur mobile
-    const handleFirstInteraction = () => {
-      if (video.paused) {
-        video.play().catch(() => {});
-      }
-      window.removeEventListener('touchstart', handleFirstInteraction);
-      window.removeEventListener('scroll', handleFirstInteraction);
-      window.removeEventListener('click', handleFirstInteraction);
-    };
-
-    window.addEventListener('touchstart', handleFirstInteraction, { passive: true });
-    window.addEventListener('scroll', handleFirstInteraction, { passive: true });
-    window.addEventListener('click', handleFirstInteraction, { passive: true });
-
-    return () => {
-      video.removeEventListener('loadedmetadata', tryPlay);
-      video.removeEventListener('canplay', tryPlay);
-      window.removeEventListener('touchstart', handleFirstInteraction);
-      window.removeEventListener('scroll', handleFirstInteraction);
-      window.removeEventListener('click', handleFirstInteraction);
-    };
+    startPlayback();
   }, []);
 
   // Webhook URL (Google Apps Script / Make.com)
@@ -202,30 +188,25 @@ const Bouchers = () => {
       <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center bg-black text-white overflow-hidden">
         
         {/* Background MP4 Video (Auto-loop, 0 controls, no watermark) */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        <div 
+          className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none bg-cover bg-center"
+          style={{ backgroundImage: "url('/hero-bouchers.jpg')" }}
+        >
           <video
             ref={videoRef}
-            src="/hero-video.mp4"
             autoPlay
             loop
             muted
             playsInline
             preload="auto"
-            disablePictureInPicture
             poster="/hero-bouchers.jpg"
-            onLoadedData={(e) => {
-              e.target.muted = true;
-              e.target.play().catch(() => {});
-            }}
-            onCanPlay={(e) => {
-              e.target.muted = true;
-              e.target.play().catch(() => {});
-            }}
             className="w-full h-full object-cover opacity-85"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          />
+          >
+            <source src="/hero-video.mp4" type="video/mp4" />
+          </video>
 
-          {/* Dark transparent neutral black / charcoal veil (pure CSS without backdrop filter to avoid mobile GPU drops) */}
+          {/* Dark transparent neutral black / charcoal veil */}
           <div className="absolute inset-0 bg-black/55 pointer-events-none"></div>
         </div>
 
