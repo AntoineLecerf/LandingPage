@@ -168,7 +168,7 @@ const Bouchers = () => {
               <p className="font-accent text-[#FF859D] text-lg sm:text-xl mb-2.5">
                 Pour valoriser le savoir-faire artisanal & vos marges
               </p>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display text-white leading-[1.14] mb-5">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display text-white leading-[1.10] mb-5">
                 Les artisans bouchers ne devraient pas avancer seuls !
               </h1>
               <p className="text-base text-[#FDF3E2] font-medium leading-relaxed mb-8 max-w-2xl mx-auto">
