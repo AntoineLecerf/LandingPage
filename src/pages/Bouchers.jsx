@@ -140,9 +140,9 @@ const Bouchers = () => {
       />
 
       {/* ========================================================================= */}
-      {/* SECTION 1 : HERO SECTION (FOND SOMBRE & VIDÉO AVEC VOILE NOIR/GRIS)        */}
+      {/* SECTION 1 : HERO SECTION (FOND SOMBRE & VIDÉO NATURELLE OPTIMISÉE MOBILE)   */}
       {/* ========================================================================= */}
-      <section className="relative min-h-[90vh] flex items-center bg-black text-white">
+      <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center bg-black text-white overflow-hidden">
         
         {/* Background MP4 Video (Auto-loop, 0 controls, no watermark) */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
@@ -151,6 +151,7 @@ const Bouchers = () => {
             loop
             muted
             playsInline
+            webkit-playsinline="true"
             poster="/hero-bouchers.jpg"
             className="w-full h-full object-cover opacity-85 filter brightness-95 contrast-105 pointer-events-none"
           >
@@ -158,27 +159,27 @@ const Bouchers = () => {
           </video>
 
           {/* Dark transparent neutral black / charcoal veil */}
-          <div className="absolute inset-0 bg-black/60 backdrop-brightness-90 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-black/60 backdrop-brightness-95 pointer-events-none"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto px-6 relative z-20 text-left py-20 md:py-28">
+        <div className="max-w-4xl mx-auto px-5 sm:px-6 relative z-20 text-left py-16 sm:py-20 md:py-28 w-full">
           <div>
-              <p className="font-accent text-[#FF859D] text-lg sm:text-xl md:text-2xl mb-3">
+              <p className="font-accent text-[#FF859D] text-xl sm:text-2xl md:text-3xl mb-3 sm:mb-4 leading-snug">
                 La force d'une communauté, au service des artisans bouchers
               </p>
-              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display text-white leading-[1.06] tracking-tight mb-6 max-w-3xl [text-wrap:balance]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display text-white leading-[1.12] sm:leading-[1.08] tracking-tight mb-5 sm:mb-6 max-w-3xl [text-wrap:balance]">
                 Vos couteaux sont affûtés.<br className="hidden sm:inline" /> Nos méthodes aussi.
               </h1>
-              <p className="text-base sm:text-lg text-[#FDF3E2] font-medium leading-relaxed mb-8 max-w-2xl">
+              <p className="text-base sm:text-lg md:text-xl text-[#FDF3E2] font-normal sm:font-medium leading-relaxed mb-8 sm:mb-10 max-w-2xl">
                 De la valorisation de votre savoir-faire à la gestion sereine de votre boutique : retrouvez les solutions concrètes partagées par vos confrères.
               </p>
 
               {/* CTA Hero Button */}
-              <div className="flex justify-start">
+              <div className="flex flex-col sm:flex-row justify-start items-stretch sm:items-center gap-4">
                 <a
                   href="#formulaire"
                   onClick={scrollToForm}
-                  className="btn-shine-effect group bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 rounded-full font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-3 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2 transform hover:-translate-y-0.5"
+                  className="btn-shine-effect group bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 sm:py-4 rounded-full font-bold text-base sm:text-lg transition-all shadow-md hover:shadow-lg inline-flex items-center justify-center gap-3 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2 transform hover:-translate-y-0.5"
                 >
                   <span>Obtenir mon guide</span>
                   <ArrowRight size={18} className="transition-transform group-hover:translate-x-1.5 duration-200" />
