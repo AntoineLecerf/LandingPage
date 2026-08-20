@@ -213,11 +213,20 @@ const Bouchers = () => {
             preload="auto"
             disablePictureInPicture
             poster="/hero-bouchers.jpg"
-            className="w-full h-full object-cover opacity-85 filter brightness-95 contrast-105 pointer-events-none"
+            onLoadedData={(e) => {
+              e.target.muted = true;
+              e.target.play().catch(() => {});
+            }}
+            onCanPlay={(e) => {
+              e.target.muted = true;
+              e.target.play().catch(() => {});
+            }}
+            className="w-full h-full object-cover opacity-85"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
 
-          {/* Dark transparent neutral black / charcoal veil */}
-          <div className="absolute inset-0 bg-black/60 backdrop-brightness-95 pointer-events-none"></div>
+          {/* Dark transparent neutral black / charcoal veil (pure CSS without backdrop filter to avoid mobile GPU drops) */}
+          <div className="absolute inset-0 bg-black/55 pointer-events-none"></div>
         </div>
 
         <div className="max-w-4xl mx-auto px-5 sm:px-6 relative z-20 text-left py-16 sm:py-20 md:py-28 w-full">
