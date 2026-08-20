@@ -229,13 +229,14 @@ const Bouchers = () => {
               Ce guide complet rédigé avec des confrères et des experts de terrain vous permettra de :
             </p>
 
-            {/* 🌟 INFOS DYNAMIQUES AVEC ICÔNES THÉMATIQUES ANIMÉES */}
+            {/* 🌟 INFOS DYNAMIQUES AVEC ICÔNES THÉMATIQUES ANIMÉES EN BOUCLE */}
             <div className="space-y-6 sm:space-y-7 text-[#19522A]">
               <div className="flex items-start gap-4 group p-2 rounded-2xl hover:bg-[#19522A]/5 transition-all duration-200">
                 <div className="w-12 h-12 rounded-2xl bg-white border border-[#D9DCD5] shadow-xs flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 group-hover:border-[#19522A]/40 transition-all duration-300">
                   <LordIcon 
                     src="https://cdn.lordicon.com/lbcxnxti.json" 
-                    trigger="hover" 
+                    trigger="loop"
+                    delay={2200}
                     colors="primary:#19522A,secondary:#F48631" 
                     size={30} 
                   />
@@ -252,7 +253,8 @@ const Bouchers = () => {
                 <div className="w-12 h-12 rounded-2xl bg-white border border-[#D9DCD5] shadow-xs flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 group-hover:border-[#19522A]/40 transition-all duration-300">
                   <LordIcon 
                     src="https://cdn.lordicon.com/cjoqkjst.json" 
-                    trigger="hover" 
+                    trigger="loop"
+                    delay={2800}
                     colors="primary:#19522A,secondary:#F48631" 
                     size={30} 
                   />
@@ -269,7 +271,8 @@ const Bouchers = () => {
                 <div className="w-12 h-12 rounded-2xl bg-white border border-[#D9DCD5] shadow-xs flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 group-hover:border-[#19522A]/40 transition-all duration-300">
                   <LordIcon 
                     src="https://cdn.lordicon.com/nobciafz.json" 
-                    trigger="hover" 
+                    trigger="loop"
+                    delay={3400}
                     colors="primary:#19522A,secondary:#F48631" 
                     size={30} 
                   />
@@ -312,14 +315,15 @@ const Bouchers = () => {
                 Obtenez les meilleures astuces des artisans bouchers
               </h2>
               
-              {/* 🌿 3 DÉFIS MAJEURS 1001 GOÛTS AVEC ICÔNES ANIMÉES LORDICON */}
+              {/* 🌿 3 DÉFIS MAJEURS 1001 GOÛTS AVEC ICÔNES ANIMÉES LORDICON EN BOUCLE */}
               <div className="space-y-6 sm:space-y-7">
                 {/* Défi 1 */}
                 <div className="flex items-start gap-4.5 group p-3 rounded-2xl hover:bg-[#FDF3E2]/60 hover:translate-x-1 transition-all duration-300">
                   <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#FDF3E2] border border-[#D9DCD5] flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:border-[#19522A]/40 transition-all duration-300 shadow-xs">
                     <LordIcon 
                       src="https://cdn.lordicon.com/ewnhdaeg.json" 
-                      trigger="hover" 
+                      trigger="loop"
+                      delay={2000}
                       colors="primary:#19522A,secondary:#F48631" 
                       size={34} 
                     />
@@ -339,7 +343,8 @@ const Bouchers = () => {
                   <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#FDF3E2] border border-[#D9DCD5] flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:border-[#19522A]/40 transition-all duration-300 shadow-xs">
                     <LordIcon 
                       src="https://cdn.lordicon.com/aygridid.json" 
-                      trigger="hover" 
+                      trigger="loop"
+                      delay={2700}
                       colors="primary:#19522A,secondary:#F48631" 
                       size={34} 
                     />
@@ -359,7 +364,8 @@ const Bouchers = () => {
                   <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#FDF3E2] border border-[#D9DCD5] flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:border-[#19522A]/40 transition-all duration-300 shadow-xs">
                     <LordIcon 
                       src="https://cdn.lordicon.com/zjdxuyoy.json" 
-                      trigger="hover" 
+                      trigger="loop"
+                      delay={3500}
                       colors="primary:#19522A,secondary:#F48631" 
                       size={34} 
                     />

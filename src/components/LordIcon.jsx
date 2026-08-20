@@ -2,7 +2,8 @@ import React, { useRef, useEffect } from 'react';
 
 const LordIcon = ({
   src,
-  trigger = 'hover',
+  trigger = 'loop',
+  delay = 2500,
   target,
   colors = 'primary:#19522A,secondary:#F48631',
   size = 32,
@@ -35,6 +36,7 @@ const LordIcon = ({
       ref={iconRef}
       src={src}
       trigger={trigger}
+      delay={delay}
       target={target}
       colors={colors}
       style={{
