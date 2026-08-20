@@ -34,6 +34,17 @@ const CONFIG = {
 };
 
 /**
+ * Point d'entrée GET (pour vérifier que le Webhook est en ligne)
+ */
+function doGet(e) {
+  return ContentService.createTextOutput(JSON.stringify({
+    status: "active",
+    message: "Webhook 1001 Goûts Bouchers opérationnel 🥩",
+    spreadsheetId: CONFIG.SPREADSHEET_ID
+  })).setMimeType(ContentService.MimeType.JSON);
+}
+
+/**
  * Point d'entrée pour les requêtes POST provenant de la landing page
  */
 function doPost(e) {
