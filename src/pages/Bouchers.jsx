@@ -177,10 +177,10 @@ const Bouchers = () => {
                 <a
                   href="#formulaire"
                   onClick={scrollToForm}
-                  className="bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 rounded-full font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-3 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2"
+                  className="btn-shine-effect group bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 rounded-full font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-3 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2 transform hover:-translate-y-0.5"
                 >
                   <span>Obtenir mon guide.</span>
-                  <ArrowRight size={18} />
+                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1.5 duration-200" />
                 </a>
               </div>
           </div>
@@ -197,23 +197,23 @@ const Bouchers = () => {
         <img
           src="/assets/1001gouts/feuille-verte.svg"
           alt="" aria-hidden="true"
-          className="absolute -left-16 top-10 w-64 sm:w-80 pointer-events-none opacity-20 select-none z-10 brightness-[0.35]"
+          className="absolute -left-16 top-10 w-64 sm:w-80 pointer-events-none opacity-20 select-none z-10 brightness-[0.35] animate-leaf-sway"
         />
 
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 lg:gap-16 items-center relative z-20">
           
-          {/* REAL EBOOK / GUIDE ENLARGED & TILTED */}
+          {/* REAL EBOOK / GUIDE ENLARGED, FLOATING & TILTED */}
           <div className="flex justify-center items-center relative">
-            <div className="relative w-full max-w-[300px] sm:max-w-[380px] lg:max-w-[415px] transform -rotate-2 hover:rotate-0 transition-all duration-300">
+            <div className="relative w-full max-w-[300px] sm:max-w-[380px] lg:max-w-[415px] animate-float hover:rotate-0 transition-transform duration-500 cursor-pointer">
               {/* Couverture Principale Haute Définition */}
-              <div className="relative rounded-2xl shadow-2xl overflow-hidden border border-[#D9DCD5] bg-white group">
+              <div className="relative rounded-2xl shadow-2xl overflow-hidden border border-[#D9DCD5] bg-white group hover:shadow-[0_25px_50px_-12px_rgba(25,82,42,0.25)] transition-shadow duration-300">
                 {/* Effet reliure / pliure gauche */}
                 <div className="absolute top-0 bottom-0 left-0 w-4 bg-gradient-to-r from-black/25 via-black/10 to-transparent pointer-events-none z-10" />
                 
                 <img
                   src="/guide-boucherie-cover.jpg"
                   alt="Guide Complet Boucherie Artisanale 2026 - 1001 Goûts"
-                  className="w-full h-auto object-cover block"
+                  className="w-full h-auto object-cover block transform group-hover:scale-[1.02] transition-transform duration-500"
                   loading="eager"
                 />
               </div>
@@ -230,8 +230,8 @@ const Bouchers = () => {
 
             {/* 🌟 INFOS DYNAMIQUES AVEC ICÔNES THÉMATIQUES */}
             <div className="space-y-6 sm:space-y-7 text-[#19522A]">
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-2xl bg-[#19522A] text-white flex items-center justify-center flex-shrink-0 shadow-xs mt-0.5">
+              <div className="flex items-start gap-4 group p-2 rounded-2xl hover:bg-[#19522A]/5 transition-all duration-200">
+                <div className="w-11 h-11 rounded-2xl bg-[#19522A] text-white flex items-center justify-center flex-shrink-0 shadow-xs mt-0.5 group-hover:scale-105 transition-transform">
                   <TrendingUp size={22} className="text-[#F48631]" />
                 </div>
                 <div>
@@ -242,8 +242,8 @@ const Bouchers = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-2xl bg-[#19522A] text-white flex items-center justify-center flex-shrink-0 shadow-xs mt-0.5">
+              <div className="flex items-start gap-4 group p-2 rounded-2xl hover:bg-[#19522A]/5 transition-all duration-200">
+                <div className="w-11 h-11 rounded-2xl bg-[#19522A] text-white flex items-center justify-center flex-shrink-0 shadow-xs mt-0.5 group-hover:scale-105 transition-transform">
                   <ShieldCheck size={22} className="text-[#558D4D]" />
                 </div>
                 <div>
@@ -254,8 +254,8 @@ const Bouchers = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-2xl bg-[#19522A] text-white flex items-center justify-center flex-shrink-0 shadow-xs mt-0.5">
+              <div className="flex items-start gap-4 group p-2 rounded-2xl hover:bg-[#19522A]/5 transition-all duration-200">
+                <div className="w-11 h-11 rounded-2xl bg-[#19522A] text-white flex items-center justify-center flex-shrink-0 shadow-xs mt-0.5 group-hover:scale-105 transition-transform">
                   <Award size={22} className="text-[#F48631]" />
                 </div>
                 <div>
@@ -280,7 +280,7 @@ const Bouchers = () => {
         <img
           src="/assets/1001gouts/feuille-verte.svg"
           alt="" aria-hidden="true"
-          className="absolute -right-16 bottom-12 w-56 sm:w-72 pointer-events-none opacity-15 select-none z-10 -scale-x-100"
+          className="absolute -right-16 bottom-12 w-56 sm:w-72 pointer-events-none opacity-15 select-none z-10 -scale-x-100 animate-leaf-sway"
           style={{ filter: 'brightness(0.6) sepia(1) saturate(3) hue-rotate(-30deg)' }}
         />
         
@@ -299,8 +299,8 @@ const Bouchers = () => {
               {/* 🌿 3 DÉFIS MAJEURS 1001 GOÛTS */}
               <div className="space-y-6 sm:space-y-7">
                 {/* Défi 1 */}
-                <div className="flex items-start gap-4.5">
-                  <div className="flex flex-col items-center flex-shrink-0">
+                <div className="flex items-start gap-4.5 group p-3 rounded-2xl hover:bg-[#FDF3E2]/60 hover:translate-x-1 transition-all duration-300">
+                  <div className="flex flex-col items-center flex-shrink-0 group-hover:scale-105 transition-transform">
                     <img src="/assets/1001gouts/Groupe-16819.png" alt="1" className="w-12 sm:w-14 h-auto" />
                   </div>
                   <div>
@@ -314,8 +314,8 @@ const Bouchers = () => {
                 </div>
 
                 {/* Défi 2 */}
-                <div className="flex items-start gap-4.5">
-                  <div className="flex flex-col items-center flex-shrink-0">
+                <div className="flex items-start gap-4.5 group p-3 rounded-2xl hover:bg-[#FDF3E2]/60 hover:translate-x-1 transition-all duration-300">
+                  <div className="flex flex-col items-center flex-shrink-0 group-hover:scale-105 transition-transform">
                     <img src="/assets/1001gouts/Groupe-16820.png" alt="2" className="w-12 sm:w-14 h-auto" />
                   </div>
                   <div>
@@ -329,8 +329,8 @@ const Bouchers = () => {
                 </div>
 
                 {/* Défi 3 */}
-                <div className="flex items-start gap-4.5">
-                  <div className="flex flex-col items-center flex-shrink-0">
+                <div className="flex items-start gap-4.5 group p-3 rounded-2xl hover:bg-[#FDF3E2]/60 hover:translate-x-1 transition-all duration-300">
+                  <div className="flex flex-col items-center flex-shrink-0 group-hover:scale-105 transition-transform">
                     <img src="/assets/1001gouts/Groupe-16821.png" alt="3" className="w-12 sm:w-14 h-auto" />
                   </div>
                   <div>
@@ -346,14 +346,14 @@ const Bouchers = () => {
             </div>
 
             {/* Form Card (5 Cols) - DROITE */}
-            <div className="lg:col-span-5 bg-[#FDF3E2] p-6 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-md relative">
+            <div className="lg:col-span-5 bg-[#FDF3E2] p-6 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-md relative hover:shadow-lg transition-shadow duration-300">
               <h3 className="font-display text-xl sm:text-2xl text-[#19522A] mb-5">
                 Obtenez votre guide en 2 min !
               </h3>
 
               {isSubmitted ? (
                 <div className="py-6 text-center animate-fadeIn">
-                  <div className="w-14 h-14 bg-[#558D4D]/15 text-[#558D4D] rounded-full flex items-center justify-center mx-auto mb-3">
+                  <div className="w-14 h-14 bg-[#558D4D]/15 text-[#558D4D] rounded-full flex items-center justify-center mx-auto mb-3 animate-pop">
                     <FileCheck size={32} />
                   </div>
                   <h4 className="font-display text-lg text-[#19522A] mb-1">Merci {formData.firstName} !</h4>
@@ -365,7 +365,7 @@ const Bouchers = () => {
                     <button
                       type="button"
                       onClick={triggerPdfDownload}
-                      className="w-full bg-[#F48631] hover:bg-[#d97223] text-white font-bold py-3 px-4 rounded-xl transition-all shadow-xs text-sm flex items-center justify-center gap-2 cursor-pointer"
+                      className="btn-shine-effect w-full bg-[#F48631] hover:bg-[#d97223] text-white font-bold py-3 px-4 rounded-xl transition-all shadow-xs text-sm flex items-center justify-center gap-2 cursor-pointer transform hover:-translate-y-0.5"
                     >
                       <Download size={16} />
                       <span>Télécharger à nouveau le PDF</span>
@@ -374,7 +374,7 @@ const Bouchers = () => {
                       href="/guide-complet-artisan-boucher-2027.pdf"
                       target="_blank"
                       rel="noreferrer"
-                      className="w-full bg-white hover:bg-stone-50 text-[#19522A] font-semibold py-2.5 px-4 rounded-xl border border-[#D9DCD5] transition-colors text-sm flex items-center justify-center gap-1.5"
+                      className="w-full bg-white hover:bg-stone-50 text-[#19522A] font-semibold py-2.5 px-4 rounded-xl border border-[#D9DCD5] transition-colors text-sm flex items-center justify-center gap-1.5 hover:shadow-xs"
                     >
                       <ExternalLink size={14} />
                       <span>Lire en ligne (nouvel onglet)</span>
@@ -415,7 +415,7 @@ const Bouchers = () => {
                         value={formData.firstName}
                         onChange={handleInputChange}
                         placeholder="Ex : Laurent"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white shadow-xs"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white shadow-xs transition-all"
                       />
                     </div>
 
@@ -432,7 +432,7 @@ const Bouchers = () => {
                         value={formData.shopName}
                         onChange={handleInputChange}
                         placeholder="Ex : Boucherie du Centre"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white shadow-xs"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white shadow-xs transition-all"
                       />
                     </div>
                   </div>
@@ -451,7 +451,7 @@ const Bouchers = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="vous@boucherie.fr"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white shadow-xs"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white shadow-xs transition-all"
                       />
                     </div>
 
@@ -468,7 +468,7 @@ const Bouchers = () => {
                         value={formData.postalCode}
                         onChange={handleInputChange}
                         placeholder="69001"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white shadow-xs"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white shadow-xs transition-all"
                       />
                     </div>
                   </div>
@@ -485,14 +485,14 @@ const Bouchers = () => {
                             key={idx}
                             type="button"
                             onClick={() => handleObstacleToggle(option)}
-                            className={`px-3 py-2 rounded-xl text-sm font-medium transition-all text-left flex items-center gap-2 cursor-pointer border select-none ${
+                            className={`px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-left flex items-center gap-2 cursor-pointer border select-none active:scale-95 ${
                               isSelected
                                 ? 'bg-[#19522A] text-white border-[#19522A] shadow-xs'
                                 : 'bg-white text-[#4A4A4A] border-[#D9DCD5] hover:border-[#19522A]/40 hover:bg-[#FDF3E2]/50'
                             }`}
                           >
                             <span className={`w-4 h-4 rounded-full flex items-center justify-center border text-[10px] font-bold flex-shrink-0 ${
-                              isSelected ? 'bg-[#F48631] border-[#F48631] text-white' : 'border-[#D9DCD5] bg-stone-50 text-transparent'
+                              isSelected ? 'animate-pop bg-[#F48631] border-[#F48631] text-white' : 'border-[#D9DCD5] bg-stone-50 text-transparent'
                             }`}>
                               ✓
                             </span>
@@ -521,10 +521,10 @@ const Bouchers = () => {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-[#F48631] hover:bg-[#d97223] text-white font-bold py-3.5 px-6 rounded-full transition-all shadow-md hover:shadow-lg mt-3 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer text-sm sm:text-base inline-flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2"
+                    className="btn-shine-effect group w-full bg-[#F48631] hover:bg-[#d97223] text-white font-bold py-3.5 px-6 rounded-full transition-all shadow-md hover:shadow-lg mt-3 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer text-sm sm:text-base inline-flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2 transform hover:-translate-y-0.5"
                   >
                     <span>{isLoading ? 'Envoi en cours...' : 'Obtenir mon guide.'}</span>
-                    <ArrowRight size={16} />
+                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1.5 duration-200" />
                   </button>
                 </form>
               )}
@@ -541,7 +541,7 @@ const Bouchers = () => {
         <img
           src="/assets/1001gouts/feuille-verte.svg"
           alt="" aria-hidden="true"
-          className="absolute -right-20 top-6 w-64 sm:w-80 pointer-events-none opacity-10 select-none z-10 brightness-[0.35]"
+          className="absolute -right-20 top-6 w-64 sm:w-80 pointer-events-none opacity-10 select-none z-10 brightness-[0.35] animate-leaf-sway"
         />
 
         <div className="max-w-6xl mx-auto px-6 text-center relative z-20">
@@ -559,8 +559,8 @@ const Bouchers = () => {
 
           <div className="grid md:grid-cols-3 gap-8 text-left">
             {/* Card 1 */}
-            <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/85 p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
-              <img src="/assets/1001gouts/Groupe-16819.png" alt="01" className="w-12 h-auto mb-4" />
+            <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/85 p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs hover:shadow-md hover:-translate-y-1.5 transition-all duration-300">
+              <img src="/assets/1001gouts/Groupe-16819.png" alt="01" className="w-12 h-auto mb-4 transform hover:scale-105 transition-transform" />
               <h3 className="font-display text-lg sm:text-xl text-[#19522A] mb-2.5">
                 Gestion & Marges Justes
               </h3>
@@ -570,8 +570,8 @@ const Bouchers = () => {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/85 p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
-              <img src="/assets/1001gouts/Groupe-16820.png" alt="02" className="w-12 h-auto mb-4" />
+            <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/85 p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs hover:shadow-md hover:-translate-y-1.5 transition-all duration-300">
+              <img src="/assets/1001gouts/Groupe-16820.png" alt="02" className="w-12 h-auto mb-4 transform hover:scale-105 transition-transform" />
               <h3 className="font-display text-lg sm:text-xl text-[#19522A] mb-2.5">
                 Circuits Courts Éleveurs
               </h3>
@@ -581,8 +581,8 @@ const Bouchers = () => {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/85 p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
-              <img src="/assets/1001gouts/Groupe-16821.png" alt="03" className="w-12 h-auto mb-4" />
+            <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/85 p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs hover:shadow-md hover:-translate-y-1.5 transition-all duration-300">
+              <img src="/assets/1001gouts/Groupe-16821.png" alt="03" className="w-12 h-auto mb-4 transform hover:scale-105 transition-transform" />
               <h3 className="font-display text-lg sm:text-xl text-[#19522A] mb-2.5">
                 Visibilité & Accès Testeur
               </h3>
@@ -604,7 +604,7 @@ const Bouchers = () => {
         <img
           src="/assets/1001gouts/feuille-verte.svg"
           alt="" aria-hidden="true"
-          className="absolute -left-16 bottom-10 w-56 sm:w-72 pointer-events-none opacity-[0.12] select-none z-10 -scale-x-100 rotate-12"
+          className="absolute -left-16 bottom-10 w-56 sm:w-72 pointer-events-none opacity-[0.12] select-none z-10 -scale-x-100 rotate-12 animate-leaf-sway"
           style={{ filter: 'brightness(0.6) sepia(1) saturate(3) hue-rotate(-30deg)' }}
         />
 
@@ -620,7 +620,7 @@ const Bouchers = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Verbatim 1 */}
-            <div className="bg-white p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs flex flex-col justify-between">
+            <div className="bg-white p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
               <div>
                 <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#19522A]/10 text-[#19522A] text-sm font-semibold mb-5">
                   <Calendar size={14} className="text-[#F48631]" />
@@ -644,7 +644,7 @@ const Bouchers = () => {
             </div>
 
             {/* Verbatim 2 */}
-            <div className="bg-white p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs flex flex-col justify-between">
+            <div className="bg-white p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
               <div>
                 <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#19522A]/10 text-[#19522A] text-sm font-semibold mb-5">
                   <Calendar size={14} className="text-[#F48631]" />
@@ -668,7 +668,7 @@ const Bouchers = () => {
             </div>
 
             {/* Verbatim 3 */}
-            <div className="bg-white p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs flex flex-col justify-between">
+            <div className="bg-white p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
               <div>
                 <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#19522A]/10 text-[#19522A] text-sm font-semibold mb-5">
                   <Calendar size={14} className="text-[#F48631]" />
@@ -703,7 +703,7 @@ const Bouchers = () => {
         <img
           src="/assets/1001gouts/feuille-verte.svg"
           alt="" aria-hidden="true"
-          className="absolute -right-16 top-8 w-56 sm:w-72 pointer-events-none opacity-[0.12] select-none z-10 -scale-x-100 -rotate-6"
+          className="absolute -right-16 top-8 w-56 sm:w-72 pointer-events-none opacity-[0.12] select-none z-10 -scale-x-100 -rotate-6 animate-leaf-sway"
           style={{ filter: 'brightness(0.6) sepia(1) saturate(3) hue-rotate(-30deg)' }}
         />
 
@@ -746,8 +746,8 @@ const Bouchers = () => {
             ].map((faq, idx) => (
               <div 
                 key={idx} 
-                className={`border rounded-2xl overflow-hidden transition-colors ${
-                  openFaq === idx ? 'bg-white border-[#F48631]/60 shadow-xs' : 'bg-white/80 border-[#D9DCD5] hover:bg-white'
+                className={`border rounded-2xl overflow-hidden transition-all duration-200 ${
+                  openFaq === idx ? 'bg-white border-[#F48631]/60 shadow-xs' : 'bg-white/80 border-[#D9DCD5] hover:bg-white hover:border-[#19522A]/30'
                 }`}
               >
                 <button
@@ -758,12 +758,12 @@ const Bouchers = () => {
                   className="w-full p-4.5 text-left font-display text-sm sm:text-base text-[#19522A] flex justify-between items-center transition-colors cursor-pointer"
                 >
                   <span>{faq.q}</span>
-                  <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-transform ${openFaq === idx ? 'bg-[#F48631] text-white rotate-180' : 'bg-[#FDF3E2] text-[#19522A] border border-[#D9DCD5]'}`}>
+                  <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-300 ${openFaq === idx ? 'bg-[#F48631] text-white rotate-180' : 'bg-[#FDF3E2] text-[#19522A] border border-[#D9DCD5]'}`}>
                     <ChevronDown size={15} />
                   </div>
                 </button>
                 {openFaq === idx && (
-                  <div id={`faq-content-${idx}`} role="region" className="px-4.5 pb-4.5 text-sm text-[#4A4A4A] leading-relaxed border-t border-[#D9DCD5]/60 pt-3.5">
+                  <div id={`faq-content-${idx}`} role="region" className="px-4.5 pb-4.5 text-sm text-[#4A4A4A] leading-relaxed border-t border-[#D9DCD5]/60 pt-3.5 animate-fadeIn">
                     {faq.a}
                   </div>
                 )}
@@ -772,7 +772,7 @@ const Bouchers = () => {
           </div>
 
           {/* 🎯 Catchphrase Finale Incitative */}
-          <div className="mt-14 sm:mt-16 bg-white p-8 sm:p-10 rounded-3xl border border-[#D9DCD5] shadow-xs text-center relative z-20">
+          <div className="mt-14 sm:mt-16 bg-white p-8 sm:p-10 rounded-3xl border border-[#D9DCD5] shadow-xs hover:shadow-md transition-shadow duration-300 text-center relative z-20">
             <h3 className="font-display text-xl sm:text-2xl lg:text-3xl text-[#19522A] mb-3">
               Avant de partir, téléchargez votre guide offert !
             </h3>
@@ -782,10 +782,10 @@ const Bouchers = () => {
             <a
               href="#formulaire"
               onClick={scrollToForm}
-              className="bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 rounded-full font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-2.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2 transform hover:-translate-y-0.5"
+              className="btn-shine-effect group bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 rounded-full font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-2.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2 transform hover:-translate-y-0.5"
             >
               <span>Obtenir mon guide.</span>
-              <ArrowRight size={16} />
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1.5 duration-200" />
             </a>
           </div>
         </div>
