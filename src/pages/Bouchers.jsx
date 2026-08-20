@@ -213,7 +213,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 2 : GUIDE COMPLET OFFERT (CRÈME CHAUD #FDF3E2)                    */}
       {/* ========================================================================= */}
-      <section className="relative pt-14 pb-18 md:pt-20 md:pb-26 bg-[#FDF3E2] overflow-hidden">
+      <section className="relative pt-14 pb-18 md:pt-20 md:pb-26 bg-[#FDF3E2]">
         <BrushSeparator position="top" fillColor="#FDF3E2" />
 
         {/* 🍃 Détail botanique organique en fond */}
@@ -293,7 +293,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 3 : FORMULAIRE & ACCROCHE (BLANC #ffffff - ID: formulaire)       */}
       {/* ========================================================================= */}
-      <section id="formulaire" className="relative pt-16 pb-20 md:pt-22 md:pb-28 bg-white scroll-mt-20 overflow-hidden">
+      <section id="formulaire" className="relative pt-16 pb-20 md:pt-22 md:pb-28 bg-white scroll-mt-20">
         <BrushSeparator position="top" fillColor="#FDF3E2" flipX={true} />
         
         {/* 🍊 Motif végétal orange retourné */}
@@ -554,7 +554,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 4 : POURQUOI REMPLIR LE FORMULAIRE (FOND BLANC #ffffff)          */}
       {/* ========================================================================= */}
-      <section className="relative pt-16 pb-20 md:pt-22 md:pb-28 bg-white overflow-hidden">
+      <section className="relative pt-16 pb-20 md:pt-22 md:pb-28 bg-white">
         <img
           src="/assets/1001gouts/feuille-verte.svg"
           alt="" aria-hidden="true"
@@ -614,7 +614,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 5 : PREUVES SOCIALES & TÉMOIGNAGES (CRÈME #FDF3E2)               */}
       {/* ========================================================================= */}
-      <section className="relative pt-16 pb-20 md:pt-22 md:pb-28 bg-[#FDF3E2] overflow-hidden">
+      <section className="relative pt-16 pb-20 md:pt-22 md:pb-28 bg-[#FDF3E2]">
         <BrushSeparator position="top" fillColor="#FDF3E2" />
 
         {/* 🍊 Motif végétal orange retourné */}
@@ -720,7 +720,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 6 : FOIRE AUX QUESTIONS (CRÈME #FDF3E2)                          */}
       {/* ========================================================================= */}
-      <section className="relative pt-16 pb-20 md:pt-22 md:pb-28 bg-[#FDF3E2] overflow-hidden">
+      <section className="relative pt-16 pb-20 md:pt-22 md:pb-28 bg-[#FDF3E2]">
 
         {/* 🍊 Motif végétal orange retourné */}
         <img
