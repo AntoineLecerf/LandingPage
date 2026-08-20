@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Bouchers from './pages/Bouchers';
-import AuditEquipe from './pages/AuditEquipe';
 
 function App() {
   return (
@@ -14,8 +13,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Bouchers />} />
             <Route path="/bouchers" element={<Bouchers />} />
-            <Route path="/analyse" element={<AuditEquipe />} />
-            <Route path="/audit" element={<AuditEquipe />} />
             {/* Fallback */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
