@@ -234,7 +234,7 @@ const Bouchers = () => {
               <div className="flex items-start gap-4 group p-2 rounded-2xl hover:bg-[#19522A]/5 transition-all duration-200">
                 <div className="w-12 h-12 rounded-2xl bg-white border border-[#D9DCD5] shadow-xs flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 group-hover:border-[#19522A]/40 transition-all duration-300">
                   <LordIcon 
-                    src="https://cdn.lordicon.com/yeallgsa.json" 
+                    src="https://cdn.lordicon.com/lbcxnxti.json" 
                     trigger="hover" 
                     colors="primary:#19522A,secondary:#F48631" 
                     size={30} 
@@ -251,7 +251,7 @@ const Bouchers = () => {
               <div className="flex items-start gap-4 group p-2 rounded-2xl hover:bg-[#19522A]/5 transition-all duration-200">
                 <div className="w-12 h-12 rounded-2xl bg-white border border-[#D9DCD5] shadow-xs flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 group-hover:border-[#19522A]/40 transition-all duration-300">
                   <LordIcon 
-                    src="https://cdn.lordicon.com/bwhkffis.json" 
+                    src="https://cdn.lordicon.com/cjoqkjst.json" 
                     trigger="hover" 
                     colors="primary:#19522A,secondary:#F48631" 
                     size={30} 
@@ -312,12 +312,17 @@ const Bouchers = () => {
                 Obtenez les meilleures astuces des artisans bouchers
               </h2>
               
-              {/* 🌿 3 DÉFIS MAJEURS 1001 GOÛTS */}
+              {/* 🌿 3 DÉFIS MAJEURS 1001 GOÛTS AVEC ICÔNES ANIMÉES LORDICON */}
               <div className="space-y-6 sm:space-y-7">
                 {/* Défi 1 */}
                 <div className="flex items-start gap-4.5 group p-3 rounded-2xl hover:bg-[#FDF3E2]/60 hover:translate-x-1 transition-all duration-300">
-                  <div className="flex flex-col items-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                    <img src="/assets/1001gouts/Groupe-16819.png" alt="1" className="w-12 sm:w-14 h-auto" />
+                  <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#FDF3E2] border border-[#D9DCD5] flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:border-[#19522A]/40 transition-all duration-300 shadow-xs">
+                    <LordIcon 
+                      src="https://cdn.lordicon.com/ewnhdaeg.json" 
+                      trigger="hover" 
+                      colors="primary:#19522A,secondary:#F48631" 
+                      size={34} 
+                    />
                   </div>
                   <div>
                     <h4 className="font-display text-base sm:text-lg font-bold text-[#19522A] mb-1.5">
@@ -331,8 +336,13 @@ const Bouchers = () => {
 
                 {/* Défi 2 */}
                 <div className="flex items-start gap-4.5 group p-3 rounded-2xl hover:bg-[#FDF3E2]/60 hover:translate-x-1 transition-all duration-300">
-                  <div className="flex flex-col items-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                    <img src="/assets/1001gouts/Groupe-16820.png" alt="2" className="w-12 sm:w-14 h-auto" />
+                  <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#FDF3E2] border border-[#D9DCD5] flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:border-[#19522A]/40 transition-all duration-300 shadow-xs">
+                    <LordIcon 
+                      src="https://cdn.lordicon.com/aygridid.json" 
+                      trigger="hover" 
+                      colors="primary:#19522A,secondary:#F48631" 
+                      size={34} 
+                    />
                   </div>
                   <div>
                     <h4 className="font-display text-base sm:text-lg font-bold text-[#19522A] mb-1.5">
@@ -346,8 +356,13 @@ const Bouchers = () => {
 
                 {/* Défi 3 */}
                 <div className="flex items-start gap-4.5 group p-3 rounded-2xl hover:bg-[#FDF3E2]/60 hover:translate-x-1 transition-all duration-300">
-                  <div className="flex flex-col items-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                    <img src="/assets/1001gouts/Groupe-16821.png" alt="3" className="w-12 sm:w-14 h-auto" />
+                  <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-[#FDF3E2] border border-[#D9DCD5] flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:border-[#19522A]/40 transition-all duration-300 shadow-xs">
+                    <LordIcon 
+                      src="https://cdn.lordicon.com/zjdxuyoy.json" 
+                      trigger="hover" 
+                      colors="primary:#19522A,secondary:#F48631" 
+                      size={34} 
+                    />
                   </div>
                   <div>
                     <h4 className="font-display text-base sm:text-lg font-bold text-[#19522A] mb-1.5">
@@ -369,13 +384,8 @@ const Bouchers = () => {
 
               {isSubmitted ? (
                 <div className="py-6 text-center animate-fadeIn">
-                  <div className="w-16 h-16 bg-[#558D4D]/15 text-[#558D4D] rounded-full flex items-center justify-center mx-auto mb-3 animate-pop">
-                    <LordIcon 
-                      src="https://cdn.lordicon.com/lupuorrc.json" 
-                      trigger="loop" 
-                      colors="primary:#19522A,secondary:#558D4D" 
-                      size={42} 
-                    />
+                  <div className="w-14 h-14 bg-[#558D4D]/15 text-[#558D4D] rounded-full flex items-center justify-center mx-auto mb-3 animate-pop">
+                    <FileCheck size={32} />
                   </div>
                   <h4 className="font-display text-lg text-[#19522A] mb-1">Merci {formData.firstName} !</h4>
                   <p className="text-sm text-[#4A4A4A] leading-relaxed mb-4">
@@ -424,8 +434,8 @@ const Bouchers = () => {
                 <form onSubmit={handleFormSubmit} className="space-y-3.5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label htmlFor="firstName" className="block text-sm font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1.5">
-                        <LordIcon src="https://cdn.lordicon.com/dxjqoygy.json" trigger="hover" colors="primary:#19522A,secondary:#F48631" size={16} />
+                      <label htmlFor="firstName" className="block text-sm font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
+                        <User size={13} className="text-[#F48631]" />
                         <span>Prénom</span> <span className="text-[#F48631]">*</span>
                       </label>
                       <input
@@ -441,8 +451,8 @@ const Bouchers = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="shopName" className="block text-sm font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1.5">
-                        <LordIcon src="https://cdn.lordicon.com/fjudsqbp.json" trigger="hover" colors="primary:#19522A,secondary:#F48631" size={16} />
+                      <label htmlFor="shopName" className="block text-sm font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
+                        <Store size={13} className="text-[#F48631]" />
                         <span>Nom boucherie</span> <span className="text-[#F48631]">*</span>
                       </label>
                       <input
@@ -460,8 +470,8 @@ const Bouchers = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
                     <div className="sm:col-span-7">
-                      <label htmlFor="email" className="block text-sm font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1.5">
-                        <LordIcon src="https://cdn.lordicon.com/diihhjqz.json" trigger="hover" colors="primary:#19522A,secondary:#F48631" size={16} />
+                      <label htmlFor="email" className="block text-sm font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
+                        <Mail size={13} className="text-[#F48631]" />
                         <span>Email pro</span> <span className="text-[#F48631]">*</span>
                       </label>
                       <input
@@ -477,8 +487,8 @@ const Bouchers = () => {
                     </div>
 
                     <div className="sm:col-span-5">
-                      <label htmlFor="postalCode" className="block text-sm font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1.5">
-                        <LordIcon src="https://cdn.lordicon.com/surcxhka.json" trigger="hover" colors="primary:#19522A,secondary:#F48631" size={16} />
+                      <label htmlFor="postalCode" className="block text-sm font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
+                        <MapPin size={13} className="text-[#F48631]" />
                         <span>Code postal</span> <span className="text-[#F48631]">*</span>
                       </label>
                       <input
@@ -644,7 +654,7 @@ const Bouchers = () => {
             <div className="bg-white p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
               <div>
                 <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#19522A]/10 text-[#19522A] text-sm font-semibold mb-5">
-                  <LordIcon src="https://cdn.lordicon.com/kthelypq.json" trigger="hover" colors="primary:#19522A,secondary:#F48631" size={17} />
+                  <Calendar size={14} className="text-[#F48631]" />
                   <span>Entretien du 05/08/2026</span>
                 </div>
                 <p className="text-sm sm:text-base text-[#14181C] leading-relaxed italic mb-6">
@@ -668,7 +678,7 @@ const Bouchers = () => {
             <div className="bg-white p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
               <div>
                 <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#19522A]/10 text-[#19522A] text-sm font-semibold mb-5">
-                  <LordIcon src="https://cdn.lordicon.com/kthelypq.json" trigger="hover" colors="primary:#19522A,secondary:#F48631" size={17} />
+                  <Calendar size={14} className="text-[#F48631]" />
                   <span>Entretien du 05/08/2026</span>
                 </div>
                 <p className="text-sm sm:text-base text-[#14181C] leading-relaxed italic mb-6">
@@ -692,7 +702,7 @@ const Bouchers = () => {
             <div className="bg-white p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
               <div>
                 <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#19522A]/10 text-[#19522A] text-sm font-semibold mb-5">
-                  <LordIcon src="https://cdn.lordicon.com/kthelypq.json" trigger="hover" colors="primary:#19522A,secondary:#F48631" size={17} />
+                  <Calendar size={14} className="text-[#F48631]" />
                   <span>Entretien du 08/08/2026</span>
                 </div>
                 <p className="text-sm sm:text-base text-[#14181C] leading-relaxed italic mb-6">
