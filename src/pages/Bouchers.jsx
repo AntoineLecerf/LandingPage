@@ -188,10 +188,7 @@ const Bouchers = () => {
       <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center bg-black text-white overflow-hidden">
         
         {/* Background MP4 Video (Auto-loop, 0 controls, no watermark) */}
-        <div 
-          className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none bg-cover bg-center"
-          style={{ backgroundImage: "url('/hero-bouchers.jpg')" }}
-        >
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none bg-black">
           <video
             ref={videoRef}
             autoPlay
@@ -200,14 +197,14 @@ const Bouchers = () => {
             playsInline
             preload="auto"
             poster="/hero-bouchers.jpg"
-            className="w-full h-full object-cover opacity-85"
+            className="w-full h-full object-cover"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           >
             <source src="/hero-video.mp4" type="video/mp4" />
           </video>
 
           {/* Dark transparent neutral black / charcoal veil */}
-          <div className="absolute inset-0 bg-black/55 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-black/60 pointer-events-none"></div>
         </div>
 
         <div className="max-w-4xl mx-auto px-5 sm:px-6 relative z-20 text-left py-16 sm:py-20 md:py-28 w-full">
