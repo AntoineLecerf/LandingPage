@@ -180,7 +180,7 @@ const Bouchers = () => {
                   onClick={scrollToForm}
                   className="btn-shine-effect group bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 rounded-full font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-3 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2 transform hover:-translate-y-0.5"
                 >
-                  <span>Obtenir mon guide.</span>
+                  <span>Obtenir mon guide</span>
                   <ArrowRight size={18} className="transition-transform group-hover:translate-x-1.5 duration-200" />
                 </a>
               </div>
@@ -578,7 +578,7 @@ const Bouchers = () => {
                     disabled={isLoading}
                     className="btn-shine-effect group w-full bg-[#F48631] hover:bg-[#d97223] text-white font-bold py-3.5 px-6 rounded-full transition-all shadow-md hover:shadow-lg mt-3 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer text-sm sm:text-base inline-flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2 transform hover:-translate-y-0.5"
                   >
-                    <span>{isLoading ? 'Envoi en cours...' : 'Obtenir mon guide.'}</span>
+                    <span>{isLoading ? 'Envoi en cours...' : 'Obtenir mon guide'}</span>
                     <ArrowRight size={16} className="transition-transform group-hover:translate-x-1.5 duration-200" />
                   </button>
                 </form>
@@ -839,7 +839,7 @@ const Bouchers = () => {
               onClick={scrollToForm}
               className="btn-shine-effect group bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 rounded-full font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-2.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2 transform hover:-translate-y-0.5"
             >
-              <span>Obtenir mon guide.</span>
+              <span>Obtenir mon guide</span>
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1.5 duration-200" />
             </a>
           </div>
