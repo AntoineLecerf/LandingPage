@@ -50,7 +50,7 @@ const Bouchers = () => {
     'Gestion des stocks & valorisation des découpes (0 perte)',
     'Gestion des commandes & réservations au comptoir',
     'Achats groupés directs auprès des élevages régionaux',
-    'Fidélisation & communication auprès des foyers du quartier',
+    'Fidélisation & communication',
   ];
 
   const handleInputChange = (e) => {
