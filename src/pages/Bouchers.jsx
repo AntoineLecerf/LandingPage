@@ -395,7 +395,7 @@ const Bouchers = () => {
                   </div>
                   <h4 className="font-display text-lg text-[#19522A] mb-1">Merci {formData.firstName} !</h4>
                   <p className="text-sm text-[#4A4A4A] leading-relaxed mb-4">
-                    Votre guide a été envoyé à <strong>{formData.email}</strong> et votre téléchargement s'est lancé.
+                    Votre guide PDF est prêt et votre téléchargement s'est lancé automatiquement.
                   </p>
 
                   <div className="space-y-2 mb-4">
@@ -758,7 +758,7 @@ const Bouchers = () => {
             {[
               {
                 q: "Quand et comment vais-je recevoir le guide ?",
-                a: "Dès validation du formulaire, le guide PDF se télécharge instantanément sur votre appareil et vous est également envoyé par e-mail au format interactif.",
+                a: "Dès validation du formulaire, le guide PDF se télécharge instantanément et directement sur votre appareil.",
               },
               {
                 q: "En quoi ce guide m'aide-t-il face à la hausse des coûts et de l'énergie ?",
