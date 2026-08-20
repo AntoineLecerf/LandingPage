@@ -20,6 +20,10 @@
   --color-border-rule: #D9DCD5;
 }
 
+html, body {
+  overflow-x: clip;
+}
+
 body {
   background-color: var(--color-bg-base);
   color: var(--color-text-body);

@@ -19,6 +19,7 @@ const BrushSeparator = ({
   
   return (
     <div 
+      aria-hidden="true"
       className={`absolute -left-[5%] -right-[5%] w-[110%] pointer-events-none z-20 overflow-visible leading-none flex flex-col items-center justify-center ${
         isTop ? 'top-0 -translate-y-1/2' : 'bottom-0 translate-y-1/2'
       } ${className}`}

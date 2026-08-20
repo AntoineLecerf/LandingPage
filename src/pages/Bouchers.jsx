@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ArrowRight, 
   ArrowLeft,
@@ -88,6 +88,25 @@ const Bouchers = () => {
     document.body.removeChild(link);
   };
 
+  // Ensure YouTube background video plays continuously without paused symbol
+  useEffect(() => {
+    const playBgVideo = () => {
+      const iframe = document.getElementById('hero-bg-video');
+      if (iframe && iframe.contentWindow) {
+        try {
+          iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        } catch {
+          // ignore postMessage restrictions
+        }
+      }
+    };
+
+    playBgVideo();
+    const interval = setInterval(playBgVideo, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (!formData.firstName || !formData.shopName || !formData.email || !formData.postalCode || !formData.acceptedTerms) {
@@ -151,7 +170,8 @@ const Bouchers = () => {
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180vw] h-[180vh] min-w-[1500px] min-h-[1000px] pointer-events-none">
             <iframe
-              src="https://www.youtube-nocookie.com/embed/jJTd2IlFpVA?autoplay=1&mute=1&controls=0&loop=1&playlist=jJTd2IlFpVA&playsinline=1&rel=0&showinfo=0&disablekb=1&fs=0&iv_load_policy=3&modestbranding=1&autohide=1&cc_load_policy=0"
+              id="hero-bg-video"
+              src="https://www.youtube-nocookie.com/embed/jJTd2IlFpVA?autoplay=1&mute=1&controls=0&loop=1&playlist=jJTd2IlFpVA&playsinline=1&rel=0&showinfo=0&disablekb=1&fs=0&iv_load_policy=3&modestbranding=1&autohide=1&cc_load_policy=0&enablejsapi=1"
               title="1001 Goûts Background Video"
               className="w-full h-full object-cover opacity-90 filter brightness-100 contrast-105 pointer-events-none"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -163,15 +183,15 @@ const Bouchers = () => {
           <div className="absolute inset-0 bg-[#19522A]/35 backdrop-brightness-95 pointer-events-none"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto px-6 relative z-20 text-center py-20">
+        <div className="max-w-4xl mx-auto px-6 relative z-20 text-center py-20 md:py-28">
           <div>
-              <p className="font-accent text-[#FF859D] text-lg sm:text-xl mb-2.5">
+              <p className="font-accent text-[#FF859D] text-lg sm:text-xl md:text-2xl mb-3">
                 Pour valoriser le savoir-faire artisanal & vos marges
               </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display text-white leading-[1.10] mb-5">
-                Les artisans bouchers ne devraient pas avancer seuls !
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display text-white leading-[1.06] tracking-tight mb-6 max-w-3xl mx-auto [text-wrap:balance]">
+                Les artisans bouchers ne devraient pas avancer&nbsp;seuls&nbsp;!
               </h1>
-              <p className="text-base text-[#FDF3E2] font-medium leading-relaxed mb-8 max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg text-[#FDF3E2] font-medium leading-relaxed mb-8 max-w-2xl mx-auto">
                 Tenir une boucherie artisanale, c'est être chef artisan, garant du terroir, gestionnaire de marges face aux hausses d'énergie, tout en résistant à la grande distribution industrielle.
               </p>
 
@@ -180,7 +200,7 @@ const Bouchers = () => {
                 <a
                   href="#formulaire"
                   onClick={scrollToForm}
-                  className="bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 rounded-full font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-3 cursor-pointer"
+                  className="bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 rounded-full font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-3 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2"
                 >
                   <span>Obtenir mon guide offert</span>
                   <ArrowRight size={18} />
@@ -193,14 +213,14 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 2 : GUIDE COMPLET OFFERT (CRÈME CHAUD #FDF3E2)                    */}
       {/* ========================================================================= */}
-      <section className="relative pt-12 pb-16 md:pt-16 md:pb-20 bg-[#FDF3E2]">
+      <section className="relative pt-14 pb-18 md:pt-20 md:pb-26 bg-[#FDF3E2] overflow-hidden">
         <BrushSeparator position="top" fillColor="#FDF3E2" />
 
         {/* 🍃 Détail botanique organique en fond */}
         <img
           src="/assets/1001gouts/feuille-verte.svg"
-          alt=""
-          className="absolute -left-16 top-10 w-64 sm:w-80 pointer-events-none opacity-20 select-none z-10 brightness-50"
+          alt="" aria-hidden="true"
+          className="absolute -left-16 top-10 w-64 sm:w-80 pointer-events-none opacity-20 select-none z-10 brightness-[0.35]"
         />
 
         <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-10 lg:gap-16 items-center relative z-20">
@@ -218,10 +238,10 @@ const Bouchers = () => {
           </div>
 
           <div>
-            <p className="font-accent text-[#FF859D] text-xl sm:text-2xl mb-1.5">
+            <p className="font-accent text-[#FF859D] text-xl sm:text-2xl mb-2">
               Offert à 100% · Sans aucun engagement
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display text-[#19522A] mb-4 leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A] mb-4 leading-tight">
               Guide complet de l'artisan boucher offert !
             </h2>
             <p className="text-[#4A4A4A] text-sm sm:text-base mb-8 leading-relaxed">
@@ -235,7 +255,7 @@ const Bouchers = () => {
                   <TrendingUp size={22} className="text-[#F48631]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm sm:text-base text-[#19522A] mb-1">Préserver et maîtriser vos marges brutes</h4>
+                  <h4 className="font-bold text-base sm:text-lg text-[#19522A] mb-1.5">Préserver et maîtriser vos marges brutes</h4>
                   <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
                     Des méthodes éprouvées face aux flambées du coût de l'énergie (chambres froides) et des matières premières.
                   </p>
@@ -247,7 +267,7 @@ const Bouchers = () => {
                   <Users size={22} className="text-[#FDF3E2]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm sm:text-base text-[#19522A] mb-1">Rallier les « consommActeurs » & jeunes actifs</h4>
+                  <h4 className="font-bold text-base sm:text-lg text-[#19522A] mb-1.5">Rallier les « consommActeurs » & jeunes actifs</h4>
                   <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
                     Comment reconnecter les ménages de votre quartier à la viande locale de qualité sans perdre vos soirées sur les réseaux sociaux.
                   </p>
@@ -259,7 +279,7 @@ const Bouchers = () => {
                   <Award size={22} className="text-[#F48631]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm sm:text-base text-[#19522A] mb-1">Circuits courts directs éleveurs & apprentissage</h4>
+                  <h4 className="font-bold text-base sm:text-lg text-[#19522A] mb-1.5">Circuits courts directs éleveurs & apprentissage</h4>
                   <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
                     Opportunités d'achats groupés directs élevages et pistes concrètes pour attirer et fidéliser des apprentis motivés.
                   </p>
@@ -273,8 +293,16 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 3 : FORMULAIRE & ACCROCHE (BLANC #ffffff - ID: formulaire)       */}
       {/* ========================================================================= */}
-      <section id="formulaire" className="relative pt-14 pb-16 md:pt-18 md:pb-22 bg-white scroll-mt-20">
+      <section id="formulaire" className="relative pt-16 pb-20 md:pt-22 md:pb-28 bg-white scroll-mt-20 overflow-hidden">
         <BrushSeparator position="top" fillColor="#FDF3E2" flipX={true} />
+        
+        {/* 🍊 Motif végétal orange retourné */}
+        <img
+          src="/assets/1001gouts/feuille-verte.svg"
+          alt="" aria-hidden="true"
+          className="absolute -right-16 bottom-12 w-56 sm:w-72 pointer-events-none opacity-15 select-none z-10 -scale-x-100"
+          style={{ filter: 'brightness(0.6) sepia(1) saturate(3) hue-rotate(-30deg)' }}
+        />
         
         <div className="max-w-6xl mx-auto px-6 relative z-20">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
@@ -336,11 +364,12 @@ const Bouchers = () => {
               ) : (
                 <form onSubmit={handleFormSubmit} className="space-y-3.5">
                   <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
+                    <label htmlFor="firstName" className="block text-[11px] font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
                       <User size={12} className="text-[#F48631]" />
                       <span>Prénom</span> <span className="text-[#F48631]">*</span>
                     </label>
                     <input
+                      id="firstName"
                       type="text"
                       name="firstName"
                       required
@@ -352,11 +381,12 @@ const Bouchers = () => {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
+                    <label htmlFor="shopName" className="block text-[11px] font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
                       <Store size={12} className="text-[#F48631]" />
                       <span>Nom de la boucherie</span> <span className="text-[#F48631]">*</span>
                     </label>
                     <input
+                      id="shopName"
                       type="text"
                       name="shopName"
                       required
@@ -368,11 +398,12 @@ const Bouchers = () => {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
+                    <label htmlFor="email" className="block text-[11px] font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
                       <Mail size={12} className="text-[#F48631]" />
                       <span>Email professionnel</span> <span className="text-[#F48631]">*</span>
                     </label>
                     <input
+                      id="email"
                       type="email"
                       name="email"
                       required
@@ -384,11 +415,12 @@ const Bouchers = () => {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
+                    <label htmlFor="postalCode" className="block text-[11px] font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
                       <MapPin size={12} className="text-[#F48631]" />
                       <span>Code postal</span> <span className="text-[#F48631]">*</span>
                     </label>
                     <input
+                      id="postalCode"
                       type="text"
                       name="postalCode"
                       required
@@ -444,7 +476,7 @@ const Bouchers = () => {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-[#F48631] hover:bg-[#d97223] text-white font-bold py-3.5 px-6 rounded-full transition-all shadow-md hover:shadow-lg mt-3 disabled:opacity-70 cursor-pointer text-sm inline-flex items-center justify-center gap-2"
+                    className="w-full bg-[#F48631] hover:bg-[#d97223] text-white font-bold py-3.5 px-6 rounded-full transition-all shadow-md hover:shadow-lg mt-3 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer text-sm inline-flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2"
                   >
                     <span>{isLoading ? 'Envoi en cours...' : 'Je donne mon avis & reçois le guide'}</span>
                     <ArrowRight size={16} />
@@ -455,7 +487,7 @@ const Bouchers = () => {
 
             {/* Pitch Column (7 Cols) - 🌟 DÉFIS SORTIS DE LEUR BOX */}
             <div className="lg:col-span-7 pt-2 relative z-20">
-              <p className="font-accent text-[#FF859D] text-xl sm:text-2xl mb-1.5">
+              <p className="font-accent text-[#FF859D] text-xl sm:text-2xl mb-2">
                 Votre voix compte pour l'artisanat local
               </p>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A] leading-tight mb-8">
@@ -464,7 +496,7 @@ const Bouchers = () => {
               
               {/* 🌿 3 DÉFIS MAJEURS 1001 GOÛTS (Sortis de leur box, présentation dynamique et aérée) */}
               <div className="space-y-6 sm:space-y-7">
-                <p className="text-xs font-bold text-[#19522A] uppercase tracking-wider mb-2">
+                <p className="text-xs font-bold text-[#19522A] uppercase tracking-wider mb-3">
                   Les 3 défis du secteur adressés dans le guide :
                 </p>
 
@@ -474,10 +506,10 @@ const Bouchers = () => {
                     <img src="/assets/1001gouts/Groupe-16819.png" alt="1" className="w-13 sm:w-15 h-auto" />
                   </div>
                   <div>
-                    <h4 className="font-display text-base font-bold text-[#19522A] mb-1.5">
+                    <h4 className="font-display text-base sm:text-lg font-bold text-[#19522A] mb-1.5">
                       Désinformation & barquettes anonymes
                     </h4>
-                    <p className="text-xs sm:text-sm text-[#000000]/75 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
                       La grande distribution brouille les repères. Le guide vous donne les clés pour mettre en valeur votre traçabilité et rééduquer le consommateur.
                     </p>
                   </div>
@@ -489,10 +521,10 @@ const Bouchers = () => {
                     <img src="/assets/1001gouts/Groupe-16820.png" alt="2" className="w-13 sm:w-15 h-auto" />
                   </div>
                   <div>
-                    <h4 className="font-display text-base font-bold text-[#19522A] mb-1.5">
+                    <h4 className="font-display text-base sm:text-lg font-bold text-[#19522A] mb-1.5">
                       Marges étouffées & intermédiaires multiples
                     </h4>
-                    <p className="text-xs sm:text-sm text-[#000000]/75 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
                       Stratégies éprouvées de mutualisation et d'achats directs auprès des éleveurs régionaux sans commissions tierces.
                     </p>
                   </div>
@@ -504,10 +536,10 @@ const Bouchers = () => {
                     <img src="/assets/1001gouts/Groupe-16821.png" alt="3" className="w-13 sm:w-15 h-auto" />
                   </div>
                   <div>
-                    <h4 className="font-display text-base font-bold text-[#19522A] mb-1.5">
+                    <h4 className="font-display text-base sm:text-lg font-bold text-[#19522A] mb-1.5">
                       Visibilité locale & transmission
                     </h4>
-                    <p className="text-xs sm:text-sm text-[#000000]/75 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
                       Comment capter les jeunes ménages de votre quartier sans perdre votre temps sur les réseaux sociaux.
                     </p>
                   </div>
@@ -522,22 +554,22 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 4 : POURQUOI REMPLIR LE FORMULAIRE (FOND BLANC #ffffff)          */}
       {/* ========================================================================= */}
-      <section className="relative pt-14 pb-16 md:pt-18 md:pb-22 bg-white">
+      <section className="relative pt-16 pb-20 md:pt-22 md:pb-28 bg-white overflow-hidden">
         <img
           src="/assets/1001gouts/feuille-verte.svg"
-          alt=""
-          className="absolute -right-20 top-6 w-64 sm:w-80 pointer-events-none opacity-10 select-none z-10 brightness-50"
+          alt="" aria-hidden="true"
+          className="absolute -right-20 top-6 w-64 sm:w-80 pointer-events-none opacity-10 select-none z-10 brightness-[0.35]"
         />
 
         <div className="max-w-6xl mx-auto px-6 text-center relative z-20">
           <div className="mb-10 sm:mb-12">
-            <p className="font-accent text-[#FF859D] text-lg sm:text-xl mb-1.5">
+            <p className="font-accent text-[#FF859D] text-xl sm:text-2xl mb-2">
               Conçu par et pour les artisans indépendants
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display text-[#19522A] mb-3">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A] mb-4">
               Pourquoi remplir le formulaire ?
             </h2>
-            <p className="max-w-2xl mx-auto text-xs sm:text-sm text-[#667079] leading-relaxed">
+            <p className="max-w-2xl mx-auto text-sm sm:text-base text-[#667079] leading-relaxed">
               Avec vos retours, nous pourrons développer des outils dans l'application qui soulageront votre charge mentale au quotidien.
             </p>
           </div>
@@ -546,10 +578,10 @@ const Bouchers = () => {
             {/* Card 1 */}
             <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/85 p-7 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
               <img src="/assets/1001gouts/Groupe-16819.png" alt="01" className="w-12 h-auto mb-4" />
-              <h3 className="font-display text-lg text-[#19522A] mb-2.5">
+              <h3 className="font-display text-lg sm:text-xl text-[#19522A] mb-2.5">
                 Gestion & Marges Justes
               </h3>
-              <p className="text-xs sm:text-sm text-[#000000]/80 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
                 Des retours concrets sur la rentabilité de découpe, les coûts de conservation en froid et la valorisation intégrale de carcasse.
               </p>
             </div>
@@ -557,10 +589,10 @@ const Bouchers = () => {
             {/* Card 2 */}
             <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/85 p-7 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
               <img src="/assets/1001gouts/Groupe-16820.png" alt="02" className="w-12 h-auto mb-4" />
-              <h3 className="font-display text-lg text-[#19522A] mb-2.5">
+              <h3 className="font-display text-lg sm:text-xl text-[#19522A] mb-2.5">
                 Circuits Courts Éleveurs
               </h3>
-              <p className="text-xs sm:text-sm text-[#000000]/80 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
                 L'accès direct aux groupements de producteurs pour acheter en direct, sécuriser vos approvisionnements sans intermédiaires.
               </p>
             </div>
@@ -568,10 +600,10 @@ const Bouchers = () => {
             {/* Card 3 */}
             <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/85 p-7 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
               <img src="/assets/1001gouts/Groupe-16821.png" alt="03" className="w-12 h-auto mb-4" />
-              <h3 className="font-display text-lg text-[#19522A] mb-2.5">
+              <h3 className="font-display text-lg sm:text-xl text-[#19522A] mb-2.5">
                 Visibilité & Accès Testeur
               </h3>
-              <p className="text-xs sm:text-sm text-[#000000]/80 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
                 Participez à la co-création de l'application 1001 Goûts et devenez membre testeur prioritaire sans aucun engagement.
               </p>
             </div>
@@ -582,15 +614,23 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 5 : PREUVES SOCIALES & TÉMOIGNAGES (CRÈME #FDF3E2)               */}
       {/* ========================================================================= */}
-      <section className="relative pt-14 pb-16 md:pt-18 md:pb-22 bg-[#FDF3E2]">
+      <section className="relative pt-16 pb-20 md:pt-22 md:pb-28 bg-[#FDF3E2] overflow-hidden">
         <BrushSeparator position="top" fillColor="#FDF3E2" />
+
+        {/* 🍊 Motif végétal orange retourné */}
+        <img
+          src="/assets/1001gouts/feuille-verte.svg"
+          alt="" aria-hidden="true"
+          className="absolute -left-16 bottom-10 w-56 sm:w-72 pointer-events-none opacity-[0.12] select-none z-10 -scale-x-100 rotate-12"
+          style={{ filter: 'brightness(0.6) sepia(1) saturate(3) hue-rotate(-30deg)' }}
+        />
 
         <div className="max-w-6xl mx-auto px-6 relative z-20">
           <div className="text-center mb-10 sm:mb-12">
-            <p className="font-accent text-[#FF859D] text-xl sm:text-2xl mb-1.5">
+            <p className="font-accent text-[#FF859D] text-xl sm:text-2xl mb-2">
               Avis & retours de terrain
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display text-[#19522A]">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A] mb-4">
               Ce que vos confrères en disent
             </h2>
           </div>
@@ -604,7 +644,7 @@ const Bouchers = () => {
                     <Star key={i} size={15} fill="#F48631" />
                   ))}
                 </div>
-                <p className="text-xs sm:text-sm text-[#000000]/80 leading-relaxed italic mb-6">
+                <p className="text-sm sm:text-base text-[#14181C] leading-relaxed italic mb-6">
                   "La démarche 1001 Goûts remet le travail de carcasse et le savoir-faire au centre. Les pistes du guide sur l'optimisation des chambres froides m'ont permis de respirer financièrement."
                 </p>
               </div>
@@ -613,10 +653,11 @@ const Bouchers = () => {
                   src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=150&q=80"
                   alt="Édouard V."
                   className="w-10 h-10 rounded-full object-cover border-2 border-[#19522A]"
+                  loading="lazy"
                 />
                 <div>
-                  <h4 className="font-bold text-xs text-[#19522A]">Édouard V.</h4>
-                  <p className="text-[10px] text-[#667079]">Artisan Boucher · Lyon (69)</p>
+                  <h4 className="font-bold text-xs sm:text-sm text-[#19522A]">Édouard V.</h4>
+                  <p className="text-[10px] sm:text-xs text-[#667079]">Artisan Boucher · Lyon (69)</p>
                 </div>
               </div>
             </div>
@@ -629,7 +670,7 @@ const Bouchers = () => {
                     <Star key={i} size={15} fill="#F48631" />
                   ))}
                 </div>
-                <p className="text-xs sm:text-sm text-[#000000]/80 leading-relaxed italic mb-6">
+                <p className="text-sm sm:text-base text-[#14181C] leading-relaxed italic mb-6">
                   "Les habitants veulent mieux manger mais se laissent tenter par les supermarchés. Les astuces du guide pour attirer les jeunes foyers du quartier ont fait mouche chez nous."
                 </p>
               </div>
@@ -638,10 +679,11 @@ const Bouchers = () => {
                   src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80"
                   alt="Stéphanie M."
                   className="w-10 h-10 rounded-full object-cover border-2 border-[#19522A]"
+                  loading="lazy"
                 />
                 <div>
-                  <h4 className="font-bold text-xs text-[#19522A]">Stéphanie M.</h4>
-                  <p className="text-[10px] text-[#667079]">Boucherie-Charcuterie · Nantes (44)</p>
+                  <h4 className="font-bold text-xs sm:text-sm text-[#19522A]">Stéphanie M.</h4>
+                  <p className="text-[10px] sm:text-xs text-[#667079]">Boucherie-Charcuterie · Nantes (44)</p>
                 </div>
               </div>
             </div>
@@ -654,7 +696,7 @@ const Bouchers = () => {
                     <Star key={i} size={15} fill="#F48631" />
                   ))}
                 </div>
-                <p className="text-xs sm:text-sm text-[#000000]/80 leading-relaxed italic mb-6">
+                <p className="text-sm sm:text-base text-[#14181C] leading-relaxed italic mb-6">
                   "Enfin une initiative qui refuse de prendre des commissions sur nos ventes. 0% de commission et du vrai partage entre confrères, c'est ce dont on a besoin."
                 </p>
               </div>
@@ -663,10 +705,11 @@ const Bouchers = () => {
                   src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80"
                   alt="Karim B."
                   className="w-10 h-10 rounded-full object-cover border-2 border-[#19522A]"
+                  loading="lazy"
                 />
                 <div>
-                  <h4 className="font-bold text-xs text-[#19522A]">Karim B.</h4>
-                  <p className="text-[10px] text-[#667079]">Artisan Boucher · Marseille (13)</p>
+                  <h4 className="font-bold text-xs sm:text-sm text-[#19522A]">Karim B.</h4>
+                  <p className="text-[10px] sm:text-xs text-[#667079]">Artisan Boucher · Marseille (13)</p>
                 </div>
               </div>
             </div>
@@ -677,13 +720,22 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 6 : FOIRE AUX QUESTIONS (CRÈME #FDF3E2)                          */}
       {/* ========================================================================= */}
-      <section className="relative pt-10 pb-16 md:pt-14 md:pb-22 bg-[#FDF3E2]">
+      <section className="relative pt-16 pb-20 md:pt-22 md:pb-28 bg-[#FDF3E2] overflow-hidden">
+
+        {/* 🍊 Motif végétal orange retourné */}
+        <img
+          src="/assets/1001gouts/feuille-verte.svg"
+          alt="" aria-hidden="true"
+          className="absolute -right-16 top-8 w-56 sm:w-72 pointer-events-none opacity-[0.12] select-none z-10 -scale-x-100 -rotate-6"
+          style={{ filter: 'brightness(0.6) sepia(1) saturate(3) hue-rotate(-30deg)' }}
+        />
+
         <div className="max-w-3xl mx-auto px-6 relative z-20">
           <div className="text-center mb-10 sm:mb-12">
-            <p className="font-accent text-[#FF859D] text-lg sm:text-xl mb-1.5">
+            <p className="font-accent text-[#FF859D] text-xl sm:text-2xl mb-2">
               Réponses claires & transparentes
             </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display text-[#19522A]">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A] mb-4">
               Foire Aux Questions
             </h2>
           </div>
@@ -716,6 +768,8 @@ const Bouchers = () => {
                 <button
                   type="button"
                   onClick={() => toggleFaq(idx)}
+                  aria-expanded={openFaq === idx}
+                  aria-controls={`faq-content-${idx}`}
                   className="w-full p-4.5 text-left font-display text-sm sm:text-base text-[#19522A] flex justify-between items-center transition-colors cursor-pointer"
                 >
                   <span>{faq.q}</span>
@@ -724,7 +778,7 @@ const Bouchers = () => {
                   </div>
                 </button>
                 {openFaq === idx && (
-                  <div className="px-4.5 pb-4.5 text-xs sm:text-sm text-[#4A4A4A] leading-relaxed border-t border-[#D9DCD5]/60 pt-3.5">
+                  <div id={`faq-content-${idx}`} role="region" className="px-4.5 pb-4.5 text-xs sm:text-sm text-[#4A4A4A] leading-relaxed border-t border-[#D9DCD5]/60 pt-3.5">
                     {faq.a}
                   </div>
                 )}
@@ -736,7 +790,7 @@ const Bouchers = () => {
             <a
               href="#formulaire"
               onClick={scrollToForm}
-              className="bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 rounded-full font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-2.5 cursor-pointer"
+              className="bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 rounded-full font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-2.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2"
             >
               <span>Donner mon avis et obtenir le guide</span>
               <ArrowRight size={16} />
