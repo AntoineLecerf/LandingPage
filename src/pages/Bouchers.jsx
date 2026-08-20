@@ -203,20 +203,38 @@ const Bouchers = () => {
 
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 lg:gap-16 items-center relative z-20">
           
-          {/* REAL EBOOK / GUIDE ENLARGED, FLOATING & TILTED */}
-          <div className="flex justify-center items-center relative">
-            <div className="relative w-full max-w-[300px] sm:max-w-[380px] lg:max-w-[415px] animate-float hover:rotate-0 transition-transform duration-500 cursor-pointer">
-              {/* Couverture Principale Haute Définition */}
-              <div className="relative rounded-2xl shadow-2xl overflow-hidden border border-[#D9DCD5] bg-white group hover:shadow-[0_25px_50px_-12px_rgba(25,82,42,0.25)] transition-shadow duration-300">
-                {/* Effet reliure / pliure gauche */}
-                <div className="absolute top-0 bottom-0 left-0 w-4 bg-gradient-to-r from-black/25 via-black/10 to-transparent pointer-events-none z-10" />
+          {/* REAL 3D HARDCOVER BOOK MOCKUP */}
+          <div className="flex justify-center items-center relative py-4">
+            <div className="relative w-full max-w-[290px] sm:max-w-[360px] lg:max-w-[395px] group cursor-pointer animate-float">
+              
+              {/* 🌑 Ombre portée 3D réaliste au sol */}
+              <div className="absolute -bottom-5 left-6 right-6 h-7 bg-[#19522A]/25 blur-xl rounded-full pointer-events-none group-hover:blur-2xl group-hover:bg-[#19522A]/40 group-hover:scale-110 transition-all duration-500" />
+
+              {/* 📖 Conteneur Livre 3D Entier (Zoom et redressement global au survol) */}
+              <div className="relative transition-all duration-500 ease-out transform group-hover:scale-105 group-hover:-translate-y-2 group-hover:rotate-0">
                 
-                <img
-                  src="/guide-boucherie-cover.jpg"
-                  alt="Guide Complet Boucherie Artisanale 2026 - 1001 Goûts"
-                  className="w-full h-auto object-cover block transform group-hover:scale-[1.02] transition-transform duration-500"
-                  loading="eager"
-                />
+                {/* 📄 Tranche de pages 3D réaliste sur le côté droit */}
+                <div className="absolute top-2 bottom-2 -right-3 w-3.5 bg-gradient-to-r from-[#e8e4db] via-[#f7f5f0] to-[#dfdacd] rounded-r-sm border-y border-r border-[#cfc9be] shadow-sm pointer-events-none">
+                  {/* Fines rainures de pages papier */}
+                  <div className="w-full h-full opacity-30 bg-[repeating-linear-gradient(0deg,#4A4A4A_0px,#4A4A4A_1px,transparent_1px,transparent_3px)]" />
+                </div>
+
+                {/* 📘 Couverture Rigide (Hardcover) avec relief et reliure */}
+                <div className="relative rounded-r-2xl rounded-l-md overflow-hidden bg-white border-t border-b border-r border-[#D9DCD5] shadow-[10px_20px_40px_-10px_rgba(0,0,0,0.35),-3px_0_10px_rgba(0,0,0,0.2)] group-hover:shadow-[16px_28px_50px_-10px_rgba(25,82,42,0.3)] transition-shadow duration-500">
+                  
+                  {/* Effet ombre de pliure / reliure gauche */}
+                  <div className="absolute top-0 bottom-0 left-0 w-6 bg-gradient-to-r from-black/35 via-black/15 to-transparent pointer-events-none z-10" />
+                  
+                  {/* Filet lumineux de reflet de la tranche gauche */}
+                  <div className="absolute top-0 bottom-0 left-5 w-[1.5px] bg-white/40 pointer-events-none z-10" />
+                  
+                  <img
+                    src="/guide-boucherie-cover.jpg"
+                    alt="Guide Complet Boucherie Artisanale 2026 - 1001 Goûts"
+                    className="w-full h-auto object-cover block select-none"
+                    loading="eager"
+                  />
+                </div>
               </div>
             </div>
           </div>
