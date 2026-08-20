@@ -599,10 +599,10 @@ const Bouchers = () => {
             <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/85 p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs hover:shadow-md hover:-translate-y-1.5 transition-all duration-300">
               <img src="/assets/1001gouts/Groupe-16819.png" alt="01" className="w-12 h-auto mb-4 transform hover:scale-105 transition-transform" />
               <h3 className="font-display text-lg sm:text-xl text-[#19522A] mb-2.5">
-                Gestion & Marges Justes
+                Outils de Communication Locale
               </h3>
               <p className="text-sm text-[#4A4A4A] leading-relaxed">
-                Des retours concrets sur la rentabilité de découpe, les coûts de conservation en froid et la valorisation intégrale de carcasse.
+                Des fonctionnalités pensées pour diffuser facilement vos arrivages de viande d'exception, vos plats traiteur du week-end et fidéliser les clients de votre quartier.
               </p>
             </div>
 
