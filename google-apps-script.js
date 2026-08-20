@@ -34,6 +34,32 @@ const CONFIG = {
 };
 
 /**
+ * 🧪 FONCTION D'AUTORISATION ET DE TEST (À exécuter 1 fois dans l'éditeur)
+ * Sélectionnez cette fonction dans le menu déroulant en haut et cliquez sur ▶️ Exécuter.
+ * Google vous demandera alors d'autoriser l'accès à votre Sheet et à l'envoi d'emails.
+ */
+function testPermissions() {
+  const myEmail = Session.getActiveUser().getEmail() || CONFIG.ADMIN_EMAIL;
+  
+  saveToSheet({
+    timestamp: Utilities.formatDate(new Date(), "Europe/Paris", "dd/MM/yyyy HH:mm:ss"),
+    firstName: "Test Validation",
+    shopName: "Boucherie 1001 Goûts",
+    email: myEmail,
+    postalCode: "75001",
+    obstacles: "Préserver mes marges face à l'inflation"
+  });
+  
+  sendProspectEmail({
+    firstName: "Test Validation",
+    shopName: "Boucherie 1001 Goûts",
+    email: myEmail
+  });
+
+  Logger.log("✅ Autorisations accordées avec succès et test validé !");
+}
+
+/**
  * Point d'entrée GET (pour vérifier que le Webhook est en ligne)
  */
 function doGet(e) {
@@ -78,7 +104,7 @@ function doPost(e) {
     }
 
     // 3. Notification interne pour l'équipe (optionnel)
-    if (CONFIG.ADMIN_EMAIL) {
+    if (CONFIG.ADMIN_EMAIL && CONFIG.ADMIN_EMAIL !== email) {
       sendAdminNotification({
         timestamp: dateStr,
         firstName: firstName,
@@ -224,7 +250,10 @@ function sendProspectEmail(prospect) {
   </html>
   `;
 
-  GmailApp.sendEmail(prospect.email, subject, "Votre guide est disponible ici : " + CONFIG.PDF_DOWNLOAD_URL, {
+  MailApp.sendEmail({
+    to: prospect.email,
+    subject: subject,
+    body: "Votre guide est disponible ici : " + CONFIG.PDF_DOWNLOAD_URL,
     htmlBody: htmlBody,
     name: CONFIG.SENDER_NAME
   });
@@ -248,5 +277,10 @@ Nouveau prospect inscrit sur la landing page Bouchers :
 L'email de confirmation avec le guide a été envoyé automatiquement.
   `;
 
-  GmailApp.sendEmail(CONFIG.ADMIN_EMAIL, subject, body);
+  MailApp.sendEmail({
+    to: CONFIG.ADMIN_EMAIL,
+    subject: subject,
+    body: body,
+    name: CONFIG.SENDER_NAME
+  });
 }
