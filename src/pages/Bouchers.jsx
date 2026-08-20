@@ -88,25 +88,6 @@ const Bouchers = () => {
     document.body.removeChild(link);
   };
 
-  // Ensure YouTube background video plays continuously without paused symbol
-  useEffect(() => {
-    const playBgVideo = () => {
-      const iframe = document.getElementById('hero-bg-video');
-      if (iframe && iframe.contentWindow) {
-        try {
-          iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
-          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-        } catch {
-          // ignore postMessage restrictions
-        }
-      }
-    };
-
-    playBgVideo();
-    const interval = setInterval(playBgVideo, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (!formData.firstName || !formData.shopName || !formData.email || !formData.postalCode || !formData.acceptedTerms) {
@@ -166,21 +147,21 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       <section className="relative min-h-[90vh] flex items-center bg-[#19522A] text-white">
         
-        {/* Background YouTube Video */}
+        {/* Background MP4 Video (Auto-loop, 0 controls, no watermark) */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180vw] h-[180vh] min-w-[1500px] min-h-[1000px] pointer-events-none">
-            <iframe
-              id="hero-bg-video"
-              src="https://www.youtube-nocookie.com/embed/jJTd2IlFpVA?autoplay=1&mute=1&controls=0&loop=1&playlist=jJTd2IlFpVA&playsinline=1&rel=0&showinfo=0&disablekb=1&fs=0&iv_load_policy=3&modestbranding=1&autohide=1&cc_load_policy=0&enablejsapi=1"
-              title="1001 Goûts Background Video"
-              className="w-full h-full object-cover opacity-90 filter brightness-100 contrast-105 pointer-events-none"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              style={{ pointerEvents: 'none' }}
-            />
-          </div>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/hero-bouchers.jpg"
+            className="w-full h-full object-cover opacity-85 filter brightness-95 contrast-105 pointer-events-none"
+          >
+            <source src="/hero-video.mp4" type="video/mp4" />
+          </video>
 
-          {/* Light transparent veil */}
-          <div className="absolute inset-0 bg-[#19522A]/35 backdrop-brightness-95 pointer-events-none"></div>
+          {/* Light transparent natural green veil */}
+          <div className="absolute inset-0 bg-[#19522A]/40 backdrop-brightness-95 pointer-events-none"></div>
         </div>
 
         <div className="max-w-4xl mx-auto px-6 relative z-20 text-left py-20 md:py-28">
