@@ -19,7 +19,7 @@ const Navbar = () => {
         <a 
           href="#formulaire" 
           onClick={scrollToForm}
-          className="bg-[#F48631] hover:bg-[#d97223] text-white px-6 py-2.5 rounded-full font-bold text-sm transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+          className="bg-[#F48631] hover:bg-[#d97223] text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
         >
           Obtenir mon guide
         </a>

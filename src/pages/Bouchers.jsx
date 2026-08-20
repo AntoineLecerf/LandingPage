@@ -183,20 +183,20 @@ const Bouchers = () => {
           <div className="absolute inset-0 bg-[#19522A]/35 backdrop-brightness-95 pointer-events-none"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto px-6 relative z-20 text-center py-20 md:py-28">
+        <div className="max-w-4xl mx-auto px-6 relative z-20 text-left py-20 md:py-28">
           <div>
               <p className="font-accent text-[#FF859D] text-lg sm:text-xl md:text-2xl mb-3">
-                Pour valoriser le savoir-faire artisanal & vos marges
+                Pour valoriser le savoir-faire artisanal
               </p>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display text-white leading-[1.06] tracking-tight mb-6 max-w-3xl mx-auto [text-wrap:balance]">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display text-white leading-[1.06] tracking-tight mb-6 max-w-3xl [text-wrap:balance]">
                 Les artisans bouchers ne devraient pas avancer&nbsp;seuls&nbsp;!
               </h1>
-              <p className="text-base sm:text-lg text-[#FDF3E2] font-medium leading-relaxed mb-8 max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg text-[#FDF3E2] font-medium leading-relaxed mb-8 max-w-2xl">
                 Tenir une boucherie artisanale, c'est être chef artisan, garant du terroir, gestionnaire de marges face aux hausses d'énergie, tout en résistant à la grande distribution industrielle.
               </p>
 
               {/* CTA Hero Button */}
-              <div className="flex justify-center">
+              <div className="flex justify-start">
                 <a
                   href="#formulaire"
                   onClick={scrollToForm}
@@ -213,7 +213,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 2 : GUIDE COMPLET OFFERT (CRÈME CHAUD #FDF3E2)                    */}
       {/* ========================================================================= */}
-      <section className="relative pt-14 pb-18 md:pt-20 md:pb-26 bg-[#FDF3E2]">
+      <section className="relative pt-10 pb-14 md:pt-22 md:pb-28 bg-[#FDF3E2]">
         <BrushSeparator position="top" fillColor="#FDF3E2" />
 
         {/* 🍃 Détail botanique organique en fond */}
@@ -223,7 +223,7 @@ const Bouchers = () => {
           className="absolute -left-16 top-10 w-64 sm:w-80 pointer-events-none opacity-20 select-none z-10 brightness-[0.35]"
         />
 
-        <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-10 lg:gap-16 items-center relative z-20">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 lg:gap-16 items-center relative z-20">
           
           {/* REAL EBOOK / GUIDE COVER */}
           <div className="flex justify-center relative group">
@@ -238,7 +238,7 @@ const Bouchers = () => {
           </div>
 
           <div>
-            <p className="font-accent text-[#FF859D] text-xl sm:text-2xl mb-2">
+            <p className="font-accent text-[#FF859D] text-lg sm:text-xl md:text-2xl mb-2.5">
               Offert à 100% · Sans aucun engagement
             </p>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A] mb-4 leading-tight">
@@ -293,7 +293,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 3 : FORMULAIRE & ACCROCHE (BLANC #ffffff - ID: formulaire)       */}
       {/* ========================================================================= */}
-      <section id="formulaire" className="relative pt-16 pb-20 md:pt-22 md:pb-28 bg-white scroll-mt-20">
+      <section id="formulaire" className="relative pt-10 pb-14 md:pt-22 md:pb-28 bg-white scroll-mt-20">
         <BrushSeparator position="top" fillColor="#FDF3E2" flipX={true} />
         
         {/* 🍊 Motif végétal orange retourné */}
@@ -376,7 +376,7 @@ const Bouchers = () => {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       placeholder="Ex : Laurent"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-xs sm:text-sm bg-white"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white"
                     />
                   </div>
 
@@ -393,7 +393,7 @@ const Bouchers = () => {
                       value={formData.shopName}
                       onChange={handleInputChange}
                       placeholder="Ex : Boucherie Traditionnelle"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-xs sm:text-sm bg-white"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white"
                     />
                   </div>
 
@@ -410,7 +410,7 @@ const Bouchers = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="vous@boucherie.fr"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-xs sm:text-sm bg-white"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white"
                     />
                   </div>
 
@@ -427,7 +427,7 @@ const Bouchers = () => {
                       value={formData.postalCode}
                       onChange={handleInputChange}
                       placeholder="75, 69, 13, 33..."
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-xs sm:text-sm bg-white"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white"
                     />
                   </div>
 
@@ -435,17 +435,17 @@ const Bouchers = () => {
                     <label className="block text-[11px] font-bold uppercase tracking-wider text-[#19522A] mb-1.5">
                       Obstacles au quotidien (2 Max) <span className="text-[#F48631]">*</span>
                     </label>
-                    <div className="space-y-1.5 max-h-36 overflow-y-auto pr-1">
+                    <div className="space-y-1.5 max-h-40 overflow-y-auto pr-1">
                       {obstacleOptions.map((option, idx) => (
                         <label
                           key={idx}
-                          className="flex items-center gap-2 text-xs text-[#4A4A4A] cursor-pointer select-none p-1.5 rounded-lg hover:bg-white/80 transition-colors"
+                          className="flex items-center gap-2 text-xs text-[#4A4A4A] cursor-pointer select-none p-2 min-h-[44px] rounded-lg hover:bg-white/80 transition-colors"
                         >
                           <input
                             type="checkbox"
                             checked={formData.obstacles.includes(option)}
                             onChange={() => handleObstacleToggle(option)}
-                            className="rounded border-[#D9DCD5] text-[#F48631] focus:ring-[#F48631]"
+                            className="rounded border-[#D9DCD5] text-[#F48631] focus:ring-[#F48631] w-4 h-4"
                           />
                           <span>{option}</span>
                         </label>
@@ -454,14 +454,14 @@ const Bouchers = () => {
                   </div>
 
                   <div className="pt-1.5">
-                    <label className="flex items-start gap-1.5 text-[11px] text-[#667079] cursor-pointer">
+                    <label className="flex items-start gap-2 text-[11px] text-[#667079] cursor-pointer min-h-[44px]">
                       <input
                         type="checkbox"
                         name="acceptedTerms"
                         required
                         checked={formData.acceptedTerms}
                         onChange={handleInputChange}
-                        className="rounded border-[#D9DCD5] text-[#F48631] focus:ring-[#F48631] mt-0.5"
+                        className="rounded border-[#D9DCD5] text-[#F48631] focus:ring-[#F48631] mt-0.5 w-4 h-4"
                       />
                       <span>
                         J'accepte les{' '}
@@ -487,10 +487,10 @@ const Bouchers = () => {
 
             {/* Pitch Column (7 Cols) - 🌟 DÉFIS SORTIS DE LEUR BOX */}
             <div className="lg:col-span-7 pt-2 relative z-20">
-              <p className="font-accent text-[#FF859D] text-xl sm:text-2xl mb-2">
+              <p className="font-accent text-[#FF859D] text-lg sm:text-xl md:text-2xl mb-2.5">
                 Votre voix compte pour l'artisanat local
               </p>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A] leading-tight mb-8">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A] leading-tight mb-5">
                 Obtenez les meilleures astuces des artisans bouchers
               </h2>
               
@@ -554,7 +554,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 4 : POURQUOI REMPLIR LE FORMULAIRE (FOND BLANC #ffffff)          */}
       {/* ========================================================================= */}
-      <section className="relative pt-16 pb-20 md:pt-22 md:pb-28 bg-white">
+      <section className="relative pt-10 pb-14 md:pt-22 md:pb-28 bg-white">
         <img
           src="/assets/1001gouts/feuille-verte.svg"
           alt="" aria-hidden="true"
@@ -562,11 +562,11 @@ const Bouchers = () => {
         />
 
         <div className="max-w-6xl mx-auto px-6 text-center relative z-20">
-          <div className="mb-10 sm:mb-12">
-            <p className="font-accent text-[#FF859D] text-xl sm:text-2xl mb-2">
+          <div className="mb-12 md:mb-14">
+            <p className="font-accent text-[#FF859D] text-lg sm:text-xl md:text-2xl mb-2.5">
               Conçu par et pour les artisans indépendants
             </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A] mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A] mb-3">
               Pourquoi remplir le formulaire ?
             </h2>
             <p className="max-w-2xl mx-auto text-sm sm:text-base text-[#667079] leading-relaxed">
@@ -614,7 +614,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 5 : PREUVES SOCIALES & TÉMOIGNAGES (CRÈME #FDF3E2)               */}
       {/* ========================================================================= */}
-      <section className="relative pt-16 pb-20 md:pt-22 md:pb-28 bg-[#FDF3E2]">
+      <section className="relative pt-10 pb-14 md:pt-22 md:pb-28 bg-[#FDF3E2]">
         <BrushSeparator position="top" fillColor="#FDF3E2" />
 
         {/* 🍊 Motif végétal orange retourné */}
@@ -626,11 +626,11 @@ const Bouchers = () => {
         />
 
         <div className="max-w-6xl mx-auto px-6 relative z-20">
-          <div className="text-center mb-10 sm:mb-12">
-            <p className="font-accent text-[#FF859D] text-xl sm:text-2xl mb-2">
+          <div className="text-center mb-12 md:mb-14">
+            <p className="font-accent text-[#FF859D] text-lg sm:text-xl md:text-2xl mb-2.5">
               Avis & retours de terrain
             </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A] mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A]">
               Ce que vos confrères en disent
             </h2>
           </div>
@@ -720,7 +720,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 6 : FOIRE AUX QUESTIONS (CRÈME #FDF3E2)                          */}
       {/* ========================================================================= */}
-      <section className="relative pt-16 pb-20 md:pt-22 md:pb-28 bg-[#FDF3E2]">
+      <section className="relative pt-10 pb-14 md:pt-22 md:pb-28 bg-[#FDF3E2]">
 
         {/* 🍊 Motif végétal orange retourné */}
         <img
@@ -731,11 +731,11 @@ const Bouchers = () => {
         />
 
         <div className="max-w-3xl mx-auto px-6 relative z-20">
-          <div className="text-center mb-10 sm:mb-12">
-            <p className="font-accent text-[#FF859D] text-xl sm:text-2xl mb-2">
+          <div className="text-center mb-12 md:mb-14">
+            <p className="font-accent text-[#FF859D] text-lg sm:text-xl md:text-2xl mb-2.5">
               Réponses claires & transparentes
             </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A] mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A]">
               Foire Aux Questions
             </h2>
           </div>
