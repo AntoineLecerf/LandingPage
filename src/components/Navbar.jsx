@@ -29,9 +29,14 @@ const Navbar = () => {
 
   const scrollToForm = (e) => {
     e.preventDefault();
-    const el = document.getElementById('formulaire');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+    const formCard = document.getElementById('formulaire-card');
+    const section = document.getElementById('formulaire');
+    if (window.innerWidth < 1024 && formCard) {
+      formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (formCard) {
+      formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 

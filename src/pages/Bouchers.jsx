@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   ArrowRight, 
   ArrowLeft,
@@ -28,6 +28,8 @@ import SEOHead from '../components/SEOHead';
 import LordIcon from '../components/LordIcon';
 
 const Bouchers = () => {
+  const videoRef = useRef(null);
+
   // Form State
   const [formData, setFormData] = useState({
     firstName: '',
@@ -40,6 +42,20 @@ const Bouchers = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
+
+  // Forcer la lecture vidéo en arrière-plan sur tous les appareils mobiles (iOS / Safari / Android)
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Autoplay policy prevented playback
+        });
+      }
+    }
+  }, []);
 
   // Webhook URL (Google Apps Script / Make.com)
   const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/AKfycbyfiSX0wMXKp7YFOIaXbwilAg-P1GDpYOKDbwN8hSkrw9fMAnqsD1IwImp6BzzPiiN_/exec"; 
@@ -118,9 +134,16 @@ const Bouchers = () => {
 
   const scrollToForm = (e) => {
     if (e) e.preventDefault();
-    const el = document.getElementById('formulaire');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+    const formCard = document.getElementById('formulaire-card');
+    const section = document.getElementById('formulaire');
+    
+    // Sur mobile (< 1024px), on fait défiler directement sur la carte formulaire
+    if (window.innerWidth < 1024 && formCard) {
+      formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (formCard) {
+      formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -147,6 +170,7 @@ const Bouchers = () => {
         {/* Background MP4 Video (Auto-loop, 0 controls, no watermark) */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
           <video
+            ref={videoRef}
             autoPlay
             loop
             muted
@@ -402,7 +426,7 @@ const Bouchers = () => {
             </div>
 
             {/* Form Card (5 Cols) - DROITE */}
-            <div className="lg:col-span-5 bg-[#FDF3E2] p-6 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-md relative hover:shadow-lg transition-shadow duration-300">
+            <div id="formulaire-card" className="lg:col-span-5 bg-[#FDF3E2] p-6 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-md relative hover:shadow-lg transition-shadow duration-300 scroll-mt-20 sm:scroll-mt-24">
               <h3 className="font-display text-xl sm:text-2xl text-[#19522A] mb-5">
                 Obtenez votre guide en 2 min !
               </h3>
