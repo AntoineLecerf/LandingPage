@@ -43,18 +43,52 @@ const Bouchers = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
 
-  // Forcer la lecture vidéo en arrière-plan sur tous les appareils mobiles (iOS / Safari / Android)
+  // Forcer la lecture vidéo fluide en arrière-plan sur tous les appareils mobiles (iOS / Safari / Android)
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.defaultMuted = true;
-      videoRef.current.muted = true;
-      const playPromise = videoRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Autoplay policy prevented playback
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', 'true');
+
+    const tryPlay = () => {
+      const promise = video.play();
+      if (promise !== undefined) {
+        promise.catch(() => {
+          // Attendre la première interaction tactile utilisateur
         });
       }
-    }
+    };
+
+    tryPlay();
+    video.addEventListener('loadedmetadata', tryPlay, { once: true });
+    video.addEventListener('canplay', tryPlay, { once: true });
+
+    // Déclencheur au premier scroll ou toucher sur mobile
+    const handleFirstInteraction = () => {
+      if (video.paused) {
+        video.play().catch(() => {});
+      }
+      window.removeEventListener('touchstart', handleFirstInteraction);
+      window.removeEventListener('scroll', handleFirstInteraction);
+      window.removeEventListener('click', handleFirstInteraction);
+    };
+
+    window.addEventListener('touchstart', handleFirstInteraction, { passive: true });
+    window.addEventListener('scroll', handleFirstInteraction, { passive: true });
+    window.addEventListener('click', handleFirstInteraction, { passive: true });
+
+    return () => {
+      video.removeEventListener('loadedmetadata', tryPlay);
+      video.removeEventListener('canplay', tryPlay);
+      window.removeEventListener('touchstart', handleFirstInteraction);
+      window.removeEventListener('scroll', handleFirstInteraction);
+      window.removeEventListener('click', handleFirstInteraction);
+    };
   }, []);
 
   // Webhook URL (Google Apps Script / Make.com)
@@ -171,16 +205,16 @@ const Bouchers = () => {
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
           <video
             ref={videoRef}
+            src="/hero-video.mp4"
             autoPlay
             loop
             muted
             playsInline
-            webkit-playsinline="true"
+            preload="auto"
+            disablePictureInPicture
             poster="/hero-bouchers.jpg"
             className="w-full h-full object-cover opacity-85 filter brightness-95 contrast-105 pointer-events-none"
-          >
-            <source src="/hero-video.mp4" type="video/mp4" />
-          </video>
+          />
 
           {/* Dark transparent neutral black / charcoal veil */}
           <div className="absolute inset-0 bg-black/60 backdrop-brightness-95 pointer-events-none"></div>
