@@ -664,7 +664,7 @@ const Bouchers = () => {
                   <span>Entretien du 05/08/2026</span>
                 </div>
                 <p className="text-sm sm:text-base text-[#14181C] leading-relaxed italic mb-6">
-                  "L'augmentation du prix de la viande et la conformité sont nos vrais combats quotidiens. Avec des fournisseurs qu'on connaît depuis des années, on ne peut pas transiger sur la qualité de ce qu'on reçoit. On gère au millimètre pour n'avoir aucun invendu."
+                  "<strong>L'augmentation du prix de la viande et la conformité</strong> sont nos vrais combats quotidiens. Avec des fournisseurs qu'on connaît depuis des années, <strong>on ne peut pas transiger sur la qualité</strong>. On gère au millimètre pour <strong>n'avoir aucun invendu</strong>."
                 </p>
               </div>
               <div className="pt-4 border-t border-[#D9DCD5]/60 flex items-center justify-between">
@@ -688,7 +688,7 @@ const Bouchers = () => {
                   <span>Entretien du 05/08/2026</span>
                 </div>
                 <p className="text-sm sm:text-base text-[#14181C] leading-relaxed italic mb-6">
-                  "Tout repose sur le bouche-à-oreille et un réseau de confiance irréprochable sur la traçabilité."
+                  "Tout repose sur <strong>le bouche-à-oreille</strong> et un <strong>réseau de confiance irréprochable sur la traçabilité</strong>."
                 </p>
               </div>
               <div className="pt-4 border-t border-[#D9DCD5]/60 flex items-center justify-between">
@@ -712,7 +712,7 @@ const Bouchers = () => {
                   <span>Entretien du 08/08/2026</span>
                 </div>
                 <p className="text-sm sm:text-base text-[#14181C] leading-relaxed italic mb-6">
-                  "Avec la hausse continue du coût de la viande à la carcasse, la moindre erreur dans la gestion des stocks nous coûte cher. Tout l'enjeu aujourd'hui, c'est d'avoir une visibilité exacte sur nos découpes pour valoriser chaque pièce et protéger notre marge."
+                  "Avec la hausse continue du coût de la viande à la carcasse, <strong>la moindre erreur de stock coûte cher</strong>. Tout l'enjeu aujourd'hui, c'est d'avoir une visibilité exacte sur nos découpes pour <strong>valoriser chaque pièce et protéger notre marge</strong>."
                 </p>
               </div>
               <div className="pt-4 border-t border-[#D9DCD5]/60 flex items-center justify-between">
