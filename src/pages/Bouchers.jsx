@@ -40,7 +40,7 @@ const Bouchers = () => {
   const [openFaq, setOpenFaq] = useState(null);
 
   // Webhook URL (Google Apps Script / Make.com)
-  const GOOGLE_SCRIPT_URL = ""; 
+  const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL || ""; 
 
   const obstacleOptions = [
     'Préserver mes marges face à l\'inflation',
