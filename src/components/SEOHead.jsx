@@ -5,8 +5,8 @@ import { useEffect } from 'react';
  * Dynamically injects and updates document metadata, meta descriptions, OpenGraph, Twitter Cards and Schema.org JSON-LD
  */
 const SEOHead = ({
-  title = "Guide Gratuit 2027 : Rentabilité & Circuits Courts pour Artisans Bouchers | 1001 Goûts",
-  description = "Téléchargez le livre blanc 2027 dédié aux artisans bouchers : optimisez vos marges brutes, maîtrisez vos coûts d'énergie et développez votre clientèle locale en circuits courts à 0% de commission.",
+  title = "Guide Gratuit 2026 : Rentabilité & Circuits Courts pour Artisans Bouchers | 1001 Goûts",
+  description = "Téléchargez le livre blanc 2026 dédié aux artisans bouchers : optimisez vos marges brutes, maîtrisez vos coûts d'énergie et développez votre clientèle locale en circuits courts à 0% de commission.",
   keywords = "boucherie artisanale, artisan boucher, rentabilité boucherie, circuits courts, livre blanc boucherie, marge brute boucherie, 1001 goûts, application boucher",
   ogImage = "/guide-boucherie-cover.jpg",
   ogUrl = "https://www.1001gouts.com/bouchers",
@@ -62,7 +62,7 @@ const SEOHead = ({
         },
         {
           "@type": "DigitalDocument",
-          "name": "Livre Blanc 2027 : Guide Complet de l'Artisan Boucher",
+          "name": "Livre Blanc 2026 : Guide Complet de l'Artisan Boucher",
           "description": description,
           "image": `${window.location.origin}${ogImage}`,
           "offers": {

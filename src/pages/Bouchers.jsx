@@ -20,7 +20,8 @@ import {
   Download,
   ExternalLink,
   FileCheck,
-  Heart
+  Heart,
+  Calendar
 } from 'lucide-react';
 import BrushSeparator from '../components/BrushSeparator';
 import SEOHead from '../components/SEOHead';
@@ -43,13 +44,12 @@ const Bouchers = () => {
   const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/AKfycbyfiSX0wMXKp7YFOIaXbwilAg-P1GDpYOKDbwN8hSkrw9fMAnqsD1IwImp6BzzPiiN_/exec"; 
 
   const obstacleOptions = [
-    'Préserver mes marges face à l\'inflation',
-    'Recruter du personnel & apprentis qualifiés',
-    'Attirer les jeunes foyers du quartier',
-    'Automatiser ma visibilité & réseaux locaux',
-    'Flambée des factures d\'énergie (chambres froides)',
-    'Concurrence des barquettes industrielles',
-    'Aucun',
+    'Traçabilité & registres de conformité sanitaire',
+    'Allègement des démarches administratives & paperasse',
+    'Gestion des stocks & valorisation des découpes (0 perte)',
+    'Gestion des commandes & réservations au comptoir',
+    'Achats groupés directs auprès des élevages régionaux',
+    'Fidélisation & communication auprès des foyers du quartier',
   ];
 
   const handleInputChange = (e) => {
@@ -63,11 +63,7 @@ const Bouchers = () => {
 
   const handleObstacleToggle = (option) => {
     setFormData((prev) => {
-      let current = [...prev.obstacles];
-      if (option === 'Aucun') {
-        return { ...prev, obstacles: current.includes('Aucun') ? [] : ['Aucun'] };
-      }
-      current = current.filter((item) => item !== 'Aucun');
+      const current = [...prev.obstacles];
       if (current.includes(option)) {
         return { ...prev, obstacles: current.filter((item) => item !== option) };
       } else {
@@ -136,8 +132,8 @@ const Bouchers = () => {
       
       {/* 🚀 Balises SEO, OpenGraph & Métadonnées Schema.org */}
       <SEOHead 
-        title="Guide Gratuit 2027 : Rentabilité & Circuits Courts pour Artisans Bouchers | 1001 Goûts"
-        description="Téléchargez le livre blanc 2027 dédié aux artisans bouchers : optimisez vos marges brutes, maîtrisez vos coûts d'énergie et développez votre clientèle locale en circuits courts à 0% de commission."
+        title="Guide Gratuit 2026 : Rentabilité & Circuits Courts pour Artisans Bouchers | 1001 Goûts"
+        description="Téléchargez le livre blanc 2026 dédié aux artisans bouchers : optimisez vos marges brutes, maîtrisez vos coûts et développez votre clientèle locale en circuits courts à 0% de commission."
         keywords="boucherie artisanale, artisan boucher, rentabilité boucherie, circuits courts, livre blanc boucherie, marge brute boucherie, 1001 goûts, application boucher"
         ogImage="/guide-boucherie-cover.jpg"
       />
@@ -167,13 +163,13 @@ const Bouchers = () => {
         <div className="max-w-4xl mx-auto px-6 relative z-20 text-left py-20 md:py-28">
           <div>
               <p className="font-accent text-[#FF859D] text-lg sm:text-xl md:text-2xl mb-3">
-                Pour valoriser le savoir-faire artisanal
+                La force d'une communauté, au service des artisans bouchers
               </p>
               <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display text-white leading-[1.06] tracking-tight mb-6 max-w-3xl [text-wrap:balance]">
-                Les artisans bouchers ne devraient pas avancer&nbsp;seuls&nbsp;!
+                Vos couteaux sont affûtés.<br className="hidden sm:inline" /> Nos méthodes aussi.
               </h1>
               <p className="text-base sm:text-lg text-[#FDF3E2] font-medium leading-relaxed mb-8 max-w-2xl">
-                Tenir une boucherie artisanale, c'est être chef artisan, garant du terroir, gestionnaire de marges face aux hausses d'énergie, tout en résistant à la grande distribution industrielle.
+                De la valorisation de votre savoir-faire à la gestion sereine de votre boutique : retrouvez les solutions concrètes partagées par vos confrères.
               </p>
 
               {/* CTA Hero Button */}
@@ -183,7 +179,7 @@ const Bouchers = () => {
                   onClick={scrollToForm}
                   className="bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 rounded-full font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-3 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2"
                 >
-                  <span>Obtenir mon guide offert</span>
+                  <span>Obtenir mon guide.</span>
                   <ArrowRight size={18} />
                 </a>
               </div>
@@ -194,7 +190,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 2 : GUIDE COMPLET OFFERT (CRÈME CHAUD #FDF3E2)                    */}
       {/* ========================================================================= */}
-      <section className="relative pt-10 pb-14 md:pt-22 md:pb-28 bg-[#FDF3E2]">
+      <section className="relative pt-12 pb-16 md:pt-24 md:pb-32 bg-[#FDF3E2]">
         <BrushSeparator position="top" fillColor="#FDF3E2" />
 
         {/* 🍃 Détail botanique organique en fond */}
@@ -206,22 +202,25 @@ const Bouchers = () => {
 
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 lg:gap-16 items-center relative z-20">
           
-          {/* REAL EBOOK / GUIDE COVER */}
-          <div className="flex justify-center relative group">
-            <div className="relative max-w-[270px] sm:max-w-[320px] w-full rounded-2xl shadow-xl overflow-hidden border border-[#D9DCD5] transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl bg-white">
-              <img
-                src="/guide-boucherie-cover.jpg"
-                alt="Guide Complet Boucherie Artisanale 2027 - 1001 Goûts"
-                className="w-full h-auto object-cover block"
-                loading="eager"
-              />
+          {/* REAL EBOOK / GUIDE ENLARGED & TILTED */}
+          <div className="flex justify-center items-center relative">
+            <div className="relative w-full max-w-[300px] sm:max-w-[380px] lg:max-w-[415px] transform -rotate-2 hover:rotate-0 transition-all duration-300">
+              {/* Couverture Principale Haute Définition */}
+              <div className="relative rounded-2xl shadow-2xl overflow-hidden border border-[#D9DCD5] bg-white group">
+                {/* Effet reliure / pliure gauche */}
+                <div className="absolute top-0 bottom-0 left-0 w-4 bg-gradient-to-r from-black/25 via-black/10 to-transparent pointer-events-none z-10" />
+                
+                <img
+                  src="/guide-boucherie-cover.jpg"
+                  alt="Guide Complet Boucherie Artisanale 2026 - 1001 Goûts"
+                  className="w-full h-auto object-cover block"
+                  loading="eager"
+                />
+              </div>
             </div>
           </div>
 
           <div>
-            <p className="font-accent text-[#FF859D] text-lg sm:text-xl md:text-2xl mb-2.5">
-              Offert à 100% · Sans aucun engagement
-            </p>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A] mb-4 leading-tight">
               Guide complet de l'artisan boucher offert !
             </h2>
@@ -230,27 +229,27 @@ const Bouchers = () => {
             </p>
 
             {/* 🌟 INFOS DYNAMIQUES AVEC ICÔNES THÉMATIQUES */}
-            <div className="space-y-6 text-[#19522A]">
+            <div className="space-y-6 sm:space-y-7 text-[#19522A]">
               <div className="flex items-start gap-4">
                 <div className="w-11 h-11 rounded-2xl bg-[#19522A] text-white flex items-center justify-center flex-shrink-0 shadow-xs mt-0.5">
                   <TrendingUp size={22} className="text-[#F48631]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-base sm:text-lg text-[#19522A] mb-1.5">Préserver et maîtriser vos marges brutes</h4>
-                  <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
-                    Des méthodes éprouvées face aux flambées du coût de l'énergie (chambres froides) et des matières premières.
+                  <h4 className="font-bold text-base sm:text-lg text-[#19522A] mb-1.5">Protéger vos marges</h4>
+                  <p className="text-sm text-[#4A4A4A] leading-relaxed">
+                    Alors qu'un tiers des boucheries voit sa marge nette reculer, découvrez les leviers concrets pour recalculer votre rentabilité au gramme près et maîtriser vos coûts.
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
                 <div className="w-11 h-11 rounded-2xl bg-[#19522A] text-white flex items-center justify-center flex-shrink-0 shadow-xs mt-0.5">
-                  <Users size={22} className="text-[#FDF3E2]" />
+                  <ShieldCheck size={22} className="text-[#558D4D]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-base sm:text-lg text-[#19522A] mb-1.5">Rallier les « consommActeurs » & jeunes actifs</h4>
-                  <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
-                    Comment reconnecter les ménages de votre quartier à la viande locale de qualité sans perdre vos soirées sur les réseaux sociaux.
+                  <h4 className="font-bold text-base sm:text-lg text-[#19522A] mb-1.5">Développer votre activité de traiteur</h4>
+                  <p className="text-sm text-[#4A4A4A] leading-relaxed">
+                    Le rayon traiteur représente aujourd'hui un tiers des revenus d'une boucherie de quartier. Méthodes pour valoriser vos découpes en préparations cuisinées rentables.
                   </p>
                 </div>
               </div>
@@ -260,9 +259,9 @@ const Bouchers = () => {
                   <Award size={22} className="text-[#F48631]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-base sm:text-lg text-[#19522A] mb-1.5">Circuits courts directs éleveurs & apprentissage</h4>
-                  <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
-                    Opportunités d'achats groupés directs élevages et pistes concrètes pour attirer et fidéliser des apprentis motivés.
+                  <h4 className="font-bold text-base sm:text-lg text-[#19522A] mb-1.5">Pérenniser votre commerce</h4>
+                  <p className="text-sm text-[#4A4A4A] leading-relaxed">
+                    Face à la pénurie d'artisans qualifiés et aux transmissions d'entreprises, des solutions concrètes pour soulager votre équipe et pérenniser votre savoir-faire.
                   </p>
                 </div>
               </div>
@@ -274,7 +273,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 3 : FORMULAIRE & ACCROCHE (BLANC #ffffff - ID: formulaire)       */}
       {/* ========================================================================= */}
-      <section id="formulaire" className="relative pt-10 pb-14 md:pt-22 md:pb-28 bg-white scroll-mt-20">
+      <section id="formulaire" className="relative pt-12 pb-16 md:pt-24 md:pb-32 bg-white scroll-mt-20">
         <BrushSeparator position="top" fillColor="#FDF3E2" flipX={true} />
         
         {/* 🍊 Motif végétal orange retourné */}
@@ -288,7 +287,65 @@ const Bouchers = () => {
         <div className="max-w-6xl mx-auto px-6 relative z-20">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             
-            {/* Form Card (5 Cols) */}
+            {/* Pitch Column (7 Cols) - GAUCHE */}
+            <div className="lg:col-span-7 pt-2 relative z-20">
+              <p className="font-accent text-[#FF859D] text-lg sm:text-xl md:text-2xl mb-2.5">
+                Votre voix compte pour l'artisanat local
+              </p>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A] leading-tight mb-12 md:mb-14">
+                Obtenez les meilleures astuces des artisans bouchers
+              </h2>
+              
+              {/* 🌿 3 DÉFIS MAJEURS 1001 GOÛTS */}
+              <div className="space-y-6 sm:space-y-7">
+                {/* Défi 1 */}
+                <div className="flex items-start gap-4.5">
+                  <div className="flex flex-col items-center flex-shrink-0">
+                    <img src="/assets/1001gouts/Groupe-16819.png" alt="1" className="w-12 sm:w-14 h-auto" />
+                  </div>
+                  <div>
+                    <h4 className="font-display text-base sm:text-lg font-bold text-[#19522A] mb-1.5">
+                      L'effet de ciseaux sur la marge nette
+                    </h4>
+                    <p className="text-sm text-[#4A4A4A] leading-relaxed">
+                      Hausse du coût des matières premières et électricité du froid indispensable : découvrez comment vos confrères sécurisent leur rentabilité et protègent leur résultat.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Défi 2 */}
+                <div className="flex items-start gap-4.5">
+                  <div className="flex flex-col items-center flex-shrink-0">
+                    <img src="/assets/1001gouts/Groupe-16820.png" alt="2" className="w-12 sm:w-14 h-auto" />
+                  </div>
+                  <div>
+                    <h4 className="font-display text-base sm:text-lg font-bold text-[#19522A] mb-1.5">
+                      Le virage traiteur & la consommation qualitative
+                    </h4>
+                    <p className="text-sm text-[#4A4A4A] leading-relaxed">
+                      Face à l'évolution des habitudes de consommation, apprenez à compenser la baisse des volumes de viande brute par des plats cuisinés artisanaux plébiscités.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Défi 3 */}
+                <div className="flex items-start gap-4.5">
+                  <div className="flex flex-col items-center flex-shrink-0">
+                    <img src="/assets/1001gouts/Groupe-16821.png" alt="3" className="w-12 sm:w-14 h-auto" />
+                  </div>
+                  <div>
+                    <h4 className="font-display text-base sm:text-lg font-bold text-[#19522A] mb-1.5">
+                      La gestion quotidienne avec des équipes réduites
+                    </h4>
+                    <p className="text-sm text-[#4A4A4A] leading-relaxed">
+                      Pénurie de main-d'œuvre et charge administrative : des solutions concrètes pour alléger votre quotidien, soulager votre brigade et préparer l'avenir.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Form Card (5 Cols) - DROITE */}
             <div className="lg:col-span-5 bg-[#FDF3E2] p-6 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-md relative">
               <h3 className="font-display text-xl sm:text-2xl text-[#19522A] mb-5">
                 Obtenez votre guide en 2 min !
@@ -300,7 +357,7 @@ const Bouchers = () => {
                     <FileCheck size={32} />
                   </div>
                   <h4 className="font-display text-lg text-[#19522A] mb-1">Merci {formData.firstName} !</h4>
-                  <p className="text-xs text-[#4A4A4A] leading-relaxed mb-4">
+                  <p className="text-sm text-[#4A4A4A] leading-relaxed mb-4">
                     Votre guide a été envoyé à <strong>{formData.email}</strong> et votre téléchargement s'est lancé.
                   </p>
 
@@ -308,7 +365,7 @@ const Bouchers = () => {
                     <button
                       type="button"
                       onClick={triggerPdfDownload}
-                      className="w-full bg-[#F48631] hover:bg-[#d97223] text-white font-bold py-3 px-4 rounded-xl transition-all shadow-xs text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer"
+                      className="w-full bg-[#F48631] hover:bg-[#d97223] text-white font-bold py-3 px-4 rounded-xl transition-all shadow-xs text-sm flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <Download size={16} />
                       <span>Télécharger à nouveau le PDF</span>
@@ -317,7 +374,7 @@ const Bouchers = () => {
                       href="/guide-complet-artisan-boucher-2027.pdf"
                       target="_blank"
                       rel="noreferrer"
-                      className="w-full bg-white hover:bg-stone-50 text-[#19522A] font-semibold py-2.5 px-4 rounded-xl border border-[#D9DCD5] transition-colors text-xs flex items-center justify-center gap-1.5"
+                      className="w-full bg-white hover:bg-stone-50 text-[#19522A] font-semibold py-2.5 px-4 rounded-xl border border-[#D9DCD5] transition-colors text-sm flex items-center justify-center gap-1.5"
                     >
                       <ExternalLink size={14} />
                       <span>Lire en ligne (nouvel onglet)</span>
@@ -337,119 +394,126 @@ const Bouchers = () => {
                         acceptedTerms: false,
                       });
                     }}
-                    className="text-[11px] text-[#558D4D] font-bold hover:underline"
+                    className="text-sm text-[#558D4D] font-bold hover:underline"
                   >
                     Remplir à nouveau
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleFormSubmit} className="space-y-3.5">
-                  <div>
-                    <label htmlFor="firstName" className="block text-[11px] font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
-                      <User size={12} className="text-[#F48631]" />
-                      <span>Prénom</span> <span className="text-[#F48631]">*</span>
-                    </label>
-                    <input
-                      id="firstName"
-                      type="text"
-                      name="firstName"
-                      required
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      placeholder="Ex : Laurent"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white"
-                    />
-                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label htmlFor="firstName" className="block text-sm font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
+                        <User size={13} className="text-[#F48631]" />
+                        <span>Prénom</span> <span className="text-[#F48631]">*</span>
+                      </label>
+                      <input
+                        id="firstName"
+                        type="text"
+                        name="firstName"
+                        required
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        placeholder="Ex : Laurent"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white shadow-xs"
+                      />
+                    </div>
 
-                  <div>
-                    <label htmlFor="shopName" className="block text-[11px] font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
-                      <Store size={12} className="text-[#F48631]" />
-                      <span>Nom de la boucherie</span> <span className="text-[#F48631]">*</span>
-                    </label>
-                    <input
-                      id="shopName"
-                      type="text"
-                      name="shopName"
-                      required
-                      value={formData.shopName}
-                      onChange={handleInputChange}
-                      placeholder="Ex : Boucherie Traditionnelle"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-[11px] font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
-                      <Mail size={12} className="text-[#F48631]" />
-                      <span>Email professionnel</span> <span className="text-[#F48631]">*</span>
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="vous@boucherie.fr"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="postalCode" className="block text-[11px] font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
-                      <MapPin size={12} className="text-[#F48631]" />
-                      <span>Code postal</span> <span className="text-[#F48631]">*</span>
-                    </label>
-                    <input
-                      id="postalCode"
-                      type="text"
-                      name="postalCode"
-                      required
-                      value={formData.postalCode}
-                      onChange={handleInputChange}
-                      placeholder="75, 69, 13, 33..."
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-[#19522A] mb-1.5">
-                      Obstacles au quotidien (2 Max) <span className="text-[#F48631]">*</span>
-                    </label>
-                    <div className="space-y-1.5 max-h-40 overflow-y-auto pr-1">
-                      {obstacleOptions.map((option, idx) => (
-                        <label
-                          key={idx}
-                          className="flex items-center gap-2 text-xs text-[#4A4A4A] cursor-pointer select-none p-2 min-h-[44px] rounded-lg hover:bg-white/80 transition-colors"
-                        >
-                          <input
-                            type="checkbox"
-                            checked={formData.obstacles.includes(option)}
-                            onChange={() => handleObstacleToggle(option)}
-                            className="rounded border-[#D9DCD5] text-[#F48631] focus:ring-[#F48631] w-4 h-4"
-                          />
-                          <span>{option}</span>
-                        </label>
-                      ))}
+                    <div>
+                      <label htmlFor="shopName" className="block text-sm font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
+                        <Store size={13} className="text-[#F48631]" />
+                        <span>Nom boucherie</span> <span className="text-[#F48631]">*</span>
+                      </label>
+                      <input
+                        id="shopName"
+                        type="text"
+                        name="shopName"
+                        required
+                        value={formData.shopName}
+                        onChange={handleInputChange}
+                        placeholder="Ex : Boucherie du Centre"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white shadow-xs"
+                      />
                     </div>
                   </div>
 
-                  <div className="pt-1.5">
-                    <label className="flex items-start gap-2 text-[11px] text-[#667079] cursor-pointer min-h-[44px]">
+                  <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
+                    <div className="sm:col-span-7">
+                      <label htmlFor="email" className="block text-sm font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
+                        <Mail size={13} className="text-[#F48631]" />
+                        <span>Email pro</span> <span className="text-[#F48631]">*</span>
+                      </label>
+                      <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="vous@boucherie.fr"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white shadow-xs"
+                      />
+                    </div>
+
+                    <div className="sm:col-span-5">
+                      <label htmlFor="postalCode" className="block text-sm font-bold uppercase tracking-wider text-[#19522A] mb-1.5 flex items-center gap-1">
+                        <MapPin size={13} className="text-[#F48631]" />
+                        <span>Code postal</span> <span className="text-[#F48631]">*</span>
+                      </label>
+                      <input
+                        id="postalCode"
+                        type="text"
+                        name="postalCode"
+                        required
+                        value={formData.postalCode}
+                        onChange={handleInputChange}
+                        placeholder="69001"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#D9DCD5] focus:outline-none focus:ring-2 focus:ring-[#558D4D]/50 focus:border-[#558D4D] text-[#4A4A4A] text-base sm:text-sm bg-white shadow-xs"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-bold uppercase tracking-wider text-[#19522A] mb-2">
+                      Vos priorités métier (2 Max) <span className="text-[#F48631]">*</span>
+                    </label>
+                    <div className="flex flex-wrap gap-2">
+                      {obstacleOptions.map((option, idx) => {
+                        const isSelected = formData.obstacles.includes(option);
+                        return (
+                          <button
+                            key={idx}
+                            type="button"
+                            onClick={() => handleObstacleToggle(option)}
+                            className={`px-3 py-2 rounded-xl text-sm font-medium transition-all text-left flex items-center gap-2 cursor-pointer border select-none ${
+                              isSelected
+                                ? 'bg-[#19522A] text-white border-[#19522A] shadow-xs'
+                                : 'bg-white text-[#4A4A4A] border-[#D9DCD5] hover:border-[#19522A]/40 hover:bg-[#FDF3E2]/50'
+                            }`}
+                          >
+                            <span className={`w-4 h-4 rounded-full flex items-center justify-center border text-[10px] font-bold flex-shrink-0 ${
+                              isSelected ? 'bg-[#F48631] border-[#F48631] text-white' : 'border-[#D9DCD5] bg-stone-50 text-transparent'
+                            }`}>
+                              ✓
+                            </span>
+                            <span>{option}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  <div className="pt-1">
+                    <label className="flex items-start gap-2 text-sm text-[#667079] cursor-pointer min-h-[44px]">
                       <input
                         type="checkbox"
                         name="acceptedTerms"
-                        required
                         checked={formData.acceptedTerms}
                         onChange={handleInputChange}
                         className="rounded border-[#D9DCD5] text-[#F48631] focus:ring-[#F48631] mt-0.5 w-4 h-4"
                       />
                       <span>
-                        J'accepte les{' '}
-                        <a href="https://www.1001gouts.com/mentions-legales/" target="_blank" rel="noreferrer" className="text-[#F48631] underline font-semibold">
-                          conditions
-                        </a>{' '}
-                        et d'être recontacté par 1001 Goûts. <span className="text-[#F48631]">*</span>
+                        J'accepte d'être recontacté par 1001 Goûts pour échanger sur mes besoins.
                       </span>
                     </label>
                   </div>
@@ -457,75 +521,13 @@ const Bouchers = () => {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-[#F48631] hover:bg-[#d97223] text-white font-bold py-3.5 px-6 rounded-full transition-all shadow-md hover:shadow-lg mt-3 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer text-sm inline-flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2"
+                    className="w-full bg-[#F48631] hover:bg-[#d97223] text-white font-bold py-3.5 px-6 rounded-full transition-all shadow-md hover:shadow-lg mt-3 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer text-sm sm:text-base inline-flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2"
                   >
-                    <span>{isLoading ? 'Envoi en cours...' : 'Je donne mon avis & reçois le guide'}</span>
+                    <span>{isLoading ? 'Envoi en cours...' : 'Obtenir mon guide.'}</span>
                     <ArrowRight size={16} />
                   </button>
                 </form>
               )}
-            </div>
-
-            {/* Pitch Column (7 Cols) - 🌟 DÉFIS SORTIS DE LEUR BOX */}
-            <div className="lg:col-span-7 pt-2 relative z-20">
-              <p className="font-accent text-[#FF859D] text-lg sm:text-xl md:text-2xl mb-2.5">
-                Votre voix compte pour l'artisanat local
-              </p>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A] leading-tight mb-5">
-                Obtenez les meilleures astuces des artisans bouchers
-              </h2>
-              
-              {/* 🌿 3 DÉFIS MAJEURS 1001 GOÛTS (Sortis de leur box, présentation dynamique et aérée) */}
-              <div className="space-y-6 sm:space-y-7">
-                <p className="text-xs font-bold text-[#19522A] uppercase tracking-wider mb-3">
-                  Les 3 défis du secteur adressés dans le guide :
-                </p>
-
-                {/* Défi 1 */}
-                <div className="flex items-start gap-4.5">
-                  <div className="flex flex-col items-center flex-shrink-0">
-                    <img src="/assets/1001gouts/Groupe-16819.png" alt="1" className="w-13 sm:w-15 h-auto" />
-                  </div>
-                  <div>
-                    <h4 className="font-display text-base sm:text-lg font-bold text-[#19522A] mb-1.5">
-                      Désinformation & barquettes anonymes
-                    </h4>
-                    <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
-                      La grande distribution brouille les repères. Le guide vous donne les clés pour mettre en valeur votre traçabilité et rééduquer le consommateur.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Défi 2 */}
-                <div className="flex items-start gap-4.5">
-                  <div className="flex flex-col items-center flex-shrink-0">
-                    <img src="/assets/1001gouts/Groupe-16820.png" alt="2" className="w-13 sm:w-15 h-auto" />
-                  </div>
-                  <div>
-                    <h4 className="font-display text-base sm:text-lg font-bold text-[#19522A] mb-1.5">
-                      Marges étouffées & intermédiaires multiples
-                    </h4>
-                    <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
-                      Stratégies éprouvées de mutualisation et d'achats directs auprès des éleveurs régionaux sans commissions tierces.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Défi 3 */}
-                <div className="flex items-start gap-4.5">
-                  <div className="flex flex-col items-center flex-shrink-0">
-                    <img src="/assets/1001gouts/Groupe-16821.png" alt="3" className="w-13 sm:w-15 h-auto" />
-                  </div>
-                  <div>
-                    <h4 className="font-display text-base sm:text-lg font-bold text-[#19522A] mb-1.5">
-                      Visibilité locale & transmission
-                    </h4>
-                    <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
-                      Comment capter les jeunes ménages de votre quartier sans perdre votre temps sur les réseaux sociaux.
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
 
           </div>
@@ -535,7 +537,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 4 : POURQUOI REMPLIR LE FORMULAIRE (FOND BLANC #ffffff)          */}
       {/* ========================================================================= */}
-      <section className="relative pt-10 pb-14 md:pt-22 md:pb-28 bg-white">
+      <section className="relative pt-12 pb-16 md:pt-24 md:pb-32 bg-white">
         <img
           src="/assets/1001gouts/feuille-verte.svg"
           alt="" aria-hidden="true"
@@ -557,34 +559,34 @@ const Bouchers = () => {
 
           <div className="grid md:grid-cols-3 gap-8 text-left">
             {/* Card 1 */}
-            <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/85 p-7 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
+            <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/85 p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
               <img src="/assets/1001gouts/Groupe-16819.png" alt="01" className="w-12 h-auto mb-4" />
               <h3 className="font-display text-lg sm:text-xl text-[#19522A] mb-2.5">
                 Gestion & Marges Justes
               </h3>
-              <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
+              <p className="text-sm text-[#4A4A4A] leading-relaxed">
                 Des retours concrets sur la rentabilité de découpe, les coûts de conservation en froid et la valorisation intégrale de carcasse.
               </p>
             </div>
 
             {/* Card 2 */}
-            <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/85 p-7 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
+            <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/85 p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
               <img src="/assets/1001gouts/Groupe-16820.png" alt="02" className="w-12 h-auto mb-4" />
               <h3 className="font-display text-lg sm:text-xl text-[#19522A] mb-2.5">
                 Circuits Courts Éleveurs
               </h3>
-              <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
+              <p className="text-sm text-[#4A4A4A] leading-relaxed">
                 L'accès direct aux groupements de producteurs pour acheter en direct, sécuriser vos approvisionnements sans intermédiaires.
               </p>
             </div>
 
             {/* Card 3 */}
-            <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/85 p-7 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
+            <div className="bg-[#FDF3E2] hover:bg-[#FDF3E2]/85 p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs transition-colors">
               <img src="/assets/1001gouts/Groupe-16821.png" alt="03" className="w-12 h-auto mb-4" />
               <h3 className="font-display text-lg sm:text-xl text-[#19522A] mb-2.5">
                 Visibilité & Accès Testeur
               </h3>
-              <p className="text-xs sm:text-sm text-[#4A4A4A] leading-relaxed">
+              <p className="text-sm text-[#4A4A4A] leading-relaxed">
                 Participez à la co-création de l'application 1001 Goûts et devenez membre testeur prioritaire sans aucun engagement.
               </p>
             </div>
@@ -593,9 +595,9 @@ const Bouchers = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 5 : PREUVES SOCIALES & TÉMOIGNAGES (CRÈME #FDF3E2)               */}
+      {/* SECTION 5 : PREUVES SOCIALES & VERBATIMS (CRÈME #FDF3E2)                 */}
       {/* ========================================================================= */}
-      <section className="relative pt-10 pb-14 md:pt-22 md:pb-28 bg-[#FDF3E2]">
+      <section className="relative pt-12 pb-16 md:pt-24 md:pb-32 bg-[#FDF3E2]">
         <BrushSeparator position="top" fillColor="#FDF3E2" />
 
         {/* 🍊 Motif végétal orange retourné */}
@@ -608,89 +610,83 @@ const Bouchers = () => {
 
         <div className="max-w-6xl mx-auto px-6 relative z-20">
           <div className="text-center mb-12 md:mb-14">
-            <p className="font-accent text-[#FF859D] text-lg sm:text-xl md:text-2xl mb-2.5">
-              Avis & retours de terrain
-            </p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A]">
-              Ce que vos confrères en disent
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display text-[#19522A] mb-3">
+              Ce que disent les artisans bouchers
             </h2>
+            <p className="max-w-2xl mx-auto text-sm sm:text-base text-[#667079] leading-relaxed">
+              Extraits réels de nos échanges et consultations menés directement en boutique avec des artisans indépendants.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Review 1 */}
-            <div className="bg-white p-7 rounded-3xl border border-[#D9DCD5] shadow-xs flex flex-col justify-between">
+            {/* Verbatim 1 */}
+            <div className="bg-white p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-1 text-[#F48631] mb-3.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={15} fill="#F48631" />
-                  ))}
+                <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#19522A]/10 text-[#19522A] text-sm font-semibold mb-5">
+                  <Calendar size={14} className="text-[#F48631]" />
+                  <span>Entretien du 05/08/2026</span>
                 </div>
                 <p className="text-sm sm:text-base text-[#14181C] leading-relaxed italic mb-6">
-                  "La démarche 1001 Goûts remet le travail de carcasse et le savoir-faire au centre. Les pistes du guide sur l'optimisation des chambres froides m'ont permis de respirer financièrement."
+                  "L'augmentation du prix de la viande et la conformité sont nos vrais combats quotidiens. Avec des fournisseurs qu'on connaît depuis des années, on ne peut pas transiger sur la qualité de ce qu'on reçoit. On gère au millimètre pour n'avoir aucun invendu."
                 </p>
               </div>
-              <div className="flex items-center gap-3 pt-4 border-t border-[#D9DCD5]/60">
-                <img
-                  src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=150&q=80"
-                  alt="Édouard V."
-                  className="w-10 h-10 rounded-full object-cover border-2 border-[#19522A]"
-                  loading="lazy"
-                />
-                <div>
-                  <h4 className="font-bold text-xs sm:text-sm text-[#19522A]">Édouard V.</h4>
-                  <p className="text-[10px] sm:text-xs text-[#667079]">Artisan Boucher · Lyon (69)</p>
+              <div className="pt-4 border-t border-[#D9DCD5]/60 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-[#19522A] text-white flex items-center justify-center font-bold text-sm">
+                    BV
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm text-[#19522A]">Boucherie Les Bons Vivants</h4>
+                    <p className="text-sm text-[#667079]">Artisan Boucher Indépendant</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Review 2 */}
-            <div className="bg-white p-7 rounded-3xl border border-[#D9DCD5] shadow-xs flex flex-col justify-between">
+            {/* Verbatim 2 */}
+            <div className="bg-white p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-1 text-[#F48631] mb-3.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={15} fill="#F48631" />
-                  ))}
+                <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#19522A]/10 text-[#19522A] text-sm font-semibold mb-5">
+                  <Calendar size={14} className="text-[#F48631]" />
+                  <span>Entretien du 05/08/2026</span>
                 </div>
                 <p className="text-sm sm:text-base text-[#14181C] leading-relaxed italic mb-6">
-                  "Les habitants veulent mieux manger mais se laissent tenter par les supermarchés. Les astuces du guide pour attirer les jeunes foyers du quartier ont fait mouche chez nous."
+                  "Tout repose sur le bouche-à-oreille et un réseau de confiance irréprochable sur la traçabilité."
                 </p>
               </div>
-              <div className="flex items-center gap-3 pt-4 border-t border-[#D9DCD5]/60">
-                <img
-                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80"
-                  alt="Stéphanie M."
-                  className="w-10 h-10 rounded-full object-cover border-2 border-[#19522A]"
-                  loading="lazy"
-                />
-                <div>
-                  <h4 className="font-bold text-xs sm:text-sm text-[#19522A]">Stéphanie M.</h4>
-                  <p className="text-[10px] sm:text-xs text-[#667079]">Boucherie-Charcuterie · Nantes (44)</p>
+              <div className="pt-4 border-t border-[#D9DCD5]/60 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-[#19522A] text-white flex items-center justify-center font-bold text-sm">
+                    LP
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm text-[#19522A]">Boucherie La Parisienne</h4>
+                    <p className="text-sm text-[#667079]">Artisan Boucher Indépendant</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Review 3 */}
-            <div className="bg-white p-7 rounded-3xl border border-[#D9DCD5] shadow-xs flex flex-col justify-between">
+            {/* Verbatim 3 */}
+            <div className="bg-white p-7 sm:p-8 rounded-3xl border border-[#D9DCD5] shadow-xs flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-1 text-[#F48631] mb-3.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={15} fill="#F48631" />
-                  ))}
+                <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#19522A]/10 text-[#19522A] text-sm font-semibold mb-5">
+                  <Calendar size={14} className="text-[#F48631]" />
+                  <span>Entretien du 08/08/2026</span>
                 </div>
                 <p className="text-sm sm:text-base text-[#14181C] leading-relaxed italic mb-6">
-                  "Enfin une initiative qui refuse de prendre des commissions sur nos ventes. 0% de commission et du vrai partage entre confrères, c'est ce dont on a besoin."
+                  "Avec la hausse continue du coût de la viande à la carcasse, la moindre erreur dans la gestion des stocks nous coûte cher. Tout l'enjeu aujourd'hui, c'est d'avoir une visibilité exacte sur nos découpes pour valoriser chaque pièce et protéger notre marge."
                 </p>
               </div>
-              <div className="flex items-center gap-3 pt-4 border-t border-[#D9DCD5]/60">
-                <img
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80"
-                  alt="Karim B."
-                  className="w-10 h-10 rounded-full object-cover border-2 border-[#19522A]"
-                  loading="lazy"
-                />
-                <div>
-                  <h4 className="font-bold text-xs sm:text-sm text-[#19522A]">Karim B.</h4>
-                  <p className="text-[10px] sm:text-xs text-[#667079]">Artisan Boucher · Marseille (13)</p>
+              <div className="pt-4 border-t border-[#D9DCD5]/60 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-[#19522A] text-white flex items-center justify-center font-bold text-sm">
+                    BT
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm text-[#19522A]">Boucherie du Terroir</h4>
+                    <p className="text-sm text-[#667079]">Artisan Boucher Indépendant</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -701,7 +697,7 @@ const Bouchers = () => {
       {/* ========================================================================= */}
       {/* SECTION 6 : FOIRE AUX QUESTIONS (CRÈME #FDF3E2)                          */}
       {/* ========================================================================= */}
-      <section className="relative pt-10 pb-14 md:pt-22 md:pb-28 bg-[#FDF3E2]">
+      <section className="relative pt-12 pb-16 md:pt-24 md:pb-32 bg-[#FDF3E2]">
 
         {/* 🍊 Motif végétal orange retourné */}
         <img
@@ -726,6 +722,14 @@ const Bouchers = () => {
               {
                 q: "Quand et comment vais-je recevoir le guide ?",
                 a: "Dès validation du formulaire, le guide PDF se télécharge instantanément sur votre appareil et vous est également envoyé par e-mail au format interactif.",
+              },
+              {
+                q: "En quoi ce guide m'aide-t-il face à la hausse des coûts et de l'énergie ?",
+                a: "Il compile les méthodes de calcul de marge nette appliquées par des confrères indépendants, des pistes d'achats directs et des astuces concrètes de gestion pour protéger votre résultat d'exploitation.",
+              },
+              {
+                q: "Le guide aborde-t-il l'activité traiteur et plats cuisinés ?",
+                a: "Oui, une section entière est consacrée à la diversification traiteur — qui représente aujourd'hui en moyenne un tiers du chiffre d'affaires des boucheries de quartier rentables.",
               },
               {
                 q: "L'application 1001 Goûts prend-elle une commission sur mes ventes ?",
@@ -759,7 +763,7 @@ const Bouchers = () => {
                   </div>
                 </button>
                 {openFaq === idx && (
-                  <div id={`faq-content-${idx}`} role="region" className="px-4.5 pb-4.5 text-xs sm:text-sm text-[#4A4A4A] leading-relaxed border-t border-[#D9DCD5]/60 pt-3.5">
+                  <div id={`faq-content-${idx}`} role="region" className="px-4.5 pb-4.5 text-sm text-[#4A4A4A] leading-relaxed border-t border-[#D9DCD5]/60 pt-3.5">
                     {faq.a}
                   </div>
                 )}
@@ -767,13 +771,20 @@ const Bouchers = () => {
             ))}
           </div>
 
-          <div className="mt-10 sm:mt-12 text-center">
+          {/* 🎯 Catchphrase Finale Incitative */}
+          <div className="mt-14 sm:mt-16 bg-white p-8 sm:p-10 rounded-3xl border border-[#D9DCD5] shadow-xs text-center relative z-20">
+            <h3 className="font-display text-xl sm:text-2xl lg:text-3xl text-[#19522A] mb-3">
+              Avant de partir, téléchargez votre guide offert !
+            </h3>
+            <p className="text-sm sm:text-base text-[#4A4A4A] max-w-xl mx-auto mb-6 leading-relaxed">
+              Alors qu'un tiers des boucheries voit sa rentabilité fragilisée, retrouvez les solutions concrètes partagées par vos confrères pour faire grandir votre boutique sereinement.
+            </p>
             <a
               href="#formulaire"
               onClick={scrollToForm}
-              className="bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 rounded-full font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-2.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2"
+              className="bg-[#F48631] hover:bg-[#d97223] text-white px-8 py-4 rounded-full font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg inline-flex items-center gap-2.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F48631] focus-visible:ring-offset-2 transform hover:-translate-y-0.5"
             >
-              <span>Donner mon avis et obtenir le guide</span>
+              <span>Obtenir mon guide.</span>
               <ArrowRight size={16} />
             </a>
           </div>

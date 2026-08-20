@@ -6,44 +6,32 @@ const Footer = () => {
     <footer className="relative bg-[#19522A] text-white pt-20 pb-8">
       {/* 🎨 Séparateur Pinceau : Transition Crème #FDF3E2 -> Vert #19522A (Modèle 1001 Goûts) */}
       <BrushSeparator position="top" fillColor="#FDF3E2" flipX={true} />
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
-        <div className="col-span-1 md:col-span-1">
-          <img src="/1001GOUTS-LOGO-BLC.png" alt="1001 Goûts" className="h-14 sm:h-16 w-auto object-contain mb-6" />
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        <div className="max-w-md">
+          <img src="/1001GOUTS-LOGO-BLC.png" alt="1001 Goûts" className="h-12 sm:h-14 w-auto object-contain mb-4" />
           <p className="text-white/70 text-sm leading-relaxed">
-            La seule application qui connecte les producteurs et les métiers de bouche avec les consommateurs de leur région, sans aucun intermédiaire.
+            L'initiative solidaire dédiée aux artisans des métiers de bouche et producteurs régionaux, pour valoriser le savoir-faire local sans aucun intermédiaire.
           </p>
         </div>
-        <div>
-          <h4 className="font-display text-lg mb-4 text-white">Solutions B2B</h4>
-          <ul className="space-y-3 text-white/60 text-sm">
-            <li><a href="/bouchers" className="hover:text-[#F48631] transition-colors">Bouchers & Charcutiers</a></li>
-            <li><a href="/itinerants" className="hover:text-[#F48631] transition-colors">Commerçants itinérants</a></li>
-            <li><a href="#" className="hover:text-[#F48631] transition-colors">Producteurs locaux</a></li>
-            <li><a href="#" className="hover:text-[#F48631] transition-colors">Restaurateurs</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="font-display text-lg mb-4 text-white">Ressources</h4>
-          <ul className="space-y-3 text-white/60 text-sm">
-            <li><a href="#" className="hover:text-[#F48631] transition-colors">Tarifs (0% de commission)</a></li>
-            <li><a href="#" className="hover:text-[#F48631] transition-colors">Le label "1001 Engagés"</a></li>
-            <li><a href="#" className="hover:text-[#F48631] transition-colors">Centrale de référencement</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="font-display text-lg mb-4 text-white">Nous contacter</h4>
-          <ul className="space-y-3 text-white/60 text-sm">
-            <li><a href="mailto:contact@1001gouts.com" className="hover:text-[#F48631] transition-colors">contact@1001gouts.com</a></li>
-            <li>23 bis avenue de l'Europe<br/>78400 Chatou</li>
+
+        <div className="md:text-right">
+          <h4 className="font-display text-lg mb-3 text-white">Nous contacter</h4>
+          <ul className="space-y-2 text-white/70 text-sm">
+            <li>
+              <a href="mailto:contact@1001gouts.com" className="hover:text-[#F48631] transition-colors underline font-medium">
+                contact@1001gouts.com
+              </a>
+            </li>
+            <li>23 bis avenue de l'Europe, 78400 Chatou</li>
           </ul>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs text-white/40">
+      <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-sm text-white/50">
         <p>© 2026 1001 Goûts (KLS SAS). Tous droits réservés.</p>
-        <div className="flex gap-4 mt-4 md:mt-0">
-          <a href="#" className="hover:text-[#F48631] transition-colors">Mentions légales</a>
-          <a href="#" className="hover:text-[#F48631] transition-colors">CGU</a>
-          <a href="#" className="hover:text-[#F48631] transition-colors">Confidentialité</a>
+        <div className="flex gap-6 mt-4 md:mt-0">
+          <a href="https://www.1001gouts.com/mentions-legales/" target="_blank" rel="noreferrer" className="hover:text-[#F48631] transition-colors">Mentions légales</a>
+          <a href="https://www.1001gouts.com/mentions-legales/" target="_blank" rel="noreferrer" className="hover:text-[#F48631] transition-colors">CGU</a>
+          <a href="https://www.1001gouts.com/mentions-legales/" target="_blank" rel="noreferrer" className="hover:text-[#F48631] transition-colors">Confidentialité</a>
         </div>
       </div>
     </footer>
