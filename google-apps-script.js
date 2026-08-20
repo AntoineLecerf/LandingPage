@@ -23,12 +23,13 @@
  * 9. Collez cette URL dans votre variable VITE_GOOGLE_SCRIPT_URL (dans .env ou Bouchers.jsx)
  */
 
-// ⚙️ CONFIGURATION
+// ⚙️ CONFIGURATION OFFICIELLE 1001 GOÛTS
 const CONFIG = {
+  SPREADSHEET_ID: "1jafZFxsShP_9PGPjRi7BkmKMTYPCeWXo2ogO3Fg7Omc", // Votre Google Sheet
   SHEET_NAME: "Prospects Bouchers",
   ADMIN_EMAIL: "contact@1001gouts.com", // Votre adresse pour être notifié (ou "" pour désactiver)
   SENDER_NAME: "1001 Goûts · Artisans Bouchers",
-  PDF_DOWNLOAD_URL: "https://www.1001gouts.com/guide-complet-artisan-boucher-2027.pdf", // Lien direct vers le PDF hébergé
+  PDF_DOWNLOAD_URL: "https://www.1001gouts.com/guide-complet-artisan-boucher-2027.pdf", // Lien direct vers le PDF
   WEBSITE_URL: "https://www.1001gouts.com"
 };
 
@@ -91,7 +92,13 @@ function doPost(e) {
  * Création ou mise à jour de la feuille Google Sheet avec les en-têtes
  */
 function saveToSheet(entry) {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let ss;
+  try {
+    ss = SpreadsheetApp.openById(CONFIG.SPREADSHEET_ID);
+  } catch (e) {
+    ss = SpreadsheetApp.getActiveSpreadsheet();
+  }
+
   let sheet = ss.getSheetByName(CONFIG.SHEET_NAME);
 
   if (!sheet) {
@@ -128,7 +135,11 @@ function saveToSheet(entry) {
   ]);
 
   // Ajustement automatique de la largeur des colonnes
-  sheet.autoResizeColumns(1, 7);
+  try {
+    sheet.autoResizeColumns(1, 7);
+  } catch (err) {
+    // ignore resize on headless
+  }
 }
 
 /**
