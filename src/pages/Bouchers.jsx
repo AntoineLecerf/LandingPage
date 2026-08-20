@@ -140,9 +140,9 @@ const Bouchers = () => {
       />
 
       {/* ========================================================================= */}
-      {/* SECTION 1 : HERO SECTION (VERT ÉPINARD #19522A & VIDÉO NATURELLE)         */}
+      {/* SECTION 1 : HERO SECTION (FOND SOMBRE & VIDÉO AVEC VOILE NOIR/GRIS)        */}
       {/* ========================================================================= */}
-      <section className="relative min-h-[90vh] flex items-center bg-[#19522A] text-white">
+      <section className="relative min-h-[90vh] flex items-center bg-black text-white">
         
         {/* Background MP4 Video (Auto-loop, 0 controls, no watermark) */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
@@ -157,8 +157,8 @@ const Bouchers = () => {
             <source src="/hero-video.mp4" type="video/mp4" />
           </video>
 
-          {/* Light transparent natural green veil */}
-          <div className="absolute inset-0 bg-[#19522A]/40 backdrop-brightness-95 pointer-events-none"></div>
+          {/* Dark transparent neutral black / charcoal veil */}
+          <div className="absolute inset-0 bg-black/60 backdrop-brightness-90 pointer-events-none"></div>
         </div>
 
         <div className="max-w-4xl mx-auto px-6 relative z-20 text-left py-20 md:py-28">
