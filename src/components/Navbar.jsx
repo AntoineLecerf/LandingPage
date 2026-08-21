@@ -27,17 +27,9 @@ const Navbar = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const scrollToForm = (e) => {
+  const openModal = (e) => {
     e.preventDefault();
-    const formCard = document.getElementById('formulaire-card');
-    const section = document.getElementById('formulaire');
-    if (window.innerWidth < 1024 && formCard) {
-      formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else if (formCard) {
-      formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    window.dispatchEvent(new CustomEvent('open-guide-modal'));
   };
 
   return (
@@ -56,14 +48,14 @@ const Navbar = () => {
           </span>
         </div>
 
-        {/* CTA Button with Shine effect */}
-        <a 
-          href="#formulaire" 
-          onClick={scrollToForm}
-          className="btn-shine-effect bg-[#F48631] hover:bg-[#d97223] text-white px-5 sm:px-6 py-2.5 rounded-full font-bold text-sm transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer flex-shrink-0 inline-flex items-center gap-1.5"
+        {/* CTA Button with Shine effect (Agrandit) */}
+        <button 
+          type="button"
+          onClick={openModal}
+          className="btn-shine-effect bg-[#F48631] hover:bg-[#d97223] text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap cursor-pointer flex-shrink-0 inline-flex items-center gap-2"
         >
           <span>Obtenir mon guide</span>
-        </a>
+        </button>
       </div>
     </header>
   );

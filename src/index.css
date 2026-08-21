@@ -69,6 +69,64 @@ h1, h2, h3, h4, h5, h6 {
   animation: popIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
+/* 🎆 Animations Feu d'artifice Végétal */
+@keyframes fireworkTL {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(-10px, -12px) scale(1.1) rotate(-3deg); }
+}
+
+@keyframes fireworkTR {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(10px, -12px) scale(1.1) rotate(3deg); }
+}
+
+@keyframes fireworkBL {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(-10px, 12px) scale(1.1) rotate(-3deg); }
+}
+
+@keyframes fireworkBR {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(10px, 12px) scale(1.1) rotate(3deg); }
+}
+
+@keyframes fireworkTop {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-14px) scale(1.12); }
+}
+
+@keyframes fireworkSide {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.14) rotate(4deg); }
+}
+
+@keyframes fireworkSparkle {
+  0%, 100% { transform: scale(0.92); opacity: 0.25; }
+  50% { transform: scale(1.18); opacity: 0.5; }
+}
+
+.animate-firework-tl {
+  animation: fireworkTL 3.6s ease-in-out infinite;
+}
+.animate-firework-tr {
+  animation: fireworkTR 4s ease-in-out infinite;
+}
+.animate-firework-bl {
+  animation: fireworkBL 4.2s ease-in-out infinite;
+}
+.animate-firework-br {
+  animation: fireworkBR 3.8s ease-in-out infinite;
+}
+.animate-firework-top {
+  animation: fireworkTop 3.2s ease-in-out infinite;
+}
+.animate-firework-side {
+  animation: fireworkSide 3.4s ease-in-out infinite;
+}
+.animate-firework-sparkle {
+  animation: fireworkSparkle 2.6s ease-in-out infinite;
+}
+
 /* 🌟 Effet Brillance / Shine sur les Boutons CTA */
 .btn-shine-effect {
   position: relative;
@@ -91,4 +149,62 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(-100%) rotate(35deg);
   animation: shine 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   pointer-events: none;
+}
+
+/* 🌿 Masquage de la scrollbar native pour laisser place à la scrollbar végétale personnalisée */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ⚠️ Animation Secousse pour les erreurs de validation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.animate-shake {
+  animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* 🎉 Animation Explosion Végétale au succès du formulaire */
+@keyframes successBurst {
+  0% {
+    transform: translate(0, 0) scale(0.2) rotate(0deg);
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(1.1) rotate(var(--rot, 0deg));
+    opacity: 0;
+  }
+}
+
+.animate-success-burst {
+  animation: successBurst 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 🎆 Animation Explosion Végétale Plein Écran au succès */
+@keyframes fullscreenLeafBurst {
+  0% {
+    transform: translate(0, 0) scale(0.2) rotate(0deg);
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(var(--scale, 1)) rotate(var(--rot, 360deg));
+    opacity: 0;
+  }
+}
+
+.animate-fullscreen-leaf {
+  animation: fullscreenLeafBurst 2.4s cubic-bezier(0.12, 0.82, 0.28, 1) forwards;
 }
